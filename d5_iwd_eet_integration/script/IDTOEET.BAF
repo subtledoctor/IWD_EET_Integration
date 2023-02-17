@@ -1,0 +1,98 @@
+IF
+	Global("HoW_BG2","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(1)
+		ApplySpellRES("bdresurr",Player2)  // No such index
+		ApplySpellRES("bdresurr",Player3)  // No such index
+		ApplySpellRES("bdresurr",Player4)  // No such index
+		ApplySpellRES("bdresurr",Player5)  // No such index
+		ApplySpellRES("bdresurr",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("IDRM517",Player1)  // Resurrection
+		ApplySpellRES("IDRM517",Player2)  // Resurrection
+		ApplySpellRES("IDRM517",Player3)  // Resurrection
+		ApplySpellRES("IDRM517",Player4)  // Resurrection
+		ApplySpellRES("IDRM517",Player5)  // Resurrection
+		ApplySpellRES("IDRM517",Player6)  // Resurrection
+		Wait(1)
+		ApplySpellRES("bddispel",Player1)  // No such index
+		ApplySpellRES("bddispel",Player2)  // No such index
+		ApplySpellRES("bddispel",Player3)  // No such index
+		ApplySpellRES("bddispel",Player4)  // No such index
+		ApplySpellRES("bddispel",Player5)  // No such index
+		ApplySpellRES("bddispel",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("bdrejuve",Player1)  // No such index
+		ApplySpellRES("bdrejuve",Player2)  // No such index
+		ApplySpellRES("bdrejuve",Player3)  // No such index
+		ApplySpellRES("bdrejuve",Player4)  // No such index
+		ApplySpellRES("bdrejuve",Player5)  // No such index
+		ApplySpellRES("bdrejuve",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(2)
+		ActionOverride(Player2,LeaveAreaLUA("BG1001","",[668.193],N))  // Ulgoth's Beard: Inn
+		ActionOverride(Player3,LeaveAreaLUA("BG1001","",[707.219],NE))  // Ulgoth's Beard: Inn
+		ActionOverride(Player4,LeaveAreaLUA("BG1001","",[757.192],NW))  // Ulgoth's Beard: Inn
+		ActionOverride(Player5,LeaveAreaLUA("BG1001","",[653.220],NNE))  // Ulgoth's Beard: Inn
+		ActionOverride(Player6,LeaveAreaLUA("BG1001","",[755.209],NNW))  // Ulgoth's Beard: Inn
+		LeaveAreaLUAPanic("BG1001","",[709.192],N)  // Ulgoth's Beard: Inn
+		LeaveAreaLUA("BG1001","",[709.192],N)  // Ulgoth's Beard: Inn
+		Wait(1)
+		FadeFromColor([15.0],0)
+		Wait(2)
+		EndCutSceneMode()
+END
+
+IF
+	Global("HoW_BG2","GLOBAL",1)
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(1)
+		ApplySpellRES("bdresurr",Player2)  // No such index
+		ApplySpellRES("bdresurr",Player3)  // No such index
+		ApplySpellRES("bdresurr",Player4)  // No such index
+		ApplySpellRES("bdresurr",Player5)  // No such index
+		ApplySpellRES("bdresurr",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("IDRM517",Player1)  // Resurrection
+		ApplySpellRES("IDRM517",Player2)  // Resurrection
+		ApplySpellRES("IDRM517",Player3)  // Resurrection
+		ApplySpellRES("IDRM517",Player4)  // Resurrection
+		ApplySpellRES("IDRM517",Player5)  // Resurrection
+		ApplySpellRES("IDRM517",Player6)  // Resurrection
+		Wait(1)
+		ApplySpellRES("bddispel",Player1)  // No such index
+		ApplySpellRES("bddispel",Player2)  // No such index
+		ApplySpellRES("bddispel",Player3)  // No such index
+		ApplySpellRES("bddispel",Player4)  // No such index
+		ApplySpellRES("bddispel",Player5)  // No such index
+		ApplySpellRES("bddispel",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("bdrejuve",Player1)  // No such index
+		ApplySpellRES("bdrejuve",Player2)  // No such index
+		ApplySpellRES("bdrejuve",Player3)  // No such index
+		ApplySpellRES("bdrejuve",Player4)  // No such index
+		ApplySpellRES("bdrejuve",Player5)  // No such index
+		ApplySpellRES("bdrejuve",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(2)
+		ActionOverride(Player2,LeaveAreaLUA("AR0500","",[115.2700],N)) 
+		ActionOverride(Player3,LeaveAreaLUA("AR0500","",[150.2760],NE))
+		ActionOverride(Player4,LeaveAreaLUA("AR0500","",[210.2790],NW))
+		ActionOverride(Player5,LeaveAreaLUA("AR0500","",[270.2790],NNE))
+		ActionOverride(Player6,LeaveAreaLUA("AR0500","",[320.2740],NNW))
+		LeaveAreaLUAPanic("AR0500","",[330.2680],N)
+		LeaveAreaLUA("AR0500","",[330.2680],N)
+		Wait(1)
+		FadeFromColor([15.0],0)
+		Wait(2)
+		EndCutSceneMode()
+END
+

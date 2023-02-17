@@ -1,0 +1,967 @@
+BACKUP ~d5_iwd_eet_integration/backup~
+AUTHOR ~SubtleD~
+
+ALWAYS
+
+ DEFINE_PATCH_FUNCTION ~add_area_cre_acti~
+  INT_VAR
+    pos_x       =   1
+    pos_y       =   1
+    dest_x      =   ~%pos_x%~
+    dest_y      =   ~%pos_y%~
+    flags       =   1
+    anim        =   25602
+    dir         =   0
+    //unknown     =   0xff
+    expiri_time = ~-1~
+    wander_dist =   0
+    follow_dist =   0
+    present_at  =   0b11111111111111111111111111111111
+    talked_to   =   0
+    position    =   0
+  STR_VAR
+    //area_name   = ""
+    actor_name  = ""
+    dialogue    = ""
+    over_scr    = ""
+    genr_scr    = ""
+    clas_scr    = ""
+    race_scr    = ""
+    defl_scr    = ""
+    spec_scr    = ""
+    cre_file    = ""
+  RET
+    position
+    offset
+ BEGIN
+    //BLOCK
+    //COPY_EXISTING ~%area_name%.are~ ~override~
+      READ_LONG   0x54 actor_off
+      READ_SHORT  0x58 actor_num
+      WRITE_SHORT 0x58 ~%actor_num%~ + 1
+      READ_LONG   0x5c triggers_off
+      PATCH_IF (~%triggers_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x5c ~%triggers_off%~ + 0x110
+      END
+      READ_LONG   0x60 spawn_off
+      PATCH_IF (~%spawn_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x60 ~%spawn_off%~ + 0x110
+      END
+      READ_LONG   0x68 entrance_off
+      PATCH_IF (~%entrance_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x68 ~%entrance_off%~ + 0x110
+      END
+      READ_LONG   0x70 contain_off
+      PATCH_IF (~%contain_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x70 ~%contain_off%~ + 0x110
+      END
+      READ_LONG   0x78 item_off
+      PATCH_IF (~%item_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x78 ~%item_off%~ + 0x110
+      END
+      READ_LONG   0x7c vert_off
+      PATCH_IF (~%vert_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x7c ~%vert_off%~ + 0x110
+      END
+      READ_LONG   0x84 ambi_off
+      PATCH_IF (~%ambi_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x84 ~%ambi_off%~ + 0x110
+      END
+      READ_LONG   0x88 var_off
+      PATCH_IF (~%var_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x88 ~%var_off%~ + 0x110
+      END
+      READ_LONG   0xa0 explore_off
+      PATCH_IF (~%explore_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xa0 ~%explore_off%~ + 0x110
+      END
+      READ_LONG   0xa8 door_off
+      PATCH_IF (~%door_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xa8 ~%door_off%~ + 0x110
+      END
+      READ_LONG   0xb0 anim_off
+      PATCH_IF (~%anim_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xb0 ~%anim_off%~ + 0x110
+      END
+      READ_LONG   0xb8 tiled_off
+      PATCH_IF (~%tiled_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xb8 ~%tiled_off%~ + 0x110
+      END
+      READ_LONG   0xbc song_off
+      PATCH_IF (~%song_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xbc ~%song_off%~ + 0x110
+      END
+      READ_LONG   0xc0 rest_enc_off
+      PATCH_IF (~%rest_enc_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xc0 ~%rest_enc_off%~ + 0x110
+      END
+      READ_LONG   0xc4 auto_map_off
+      PATCH_IF (~%auto_map_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xc4 ~%auto_map_off%~ + 0x110
+      END
+    //BLOCKEND
+    //position += 1
+    PATCH_IF (position > actor_num) THEN BEGIN
+      position = actor_num
+    END
+    offset = ~%actor_off%~ + 0x110 * ~%position%~
+    
+    INSERT_BYTES ~%offset%~ 0x110
+    WRITE_ASCIIE ~%offset%~ + 0x00 ~%actor_name%~ (32)
+    WRITE_SHORT  ~%offset%~ + 0x20 ~%pos_x%~
+    WRITE_SHORT  ~%offset%~ + 0x22 ~%pos_y%~
+    WRITE_SHORT  ~%offset%~ + 0x24 ~%dest_x%~
+    WRITE_SHORT  ~%offset%~ + 0x26 ~%dest_y%~
+    WRITE_BYTE   ~%offset%~ + 0x28 ~%flags%~
+    WRITE_LONG   ~%offset%~ + 0x30 ~%anim%~
+    WRITE_SHORT  ~%offset%~ + 0x34 ~%dir%~
+    //WRITE_BYTE   ~%actor_off%~ + 0x36 ~%unknown%~
+    WRITE_LONG   ~%offset%~ + 0x38 ~%expiri_time%~
+    WRITE_SHORT  ~%offset%~ + 0x3c ~%wander_dist%~
+    WRITE_SHORT  ~%offset%~ + 0x3e ~%follow_dist%~
+    WRITE_LONG   ~%offset%~ + 0x40 ~%present_at%~
+    WRITE_LONG   ~%offset%~ + 0x44 ~%talked_to%~
+    WRITE_ASCIIE ~%offset%~ + 0x48 ~%dialogue%~ (8)
+    WRITE_ASCIIE ~%offset%~ + 0x50 ~%over_scr%~ (8)
+    WRITE_ASCIIE ~%offset%~ + 0x58 ~%genr_scr%~ (8)
+    WRITE_ASCIIE ~%offset%~ + 0x60 ~%clas_scr%~ (8)
+    WRITE_ASCIIE ~%offset%~ + 0x68 ~%race_scr%~ (8)
+    WRITE_ASCIIE ~%offset%~ + 0x70 ~%defl_scr%~ (8)
+    WRITE_ASCIIE ~%offset%~ + 0x78 ~%spec_scr%~ (8)
+    WRITE_ASCIIE ~%offset%~ + 0x80 ~%cre_file%~ (8)
+ END
+
+ DEFINE_ACTION_FUNCTION ~add_area_cre_acti~
+  INT_VAR
+    pos_x       =   1
+    pos_y       =   1
+    dest_x      =   ~%pos_x%~
+    dest_y      =   ~%pos_y%~
+    flags       =   1
+    anim        =   25602
+    dir         =   0
+    //unknown     =   0xff
+    expiri_time = ~-1~
+    wander_dist =   0
+    follow_dist =   0
+    present_at  =   0b11111111111111111111111111111111
+    talked_to   =   0
+    position    =   0
+  STR_VAR
+    area        = ""
+    actor_name  = ""
+    dialogue    = ""
+    over_scr    = ""
+    genr_scr    = ""
+    clas_scr    = ""
+    race_scr    = ""
+    defl_scr    = ""
+    spec_scr    = ""
+    cre_file    = ""
+  RET
+    position
+    offset
+ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%area%.are~ THEN BEGIN
+    COPY_EXISTING ~%area%.are~ ~override~
+      LPF add_area_cre_acti
+        INT_VAR
+          pos_x       =   pos_x
+          pos_y       =   pos_y
+          dest_x      =   dest_x
+          dest_y      =   dest_y
+          flags       =   flags
+          anim        =   anim
+          dir         =   dir
+          //unknown     =   0xff
+          expiri_time =   expiri_time
+          wander_dist =   wander_dist
+          follow_dist =   follow_dist
+          present_at  =   present_at
+          talked_to   =   talked_to
+          position    =   position
+        STR_VAR
+          actor_name  = EVAL ~%actor_name%~
+          dialogue    = EVAL ~%dialogue%~
+          over_scr    = EVAL ~%over_scr%~
+          genr_scr    = EVAL ~%genr_scr%~
+          clas_scr    = EVAL ~%clas_scr%~
+          race_scr    = EVAL ~%race_scr%~
+          defl_scr    = EVAL ~%defl_scr%~
+          spec_scr    = EVAL ~%spec_scr%~
+          cre_file    = EVAL ~%cre_file%~
+        RET
+          position
+          offset
+      END
+  END
+ END
+
+ DEFINE_ACTION_FUNCTION cd_extend_bg_area_script
+  INT_VAR extend_top = 0
+  STR_VAR area       = ""
+          script     = ""
+          tra_file   = ""
+ BEGIN
+
+  // make sure we have area scripts assigned
+  COPY_EXISTING ~%area%.are~ ~override~
+    READ_ASCII 0x94 a_script
+    PATCH_IF ("%script%" STRING_COMPARE_CASE ~~ = 0) BEGIN // if blank
+      PATCH_IF GAME_IS ~tutu tutu_totsc~ BEGIN // if Tutu
+        WRITE_ASCIIE 0x95 ~%SOURCE_RES%~ #7
+        WRITE_ASCII 0x94 ~_ar~
+      END ELSE BEGIN // bgt
+        WRITE_ASCIIE 0x94 ~%SOURCE_RES%~ #8
+      END
+      READ_ASCII 0x94 a_script
+    END
+    BUT_ONLY
+
+<<<<<<<<./inlined-macro/cd_extend_bg_area_script.tpa
+EXTEND_BOTTOM ~%a_script%.bcs~ ~%script%.baf~ EVALUATE_BUFFER USING ~%tra_file%~
+>>>>>>>>
+
+  ACTION_IF extend_top = 1 THEN BEGIN
+    COPY ~./inlined-macro/cd_extend_bg_area_script.tpa~ ~./inlined-macro/cd_extend_bg_area_script.tpa~
+      REPLACE_TEXTUALLY ~^EXTEND_BOTTOM~ ~EXTEND_TOP~
+  END
+
+  ACTION_IF ("%tra_file%" STRING_COMPARE_CASE "" = 0) THEN BEGIN
+    COPY ~./inlined-macro/cd_extend_bg_area_script.tpa~ ~./inlined-macro/cd_extend_bg_area_script.tpa~
+      REPLACE_TEXTUALLY ~ EVALUATE_BUFFER USING ~ ~ EVALUATE_BUFFER // USING ~
+  END
+
+  REINCLUDE ~./inlined-macro/cd_extend_bg_area_script.tpa~
+
+ END
+
+END
+
+
+////////////////////
+////////////////////
+
+
+/* try to handle both ways from one component
+
+BEGIN ~Move IWD_EET Hjollder to SoA~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-HOW_EET.TP2~ ~0~) ~HoW_in_EET required~
+
+// add Hjollder to Bridge District
+
+COPY_EXISTING ~AR0500.are~ ~override~
+	LPF add_area_cre_acti
+		INT_VAR
+			pos_x       =   190
+			pos_y       =   2700
+			flags       =   9
+			anim        =   57927
+		STR_VAR
+			actor_name  = "Hjollder"
+			over_scr    = "IWHIDE1"
+			genr_scr    = "LWHJOLO"
+			clas_scr    = "EFPIKHST"
+			race_scr    = "EFMKENMY"
+			defl_scr    = "EFDLGMH"
+			cre_file    = "HJOLLDER"
+	END
+
+////////////////////
+
+// ***** need to possibly remove him from Ulgoth's Beard
+
+////////////////////
+
+// area script o make Hjollder disappear from Bridge district if already played HoW
+
+<<<<<<<< d5/ar0500_.baf
+IF
+	GlobalGT("Hjollder_Quest","GLOBAL",1)
+	GlobalLT("Hjollder_Quest","GLOBAL",999)
+THEN
+	RESPONSE #100
+		SetGlobal("Hjollder_Quest","GLOBAL",999)
+		ActionOverride("Hjollder",DestroySelf())
+END
+
+IF
+	GlobalLT("Hjollder_Quest","GLOBAL",2)
+	Global("HoW_BG2","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("HoW_BG2","GLOBAL",1)
+END
+>>>>>>>> 
+COPY ~d5/ar0500_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar0500_.baf~
+
+//LAF cd_extend_bg_area_script STR_VAR area = ar0500 script = ~d5_iwd_eet_integration/script/ar0500_~ END
+LAF cd_extend_bg_area_script STR_VAR area = ar0500 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/ar0500_~ END
+
+////////////////////
+
+// change end script to teleport party to the correct place - Ulgoth's Beard or Bridge District
+
+COMPILE ~d5_iwd_eet_integration/script/IDTOEET.BAF~
+
+////////////////////
+
+// ***** should remove the wildly OP items
+
+
+////////////////////
+////////////////////
+
+*/
+
+BEGIN ~Integrate HoW and some IWD1 areas into BG2~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) OR (MOD_IS_INSTALLED ~SETUP-HOW_EET.TP2~ ~0~) ~HoW in EET required~
+
+// add Hjollder to Bridge District
+
+COPY_EXISTING ~AR0500.are~ ~override~
+	LPF add_area_cre_acti
+		INT_VAR
+			pos_x       =   190
+			pos_y       =   2700
+			flags       =   9
+			anim        =   57927
+		STR_VAR
+			actor_name  = "Hjollder"
+			over_scr    = "IWHIDE1"
+			genr_scr    = "LWHJOLO"
+			clas_scr    = "EFPIKHST"
+			race_scr    = "EFMKENMY"
+			defl_scr    = "EFDLGMH"
+			cre_file    = "HJOLLDER"
+	END
+
+////////////////////
+
+// area script to make Hjollder disappear from Bridge district if already played HoW
+
+<<<<<<<< d5/ar0500_.baf
+IF
+	GlobalGT("Hjollder_Quest","GLOBAL",1)
+	GlobalLT("Hjollder_Quest","GLOBAL",999)
+THEN
+	RESPONSE #100
+		SetGlobal("Hjollder_Quest","GLOBAL",999)
+		ActionOverride("Hjollder",DestroySelf())
+END
+
+IF
+	GlobalLT("Hjollder_Quest","GLOBAL",2)
+	Global("HoW_BG2","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("HoW_BG2","GLOBAL",1)
+END
+>>>>>>>> 
+COPY ~d5/ar0500_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar0500_.baf~
+
+//LAF cd_extend_bg_area_script STR_VAR area = ar0500 script = ~d5_iwd_eet_integration/script/ar0500_~ END
+LAF cd_extend_bg_area_script STR_VAR area = ar0500 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/ar0500_~ END
+
+////////////////////
+
+// change end script to teleport party to the correct place - Ulgoth's Beard or Bridge District
+
+<<<<<<<< d5/IDTOEET.baf
+IF
+	Global("HoW_BG2","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(1)
+		ApplySpellRES("bdresurr",Player2)  // No such index
+		ApplySpellRES("bdresurr",Player3)  // No such index
+		ApplySpellRES("bdresurr",Player4)  // No such index
+		ApplySpellRES("bdresurr",Player5)  // No such index
+		ApplySpellRES("bdresurr",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("IDRM517",Player1)  // Resurrection
+		ApplySpellRES("IDRM517",Player2)  // Resurrection
+		ApplySpellRES("IDRM517",Player3)  // Resurrection
+		ApplySpellRES("IDRM517",Player4)  // Resurrection
+		ApplySpellRES("IDRM517",Player5)  // Resurrection
+		ApplySpellRES("IDRM517",Player6)  // Resurrection
+		Wait(1)
+		ApplySpellRES("bddispel",Player1)  // No such index
+		ApplySpellRES("bddispel",Player2)  // No such index
+		ApplySpellRES("bddispel",Player3)  // No such index
+		ApplySpellRES("bddispel",Player4)  // No such index
+		ApplySpellRES("bddispel",Player5)  // No such index
+		ApplySpellRES("bddispel",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("bdrejuve",Player1)  // No such index
+		ApplySpellRES("bdrejuve",Player2)  // No such index
+		ApplySpellRES("bdrejuve",Player3)  // No such index
+		ApplySpellRES("bdrejuve",Player4)  // No such index
+		ApplySpellRES("bdrejuve",Player5)  // No such index
+		ApplySpellRES("bdrejuve",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(2)
+		ActionOverride(Player2,LeaveAreaLUA("BG1001","",[668.193],N))  // Ulgoth's Beard: Inn
+		ActionOverride(Player3,LeaveAreaLUA("BG1001","",[707.219],NE))  // Ulgoth's Beard: Inn
+		ActionOverride(Player4,LeaveAreaLUA("BG1001","",[757.192],NW))  // Ulgoth's Beard: Inn
+		ActionOverride(Player5,LeaveAreaLUA("BG1001","",[653.220],NNE))  // Ulgoth's Beard: Inn
+		ActionOverride(Player6,LeaveAreaLUA("BG1001","",[755.209],NNW))  // Ulgoth's Beard: Inn
+		LeaveAreaLUAPanic("BG1001","",[709.192],N)  // Ulgoth's Beard: Inn
+		LeaveAreaLUA("BG1001","",[709.192],N)  // Ulgoth's Beard: Inn
+		Wait(1)
+		FadeFromColor([15.0],0)
+		Wait(2)
+		EndCutSceneMode()
+END
+
+IF
+	Global("HoW_BG2","GLOBAL",1)
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(1)
+		ApplySpellRES("bdresurr",Player2)  // No such index
+		ApplySpellRES("bdresurr",Player3)  // No such index
+		ApplySpellRES("bdresurr",Player4)  // No such index
+		ApplySpellRES("bdresurr",Player5)  // No such index
+		ApplySpellRES("bdresurr",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("IDRM517",Player1)  // Resurrection
+		ApplySpellRES("IDRM517",Player2)  // Resurrection
+		ApplySpellRES("IDRM517",Player3)  // Resurrection
+		ApplySpellRES("IDRM517",Player4)  // Resurrection
+		ApplySpellRES("IDRM517",Player5)  // Resurrection
+		ApplySpellRES("IDRM517",Player6)  // Resurrection
+		Wait(1)
+		ApplySpellRES("bddispel",Player1)  // No such index
+		ApplySpellRES("bddispel",Player2)  // No such index
+		ApplySpellRES("bddispel",Player3)  // No such index
+		ApplySpellRES("bddispel",Player4)  // No such index
+		ApplySpellRES("bddispel",Player5)  // No such index
+		ApplySpellRES("bddispel",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("bdrejuve",Player1)  // No such index
+		ApplySpellRES("bdrejuve",Player2)  // No such index
+		ApplySpellRES("bdrejuve",Player3)  // No such index
+		ApplySpellRES("bdrejuve",Player4)  // No such index
+		ApplySpellRES("bdrejuve",Player5)  // No such index
+		ApplySpellRES("bdrejuve",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(2)
+		ActionOverride(Player2,LeaveAreaLUA("AR0500","",[115.2700],N)) 
+		ActionOverride(Player3,LeaveAreaLUA("AR0500","",[150.2760],NE))
+		ActionOverride(Player4,LeaveAreaLUA("AR0500","",[210.2790],NW))
+		ActionOverride(Player5,LeaveAreaLUA("AR0500","",[270.2790],NNE))
+		ActionOverride(Player6,LeaveAreaLUA("AR0500","",[320.2740],NNW))
+		LeaveAreaLUAPanic("AR0500","",[330.2680],N)
+		LeaveAreaLUA("AR0500","",[330.2680],N)
+		Wait(1)
+		FadeFromColor([15.0],0)
+		Wait(2)
+		EndCutSceneMode()
+END
+>>>>>>>> 
+COPY ~d5/IDTOEET.baf~ ~weidu_external/%MOD_FOLDER%/compile/IDTOEET.baf~
+
+//COMPILE ~d5_iwd_eet_integration/script/IDTOEET.BAF~
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/IDTOEET.BAF~
+
+////////////////////
+
+// ***** should remove the wildly OP items
+
+
+////////////////////
+////////////////////
+
+/* include this in the component above, as an easter egg...?
+
+BEGIN ~Insert Dragon's Eye/Severed Hand into SoA~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1_in_EET required~
+
+also, maybe best to make copies of the ~10 areas involved, rather than do the jiggery-pokery of 
+figuring out which campaign the player is in
+*/
+
+ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
+
+/* project:
+- have Aran talk about needing a powerful divination item to find spellhold
+ -- set a heartstone_bg2 variable
+- put an entrance to Dragon's Eye... in the North Forest? Troll Mound?
+- have aran say he needs to consult on how to use the heartstone; wait a few days
+- have Aran say it needs to be activated, and an elf told him how to do it
+- when ready, teleport the party to Severed Hand
+- change larrel's dialogue, have Larrel teleport the party back to Athkatla
+*/
+
+/*
+no no no. how about:
+- add travel trigger to dragons eye in nalia's basement (and travel entrance back)
+ - add some shouts about finding the FoA to some enemies there? (torgal, yuan-ti mage)
+- make dragons eye level 1 exit dependent on GV
+ - set GV in easthaven for real IWD campaign
+- if possess heartstone gem, have gaelan say no need to pay fee
+ - can *optionally* instead activate the gem by getting larrel to activate it
+ - find some elf to provide this info?
+- add travel trigger to severed hand in... ruined temple map? north forest? (and travel entrance back)
+- prevent entry into severed hand if not possess the heartstone gem
+- alter larrel's dialogue if not real IWD GV 
+- bring activated gem back to gaelan, give it *or* pay fee to move to chapter 3
+*/
+
+////////////////////
+
+// add travel triggers between de'arnise keep and dragon's eye
+
+COPY_EXISTING ~AR1301.are~ ~override~
+ /* add travel region that links to other area */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel - kind of trigger area
+    fj_box_left     = 290  // x coordinate
+    fj_box_top      = 990 // y coordinate
+    fj_box_right    = 550 // x coordinate
+    fj_box_bottom   = 1080 // y coordinate
+    fj_cursor_idx   = 30   //door - mouse cursor symbol
+    fj_flags        = 4
+    fj_vertex_0     = 290 + (990 << 16) //start with the lowest point: x coodinate - y coordinate
+    fj_vertex_1     = 550 + (990 << 16)
+    fj_vertex_2     = 550 + (1080 << 16)
+    fj_vertex_3     = 290 + (1080 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = d5ix4001 //name of this travel region so you can address it via script etc.
+    fj_destination_area = ID4001 //name of the destination area
+    fj_destination_name = FR4000 //name of exitpoint in destination area
+  END
+
+/* add exitpoint for backwards travel */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 760 //x coordinate where the group will spawn
+    fj_loc_y       = 1235 //y coordinate where the group will spawn
+    fj_orientation = 13   //ESE - face direction in which group is looking after coming through
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = d5id1301 //name of this new exitpoint so it can be referenced for the travel region of the other area
+  END
+BUT_ONLY 
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~ID4001.are~) BEGIN
+ COPY_EXISTING ~ID4001.are~ ~override~
+ /* add travel region that links to other area */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel - kind of trigger area
+    fj_box_left     = 10  // x coordinate
+    fj_box_top      = 1080 // y coordinate
+    fj_box_right    = 300 // x coordinate
+    fj_box_bottom   = 1300 // y coordinate
+    fj_cursor_idx   = 30   //door - mouse cursor symbol
+    fj_flags        = 4
+    fj_vertex_0     = 10 + (1080 << 16) //start with the lowest point: x coodinate - y coordinate
+    fj_vertex_1     = 300 + (1080 << 16)
+    fj_vertex_2     = 300 + (1300 << 16)
+    fj_vertex_3     = 10 + (1300 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = d5ix1301 //name of this travel region so you can address it via script etc.
+    fj_destination_area = AR1301 //name of the destination area
+    fj_destination_name = d5id1301 //name of exitpoint in destination area
+  END
+/* don't think this is needed?
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 345 //x coordinate where the group will spawn
+    fj_loc_y       = 1200 //y coordinate where the group will spawn
+    fj_orientation = 12   //E - face direction in which group is looking after coming through
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = d5id1301 //name of this new exitpoint so it can be referenced for the travel region of the other area
+  END
+*/
+ BUT_ONLY
+END 
+
+////////////////////
+
+// set up scripts to make dragon's eye travel triggers reactive to where the player is
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~ID1000.are~) BEGIN
+<<<<<<<< d5/id1000_.baf
+IF
+	Global("D5_IWD_REAL","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_IWD_REAL","GLOBAL",1)
+	SetGlobal("D5_EET_IWD","GLOBAL",0)
+END
+>>>>>>>> 
+  COPY ~d5/id1000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id1000_.baf~
+//  LAF cd_extend_bg_area_script STR_VAR area = id1000 script = ~d5_iwd_eet_integration/script/id1000_~ END
+  LAF cd_extend_bg_area_script STR_VAR area = id1000 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id1000_~ END
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~AR1301.are~) BEGIN
+<<<<<<<< d5/ar1301_.baf
+IF
+	Global("D5_IWD_REAL","GLOBAL",0)
+	Global("D5_EET_IWD","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_EET_IWD","GLOBAL",1)
+	TriggerActivation("d5ix4000",TRUE)
+END
+
+IF
+	Global("D5_IWD_REAL","GLOBAL",1)
+	Global("D5TRAVEL","AR1301",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5TRAVEL","AR1301",1)
+	TriggerActivation("d5ix4000",FALSE)
+END
+>>>>>>>> 
+  COPY ~d5/ar1301_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar1301_.baf~
+//  LAF cd_extend_bg_area_script STR_VAR area = ar1301 script = ~d5_iwd_eet_integration/script/ar1301_~ END
+  LAF cd_extend_bg_area_script STR_VAR area = ar1301 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/ar1301_~ END
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~ID4001.are~) BEGIN
+<<<<<<<< d5/id4001_.baf
+IF
+	Global("D5_IWD_REAL","GLOBAL",1)
+	Global("D5_TRA_IWD","ID4001",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_TRA_IWD","ID4001",1)
+	SetGlobal("D5_TRA_BG2","ID4001",0)
+	TriggerActivation("To4000",TRUE)
+	TriggerActivation("d5ix1301",FALSE)
+END
+
+IF
+	Global("D5_EET_IWD","GLOBAL",1)
+	Global("D5_TRA_BG2","ID4001",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_TRA_IWD","ID4001",0)
+	SetGlobal("D5_TRA_BG2","ID4001",1)
+	TriggerActivation("To4000",FALSE)
+	TriggerActivation("d5ix1301",TRUE)
+END
+>>>>>>>> 
+  COPY ~d5/id4001_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id4001_.baf~
+//  LAF cd_extend_bg_area_script STR_VAR area = id4001 script = ~d5_iwd_eet_integration/script/id4001_~ END
+  LAF cd_extend_bg_area_script STR_VAR area = id4001 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id4001_~ END
+END
+
+////////////////////
+
+// set up travel triggers to severed hand
+
+COPY_EXISTING ~AR1700.are~ ~override~
+ /* add travel region that links to other area */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel - kind of trigger area
+    fj_box_left     = 1 // 885  // x coordinate
+    fj_box_top      = 3025 // y coordinate
+    fj_box_right    = 850 // 1135 // x coordinate
+    fj_box_bottom   = 3135 // y coordinate
+    fj_cursor_idx   = 30   //door - mouse cursor symbol
+    fj_flags        = 4
+    fj_vertex_0     = 1 + (3025 << 16) //start with the lowest point: x coodinate - y coordinate
+    fj_vertex_1     = 850 + (3025 << 16)
+    fj_vertex_2     = 850 + (3135 << 16)
+    fj_vertex_3     = 1 + (3135 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = d5ix1700 //name of this travel region so you can address it via script etc.
+    fj_destination_area = id5000 //name of the destination area
+    fj_destination_name = d5id5000 //name of exitpoint in destination area
+  END
+BUT_ONLY
+
+COPY_EXISTING ~ID5000.are~ ~override~
+ /* add travel region that links to other area */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel - kind of trigger area
+    fj_box_left     = 465 // 885  // x coordinate
+    fj_box_top      = 805 // y coordinate
+    fj_box_right    = 1340 // 1135 // x coordinate
+    fj_box_bottom   = 895 // y coordinate
+    fj_cursor_idx   = 30   //door - mouse cursor symbol
+    fj_flags        = 4
+    fj_vertex_0     = 465 + (805 << 16) //start with the lowest point: x coodinate - y coordinate
+    fj_vertex_1     = 1340 + (805 << 16)
+    fj_vertex_2     = 1340 + (895 << 16)
+    fj_vertex_3     = 465 + (895 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = d5ix5000 //name of this travel region so you can address it via script etc.
+    fj_destination_area = AR1700 //name of the destination area
+    fj_destination_name = L-Exit //name of exitpoint in destination area
+  END
+
+/* add exitpoint for backwards travel */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 995 //x coordinate where the group will spawn
+    fj_loc_y       = 810 //y coordinate where the group will spawn
+    fj_orientation = 6   // NW - face direction in which group is looking after coming through
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = d5id5000 //name of this new exitpoint so it can be referenced for the travel region of the other area
+  END
+BUT_ONLY 
+
+
+////////////////////
+
+// set up scripts to make severed hand travel triggers reactive to where the player is
+
+// use the GV set up above for Easthaven 
+
+// also, make severed hand inaccessible without the heartstone gem
+
+<<<<<<<< d5/id5000_.baf
+IF
+	Global("D5_IWD_REAL","GLOBAL",1)
+	Global("D5_SH_IWD","ID5000",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_SH_IWD","ID5000",1)
+	SetGlobal("D5_SH_BG2","ID5000",0)
+	TriggerActivation("d5ix5000",FALSE)
+END
+
+IF
+	Global("D5_EET_IWD","GLOBAL",1)
+	Global("D5_SH_BG2","ID4001",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_SH_IWD","ID4001",0)
+	SetGlobal("D5_SH_BG2","ID4001",1)
+	TriggerActivation("d5ix5000",TRUE)
+END
+
+IF
+	PartyHasItem("HEARTGM")  // Heartstone Gem
+	Global("BGHeartstone_Active","GLOBAL",1)
+	Global("D5_HAS_HGEM","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_HAS_HGEM","ID5000",1)
+	SetGlobal("D5_NOT_HGEM","ID5000",0)
+	TriggerActivation("To5001",TRUE)
+END
+
+IF
+	OR(2)
+	  !PartyHasItem("HEARTGM")  // Heartstone Gem
+	  GlobalLT("BGHeartstone_Active","GLOBAL",1)
+	Global("D5_NOT_HGEM","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_HAS_HGEM","ID5000",0)
+	SetGlobal("D5_NOT_HGEM","ID5000",1)
+	TriggerActivation("To5001",FALSE)
+END
+>>>>>>>> 
+  COPY ~d5/id5000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id5000_.baf~
+//  LAF cd_extend_bg_area_script STR_VAR area = id5000 script = ~d5_iwd_eet_integration/script/id5000_~ END
+  LAF cd_extend_bg_area_script STR_VAR area = id5000 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id5000_~ END
+
+/* this vv assumes the door travel trigger is changed to an info trigger, like the rogue stone 
+  door to the twisted rune. alternatively, use the script above to just disable/enable the door 
+  in the area script, based on possession of the gem
+
+// ***** change the To5001 travel trigger to work like the Tran1008 info trigger in AR0500.are...?
+
+<<<<<<<< d5/d5id5001.baf
+IF
+	Clicked([ANYONE])
+	Range(LastTrigger,10)
+	PartyHasItem("HEARTGM")  // Heartstone Gem
+THEN
+	RESPONSE #100
+	SaveGame(0)
+	StartCutSceneMode()
+	CreateVisualEffectObject("SPDIMNDR",Player1)
+	Wait(4)
+	FadeToColor([20.0],0)
+	Wait(1)
+	PlaySound("PORTAL2")
+	Wait(2)
+	ActionOverride(Player1,LeaveAreaLUAPanic("ID5001","",[1120.1430],NE))  // Severed Hand
+	ActionOverride(Player1,LeaveAreaLUA("ID5001","",[1120.1430],NE))  // Severed Hand
+	ActionOverride(Player2,LeaveAreaLUA("ID5001","",[1090.1385],NE))  // Severed Hand
+	ActionOverride(Player3,LeaveAreaLUA("ID5001","",[1185.1460],NE))  // Severed Hand
+	ActionOverride(Player4,LeaveAreaLUA("ID5001","",[1125.1365],NE))  // Severed Hand
+	ActionOverride(Player5,LeaveAreaLUA("ID5001","",[1215.1425],NE))  // Severed Hand
+	ActionOverride(Player6,LeaveAreaLUA("ID5001","",[1175.1390],NE))  // Severed Hand
+	MultiPlayerSync()
+	EndCutSceneMode()
+	FadeFromColor([20.0],0)
+END
+
+IF
+	Clicked([ANYONE])
+	Range(LastTrigger,10)
+	!PartyHasItem("HEARTGM")  // Heartstone Gem
+THEN
+	RESPONSE #100
+	DisplayString(Myself,*****)  // No matter how you try, you cannot open this entrance
+END
+
+IF
+	Clicked([ANYONE])
+	!Range(LastTrigger,10)
+THEN
+	RESPONSE #100
+	DisplayString(Myself,14702)  // You are too far away to use that.
+END
+>>>>>>>>
+COPY ~d5/d5id5001.baf~ ~weidu_external/%MOD_FOLDER%/compile/d5id5001.baf~
+
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/d5id5001.baf~
+*/
+
+////////////////////
+
+// don't do 'yxunomei-is-dead' stuff unless playing from IWD
+
+COPY_EXISTING ~id4005.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY
+~Global("YXUNOMEI_SLAIN","GLOBAL",0)~ 
+~Global("YXUNOMEI_SLAIN","GLOBAL",0)
+    Global("D5_IWD_REAL","GLOBAL",1)~
+    REPLACE_TEXTUALLY
+~Global("Kuldahar_Attack","GLOBAL",0)~
+~Global("Kuldahar_Attack","GLOBAL",0)
+    Global("D5_IWD_REAL","GLOBAL",1)~
+  END
+
+////////////////////
+
+// change larrel's dialogue to activate gem and teleport party to athkatla, no cut-scene
+
+// mess with state 15 since it has no response
+// actually sounds maybe, kind of, easy!
+
+// probably want to play some kind of visual effect when he activates it
+
+<<<<<<<< d5/dlarrel+.d
+APPEND ~dlarrel~
+  IF ~~ THEN BEGIN ~d5bglarrel1~
+    SAY #499608 /* ~With that said, what is it you seek to learn from the Heartstone Gem?~ */
+    IF ~~ THEN REPLY ~We seek to activate the Gem in order to learn the location of my friend, Imoen.~  GOTO d5bglarrel2
+    IF ~~ THEN REPLY ~We seek to activate the Gem in order to learn the location of the mage Jon Irenicus~  GOTO d5bglarrel2
+  END
+
+  IF ~~ THEN BEGIN ~d5bglarrel2~
+  SAY ~Then you will have what you seek. I will activate the Heartstone Gem, and then it may be used to pierce even the most powerful magical concealment.~
+  IF ~~ THEN REPLY #250768 /* ~Here you are.~ */ DO ~SetGlobal("BGHeartstone_Active","GLOBAL",2) DisplayStringNoNameDlg(LastTalkedToBy,499613)~ EXIT
+  END
+END
+
+EXTEND_BOTTOM DLARREL 15 
+  IF ~	Global("D5_EET_IWD","GLOBAL",1)
+      PartyHasItem("HEARTGM")~  THEN GOTO ~d5bglarrel1~
+END
+>>>>>>>> 
+COMPILE ~d5/dlarrel+.d~
+
+////////////////////
+
+// change gaelan's dialogue to send player to severed hand, and accept activated heartstone gem
+
+/* add new state in place of 51; triggers = 
+Global("Linvail","GLOBAL",0)
+Global("ShadowWork","GLOBAL",1)
+PartyHasItem("HEARTGM")
+Global("BodiWork","GLOBAL",0)
+
+A (if PartyHasItem heartgm) "Some little birdies told me you have come into possession of an artifact that can do powerful divination. Though the use of it is tricky for most folks, we have someone who can use it to assist in reaching Imoen and Irenicus. In fact, we would so appreciate having the gem that, if you give it to us, we can forego the fee entirely. And to be honest, it's worth nothing to you. What say you?"
+ - Sure sounds good, I don't need the gem anyway. GOTO B
+ - Uh, I'm not sure I like the idea of the Shadow Thieves having this artifact. No offense. I'll pay the fee instead. 
+   - (if gold < 15000) GOTO state 49
+   - (if gold > 14999) GOTO state 51 
+B "Ah, it be as I feared: the gem is inactive. It needs to be woken up, you might say. Luckily our contact was prepared for this possibility, and told me how it can be done. You'll have to find an elven lich who has had experience with the gem in the distant past. Don't worry, he be friendly. I think. I won't lie though, it will be a trek. What say you?
+ - If it helps get us to our goal, I will find this lich and activate the gem.
+ - On second thought let's just keep it simple, I'll pay your fee instead. 
+   - (if gold < 15000) GOTO state 49
+   - (if gold > 14999) GOTO state 51 
+ 
+C (if Global("BGHeartstone_Active","GLOBAL",1) "You survived! Astounding. I mean, wonderful! Now, is our deal still good? You will turn over the gem?"
+ - Yes, here it is. GOTO state 53
+ - On second thought, I'm not sure I like the idea of the Shadow Thieves having this artifact. No offense. I'll pay the fee instead. 
+   - (if gold < 15000) GOTO state 49
+   - (if gold > 14999) GOTO state 51 
+ */
+
+<<<<<<<< d5/gaelan+.d
+APPEND ~gaelan~
+  IF WEIGHT #9 ~ Global("Linvail","GLOBAL",0)
+    Global("ShadowWork","GLOBAL",1)
+    PartyHasItem("HEARTGM")
+    Global("BGHeartstone_Active","GLOBAL",0)
+    Global("BodiWork","GLOBAL",0) ~ 
+  THEN BEGIN ~d5hggaelan1~
+    SAY ~Coo! A little birdy told me ye've come into possession of an artifact that can do powerful divination. Though the use of it be tricky for most folks, we have someone who can use it to assist in reaching Imoen and Irenicus. In fact, we would so appreciate having the gem that, if ye can part with it, we can forego our fee entirely. And to be honest, ye haven't the ability to use it, so it's worth nothing to ye. What say ye?~
+    IF ~~ THEN REPLY ~Sure, sounds good. I guess I have no use for the gem anyway.~  GOTO d5hggaelan2
+    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 49
+    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 51
+  END
+
+  IF ~~ THEN BEGIN ~d5hggaelan2~
+    SAY ~Ah, it be as I feared: the gem is inactive. It needs to be woken up, ye might say. Luckily our contact was prepared for this possibility, and told me how it can be done. Ye will have to find an elven lich who has had experience with the gem in the distant past. Don't worry, he be friendly. I think. What do ye think? Are ye up for it?~
+    IF ~~ THEN REPLY ~If it helps get us to our goal, I will find this lich and activate the gem.~ GOTO d5hggaelan3
+    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~On second thought, let's keep things simple. I'll pay your fee instead.~  GOTO 49
+    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~On second thought, let's keep things simple. I'll pay your fee instead.~  GOTO 51
+  END
+
+  IF ~~ THEN BEGIN ~d5hggaelan3~
+    SAY ~Coo! I half didn't expect ye to show the stones for it. Very well then, ye be wanting to find a ruined elven fortress, far t'other side of Small Teeth Pass. I hear 'twas once called 'Hand of the Seldarine,' tho it be fairly severed now. The gem should gain ye entry, but I know not what lurks within. Best of luck to ye!~
+    IF ~~ THEN REPLY ~Very well.~ DO ~SetGlobal("BGHeartstone_Active","GLOBAL",1) RevealAreaOnMap("AR1700")~ EXIT
+  END
+
+  IF WEIGHT #10 ~Global("BGHeartstone_Active","GLOBAL",2)~ THEN BEGIN ~d5hggaelan4~
+  SAY ~Ye survived! Astounding. I mean, wonderful! Now, is our deal still good? Will ye turn over the gem to us?~
+  IF ~~ THEN REPLY #21033 /* ~Yes, Here you go.~ */ 
+    DO ~ EraseJournalEntry(96385)
+      AddJournalEntry(96385,QUEST_DONE)
+      AddJournalEntry(96437,QUEST)
+      EraseJournalEntry(34183)
+      EraseJournalEntry(34187)
+      AddXPObject(Player1,45000)
+      AddXPObject(Player2,45000)
+      AddXPObject(Player3,45000)
+      AddXPObject(Player4,45000)
+      AddXPObject(Player5,45000)
+      AddXPObject(Player6,45000)
+      TakePartyGold(15000)
+      SetGlobal("WorkingForAran","GLOBAL",1) ~ SOLVED_JOURNAL #47537 /* ~Collect the fee for Gaelan Bayle
+
+I have given Gaelan Bayle the gold he asked for, and in return he has given me a key which will admit me to see the head of the Athkatlan Shadow Thieves. I am to go to the thieves' guild, it seems, and use the key on a secret entrance which is immediately to the right as I enter. ~ */ GOTO 53
+    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 49
+    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 51
+  END
+END
+>>>>>>>> 
+COMPILE ~d5/gaelan+.d~
+
+////////////////////
+////////////////////
+
+END	//	end if iwd1_eet is installed
+

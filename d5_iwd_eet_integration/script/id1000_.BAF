@@ -1,0 +1,6 @@
+IF
+	Global("D5_IWD_REAL","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_IWD_REAL","GLOBAL",1)
+END

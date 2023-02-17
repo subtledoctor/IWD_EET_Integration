@@ -1,0 +1,17 @@
+IF
+	Global("D5_IWD_REAL","GLOBAL",0)
+	Global("D5_EET_IWD","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_EET_IWD","GLOBAL",1)
+	TriggerActivation("d5ix4000",TRUE)
+END
+
+IF
+	Global("D5_IWD_REAL","GLOBAL",1)
+	Global("D5TRAVEL","AR1301",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5TRAVEL","AR1301",1)
+	TriggerActivation("d5ix4000",FALSE)
+END

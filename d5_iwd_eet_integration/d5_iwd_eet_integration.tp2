@@ -1,6 +1,8 @@
 BACKUP ~d5_iwd_eet_integration/backup~
 AUTHOR ~SubtleD~
 
+VERSION ~0.3~
+
 ALWAYS
 
  DEFINE_PATCH_FUNCTION ~add_area_cre_acti~
@@ -243,78 +245,158 @@ END
 ////////////////////
 
 
-/* try to handle both ways from one component
+BEGIN ~Add IWD Campaigns to EET Start Screen~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) OR (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) ~IWD campaigns required~
 
-BEGIN ~Move IWD_EET Hjollder to SoA~
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-HOW_EET.TP2~ ~0~) ~HoW_in_EET required~
+/* ***** project:
 
-// add Hjollder to Bridge District
+patch in proper campaign.2da values:
+ - / icon (7 and 8)
+ - / music (find index for idthm and iwthm from songlist.2da)
+ - / startare (create a startare.2da for each IWD) make d5idstrt/d5iwstrt
+ - / startpos (create a startpos.2da for each IWD) make d5idspos/d5iwspos
+ - / worldmap (figure out where the IWD maps are) ... just use the EET map??
+ - / intro_movie (find it in the IWD installers)
+ - / years (create a years.2da for each IWD)
 
-COPY_EXISTING ~AR0500.are~ ~override~
-	LPF add_area_cre_acti
-		INT_VAR
-			pos_x       =   190
-			pos_y       =   2700
-			flags       =   9
-			anim        =   57927
-		STR_VAR
-			actor_name  = "Hjollder"
-			over_scr    = "IWHIDE1"
-			genr_scr    = "LWHJOLO"
-			clas_scr    = "EFPIKHST"
-			race_scr    = "EFMKENMY"
-			defl_scr    = "EFDLGMH"
-			cre_file    = "HJOLLDER"
-	END
+create and copy in icons for the campaigns (need to create one for IWD2, 32x32)
 
-////////////////////
+add campaigns to EET UI via thread w/ Aqua & k4thos
 
-// ***** need to possibly remove him from Ulgoth's Beard
-
-////////////////////
-
-// area script o make Hjollder disappear from Bridge district if already played HoW
-
-<<<<<<<< d5/ar0500_.baf
-IF
-	GlobalGT("Hjollder_Quest","GLOBAL",1)
-	GlobalLT("Hjollder_Quest","GLOBAL",999)
-THEN
-	RESPONSE #100
-		SetGlobal("Hjollder_Quest","GLOBAL",999)
-		ActionOverride("Hjollder",DestroySelf())
-END
-
-IF
-	GlobalLT("Hjollder_Quest","GLOBAL",2)
-	Global("HoW_BG2","GLOBAL",0)
-THEN
-	RESPONSE #100
-		SetGlobal("HoW_BG2","GLOBAL",1)
-END
->>>>>>>> 
-COPY ~d5/ar0500_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar0500_.baf~
-
-//LAF cd_extend_bg_area_script STR_VAR area = ar0500 script = ~d5_iwd_eet_integration/script/ar0500_~ END
-LAF cd_extend_bg_area_script STR_VAR area = ar0500 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/ar0500_~ END
-
-////////////////////
-
-// change end script to teleport party to the correct place - Ulgoth's Beard or Bridge District
-
-COMPILE ~d5_iwd_eet_integration/script/IDTOEET.BAF~
-
-////////////////////
-
-// ***** should remove the wildly OP items
-
-
-////////////////////
-////////////////////
-
+...maybe that's it?
 */
 
-BEGIN ~Integrate HoW and some IWD1 areas into BG2~
+ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
+    COPY_EXISTING ~songlist.2da~ ~override~
+      COUNT_2DA_ROWS 3 rows
+      FOR (row = 1; row < rows; ++row) BEGIN
+        READ_2DA_ENTRY row 0 3 index
+        READ_2DA_ENTRY row 1 3 theme
+        PATCH_IF (~%theme%~ STRING_EQUAL_CASE ~idthm~) BEGIN
+          PATCH_PRINT ~iwd1_theme_music = %index%~
+          SET iwd1_theme_music = %index%
+        END
+      END
+    BUT_ONLY
+  ACTION_IF !(VARIABLE_IS_SET %iwd1_theme_music%) BEGIN
+    OUTER_SPRINT iwd1_theme_music ~*~
+  END
+
+  APPEND ~campaign.2da~ ~ID1            BALDUR         -1             7              *              *              MASTAREA       %iwd1_theme_music%            -1             *              *              *              save           D5IDSTRT       STRTGOLD       D5IDSPOS       STWEAPON       STWEAPON       *              *              WORLDMAP       BALDUR         1              0xFFFFFFFF     0              IDINTRO        PARTY          INTERACT       D5IDYRS        REPUTATI       CLASTEXT       RACETEXT~
+
+  COPY ~%MOD_FOLDER%/data/d5idstrt.2da~ ~override~
+  COPY ~%MOD_FOLDER%/data/d5idspos.2da~ ~override~
+  COPY ~%MOD_FOLDER%/data/d5idyrs.2da~ ~override~
+
+  COPY_EXISTING ~bgee.lua~ ~override~
+    REPLACE_TEXTUALLY ~START_CAMPAIGN_TUT = 7,~ ~START_CAMPAIGN_TUT = 7,
+    START_CAMPAIGN_ID1 = 8,~
+  IF_EXISTS BUT_ONLY
+
+  COPY_EXISTING ~M_K#TBL.lua~ ~override~
+    REPLACE_TEXTUALLY 
+~{id = 'TUT', name = 'EET_CMP_TITLE_TUT', description = 'EET_CMP_TEXT_TUT', title = 6, bigLogo = 6, icon = 6, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = false, cheatAreasTable = cheatAreasTutorial},
+}~
+~{id = 'TUT', name = 'EET_CMP_TITLE_TUT', description = 'EET_CMP_TEXT_TUT', title = 6, bigLogo = 6, icon = 6, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = false, cheatAreasTable = cheatAreasTutorial},%WNL%%TAB%{id = 'ID1', name = 'EET_CMP_TITLE_ID1', description = 'EET_CMP_TEXT_ID1', title = 7, bigLogo = 7, icon = 7, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
+}~
+    REPLACE_TEXTUALLY 
+~EET_CMP_TITLE_BG1 =~
+~EET_CMP_TEXT_ID1 = "\"Welcome to Icewind Dale\" - tipun",
+    EET_CMP_TITLE_BG1 =~
+    REPLACE_TEXTUALLY 
+~EET_WARNING_TITLE =~
+~EET_CMP_TITLE_ID1 = "Icewind Dale",
+    EET_WARNING_TITLE =~
+  IF_EXISTS BUT_ONLY
+
+/*
+  COPY_EXISTING ~UI.MENU~ ~override~
+//append to function onCampaignButton(buttonNum)
+    REPLACE_TEXTUALLY ~Infinity_SetINIValue('Program Options','Active Campaign',const.START_CAMPAIGN_TUT)~ ~Infinity_SetINIValue('Program Options','Active Campaign',const.START_CAMPAIGN_TUT)
+        elseif(buttonNum == const.START_CAMPAIGN_AQU) then
+            startEngine:OnCampaignButtonClick('AQU',true)
+            Infinity_SetINIValue('Program Options','Active Campaign',const.START_CAMPAIGN_AQU)~
+*/
+END
+
+ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) BEGIN
+    COPY_EXISTING ~songlist.2da~ ~override~
+      COUNT_2DA_ROWS 3 rows
+      FOR (row = 1; row < rows; ++row) BEGIN
+        READ_2DA_ENTRY row 0 3 index
+        READ_2DA_ENTRY row 1 3 theme
+        PATCH_IF (~%theme%~ STRING_EQUAL_CASE ~iwthm~) BEGIN
+          PATCH_PRINT ~iwd2_theme_music = %index%~
+          SET iwd2_theme_music = %index%
+        END
+      END
+    BUT_ONLY
+  ACTION_IF !(VARIABLE_IS_SET %iwd2_theme_music%) BEGIN
+    OUTER_SPRINT iwd2_theme_music ~*~
+  END
+
+  APPEND ~campaign.2da~ ~ID2            BALDUR         -1             9              *              *              MASTAREA       %iwd2_theme_music%            -1             *              *              *              save           D5IWSTRT       STRTGOLD       D5IWSPOS       STWEAPON       STWEAPON       *              *              WORLDMAP       BALDUR         1              0xFFFFFFFF     0              IWINTRO        PARTY          INTERACT       D5IWYRS        REPUTATI       CLASTEXT       RACETEXT~
+
+  COPY ~%MOD_FOLDER%/data/d5iwstrt.2da~ ~override~
+  COPY ~%MOD_FOLDER%/data/d5iwspos.2da~ ~override~
+  COPY ~%MOD_FOLDER%/data/d5iwyrs.2da~ ~override~
+
+  COPY_EXISTING ~bgee.lua~ ~override~
+/* no need, it is required
+   PATCH_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
+*/
+    REPLACE_TEXTUALLY ~START_CAMPAIGN_ID1 = 8,~  ~START_CAMPAIGN_ID1 = 8,
+    START_CAMPAIGN_ID2 = 9,~
+/*
+   END
+   PATCH_IF !(MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
+    REPLACE_TEXTUALLY ~START_CAMPAIGN_TUT = 7,~  ~START_CAMPAIGN_TUT = 7,
+    START_CAMPAIGN_ID2 = 8,~
+   END
+*/
+  BUT_ONLY
+
+  COPY_EXISTING ~M_K#TBL.lua~ ~override~
+/* no need, it is required
+    PATCH_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
+*/
+      REPLACE_TEXTUALLY 
+~{id = 'ID1', name = 'EET_CMP_TITLE_ID1', description = 'EET_CMP_TEXT_ID1', title = 7, bigLogo = 7, icon = 7, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
+}~
+~{id = 'ID1', name = 'EET_CMP_TITLE_ID1', description = 'EET_CMP_TEXT_ID1', title = 7, bigLogo = 7, icon = 7, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},%WNL%%TAB%{id = 'ID2', name = 'EET_CMP_TITLE_ID2', description = 'EET_CMP_TEXT_ID2', title = 9, bigLogo = 9, icon = 9, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
+}~
+/*
+    END
+    PATCH_IF !(MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
+      REPLACE_TEXTUALLY 
+~{id = 'TUT', name = 'EET_CMP_TITLE_TUT', description = 'EET_CMP_TEXT_TUT', title = 6, bigLogo = 6, icon = 6, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = false, cheatAreasTable = cheatAreasTutorial},
+}~
+~{id = 'TUT', name = 'EET_CMP_TITLE_TUT', description = 'EET_CMP_TEXT_TUT', title = 6, bigLogo = 6, icon = 6, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = false, cheatAreasTable = cheatAreasTutorial},
+    {id = 'ID1', name = 'EET_CMP_TITLE_ID1', description = 'EET_CMP_TEXT_ID1', title = 9, bigLogo = 9, icon = 9, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
+}~
+    END
+*/
+    REPLACE_TEXTUALLY 
+~EET_CMP_TITLE_BG1 =~
+~EET_CMP_TEXT_ID2 = "\"Welcome to Icewind Dale II\" - tipun",
+    EET_CMP_TITLE_BG1 =~
+    REPLACE_TEXTUALLY 
+~EET_WARNING_TITLE =~
+~EET_CMP_TITLE_ID2 = "Icewind Dale II",
+    EET_WARNING_TITLE =~
+  IF_EXISTS BUT_ONLY
+
+END
+
+
+////////////////////
+
+
+////////////////////
+////////////////////
+
+
+BEGIN ~Add HoW in BG2~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) OR (MOD_IS_INSTALLED ~SETUP-HOW_EET.TP2~ ~0~) ~HoW in EET required~
 
 // add Hjollder to Bridge District
@@ -479,16 +561,14 @@ COMPILE ~weidu_external/%MOD_FOLDER%/compile/IDTOEET.BAF~
 ////////////////////
 ////////////////////
 
-/* include this in the component above, as an easter egg...?
 
-BEGIN ~Insert Dragon's Eye/Severed Hand into SoA~
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1_in_EET required~
+BEGIN ~Add IWD1 easter egg areas to BG2~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1_EET required~
 
-also, maybe best to make copies of the ~10 areas involved, rather than do the jiggery-pokery of 
-figuring out which campaign the player is in
+/*
+maybe best to make copies of the ~10 areas involved? ...rather than do the 
+jiggery-pokery of figuring out which campaign the player is in
 */
-
-ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
 
 /* project:
 - have Aran talk about needing a powerful divination item to find spellhold
@@ -963,5 +1043,65 @@ COMPILE ~d5/gaelan+.d~
 ////////////////////
 ////////////////////
 
-END	//	end if iwd1_eet is installed
 
+/*
+ ***** issues to watch out for/correct:
+
+- maybe overwrite IWD items with the ones from BP-in-BG
+
+- from Oloriniel:
+
+Yeti pelts can not be placed in a bag of holding
+
+After killing Yxunomei, I found Arundel's impersonator as normal.  But when I went upstairs, instead of the real Arundel, I met the impersonator again as if for the first time (note, I've played this before without this happening)
+With Arundel, I was never able to spawn a version of him that was dying.
+<<
+State 81: (wounded, dying) At last...I feared I could not hold any longer...th-the last of my life has almost left my body, and...soon I shall be restored to the balance.
+State trigger 1
+     GlobalGT("Sprite_is_deadYxunomei","Global",0)
+Global("Dying_Arundel","LOCALS",1)
+
+State 87:  Thank Silvanus you have returned!  Evil is afoot in Kuladahar.  Strange orcs prowl through town, killing our townspeople!
+State trigger 0
+     GlobalGT("Sprite_is_deadYxunomei","Global",0)
+Global("Dying_Arundel","LOCALS",0)
+>>
+So the only difference was that Dying_Arundel variable, but whether 0 or 1 I got State 87.  Again, this hasn't happened in prior runs
+
+In the Severed Hand, I was not able to access Lehland's shop.  And when talking to the librarian, he did not actually give me copies of the books I asked for.  These are issues I haven't had in prior runs either
+
+In Upper Dorn's Deep, Saablic Tan has the appearance of a demon wearing armor that looks (to me) Japanese and wield two scimitars.  I think, but am not sure, this is one of the endbosses of IWD2 (I don't remember that game well, having not played it in about 20 years).  This is a repeating issue every time I have played this mod (I think this is my 4th time through), and it actually affects *every* IWD umber hulk
+
+In Upper Dorn's Deep, the Celebrant's Blade, obtained with the Key at the Forge once the lich is dead, is undroppable.
+
+The names and descriptions of the rings of wizardry - Kontik's and Edion's--are both borked. I didn't try them on to see if they worked properly or not.
+
+HoW: On the Burial Isle, in one of the containers, Svian's Club ("SVIAN") is undroppable.
+
+HoW: The mayor and his wife aren't killed by the assassin
+The mayor/wife thing was easy enough to resolve; there was someone I was supposed to have talked to before leaving the barbarian camp
+
+TotLM: The Storming Shield ("USHLD3B") is undroppable.
+
+I am repeatedly crashing as I approach the tower; I never get to the deep gnome girl who has the key.
+As I approach, the game pauses and I get a warning that there's a trap nearby.  It's not actually a detectable/removable trap.  Tried hiding in shadows/turning invisible, but those didn't help.  There may be a line of dialogue, something like "why don't you come try to assault the tower, moron!" or "hey stupid, get out of there!"
+If I enter the area, the game crashes.  I'm guessing the culprit is one of the TNT components that affects trap detection/removal
+
+Seth - the halfling doorman who works for Marketh - is a no-show.  I checked NI, he's in the database, but he's missing his dialogue file, scripts, etc
+
+The Morningstar of Action, from the chest in Fleezum's room, is undroppable.
+
+And Fleezum doesn't drop his bright red Bathed-in-Blood plate mail.
+
+Had to skip the final battle, as without the "framing sequence" installed, the game hangs after killing the endboss.  Which of course means the "Icewind Dale" quest will stay in my log.  
+
+As will "Find Sheemish, son of Conlan," which didn't clear when I rescued him and sent him home, or when I talked to him again at home
+
+Flozem attacks, along with Seth and a bunch of Kraken Society mages, after your confrontation with Marketh.  Which, if you already killed him, or convinced him to quit being a henchman and take up the life of an artist, means you get two Girdles of Stromnos
+
+Orrick the Grey's enhancement of the Rhino Beetle Shield is undroppable
+
+I've taken a detour to IWD2.  I've gotten through most of it without any significant issues.  But in the bottom level of Dragon's Eye, there's supposed to be a cutscene during a conversation between King Lothar and Inquisitor Venomin, and it's not firing.  Not sure how to make it; I've tried changing variables so I can at least move forward (backward?) to the next day in the time loop, but no luck
+
+
+*/

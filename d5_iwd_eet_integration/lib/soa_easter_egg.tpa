@@ -1,0 +1,378 @@
+////////////////////
+
+// add travel triggers between de'arnise keep and dragon's eye
+
+COPY_EXISTING ~AR1301.are~ ~override~
+ /* add travel region that links to other area */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel - kind of trigger area
+    fj_box_left     = 290  // x coordinate
+    fj_box_top      = 990 // y coordinate
+    fj_box_right    = 550 // x coordinate
+    fj_box_bottom   = 1080 // y coordinate
+    fj_cursor_idx   = 30   //door - mouse cursor symbol
+    fj_flags        = 4
+    fj_vertex_0     = 290 + (990 << 16) //start with the lowest point: x coodinate - y coordinate
+    fj_vertex_1     = 550 + (990 << 16)
+    fj_vertex_2     = 550 + (1080 << 16)
+    fj_vertex_3     = 290 + (1080 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = d5ix4001 //name of this travel region so you can address it via script etc.
+    fj_destination_area = ID4001 //name of the destination area
+    fj_destination_name = FR4000 //name of exitpoint in destination area
+  END
+
+/* add exitpoint for backwards travel */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 760 //x coordinate where the group will spawn
+    fj_loc_y       = 1235 //y coordinate where the group will spawn
+    fj_orientation = 13   //ESE - face direction in which group is looking after coming through
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = d5id1301 //name of this new exitpoint so it can be referenced for the travel region of the other area
+  END
+BUT_ONLY 
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~ID4001.are~) BEGIN
+ COPY_EXISTING ~ID4001.are~ ~override~
+ /* add travel region that links to other area */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel - kind of trigger area
+    fj_box_left     = 10  // x coordinate
+    fj_box_top      = 1080 // y coordinate
+    fj_box_right    = 300 // x coordinate
+    fj_box_bottom   = 1300 // y coordinate
+    fj_cursor_idx   = 30   //door - mouse cursor symbol
+    fj_flags        = 4
+    fj_vertex_0     = 10 + (1080 << 16) //start with the lowest point: x coodinate - y coordinate
+    fj_vertex_1     = 300 + (1080 << 16)
+    fj_vertex_2     = 300 + (1300 << 16)
+    fj_vertex_3     = 10 + (1300 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = d5ix1301 //name of this travel region so you can address it via script etc.
+    fj_destination_area = AR1301 //name of the destination area
+    fj_destination_name = d5id1301 //name of exitpoint in destination area
+  END
+/* don't think this is needed?
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 345 //x coordinate where the group will spawn
+    fj_loc_y       = 1200 //y coordinate where the group will spawn
+    fj_orientation = 12   //E - face direction in which group is looking after coming through
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = d5id1301 //name of this new exitpoint so it can be referenced for the travel region of the other area
+  END
+*/
+ BUT_ONLY
+END 
+
+////////////////////
+
+// mark real IWD vs IWD in EET
+
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__iwd_real.d5~) BEGIN
+  
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ID1000.are~) BEGIN
+<<<<<<<< d5/id1000_.baf
+IF
+	Global("D5_IWD_REAL","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_IWD_REAL","GLOBAL",1)
+	SetGlobal("D5_EET_IWD","GLOBAL",0)
+END
+>>>>>>>> 
+    COPY ~d5/id1000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id1000_.baf~
+    LAF cd_extend_bg_area_script STR_VAR area = ~id1000~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id1000_~ END
+  END
+
+  COPY_EXISTING ~sw1h04.itm~ ~override/d5__iwd_real.d5~
+
+END
+
+// set up scripts to make dragon's eye travel triggers reactive to where the player is
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~AR1301.are~) BEGIN
+<<<<<<<< d5/ar1301_.baf
+IF
+	Global("D5_IWD_REAL","GLOBAL",0)
+	Global("D5_EET_IWD","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_EET_IWD","GLOBAL",1)
+	TriggerActivation("d5ix4000",TRUE)
+END
+
+IF
+	Global("D5_IWD_REAL","GLOBAL",1)
+	Global("D5TRAVEL","AR1301",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5TRAVEL","AR1301",1)
+	TriggerActivation("d5ix4000",FALSE)
+END
+>>>>>>>> 
+  COPY ~d5/ar1301_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar1301_.baf~
+  LAF cd_extend_bg_area_script STR_VAR area = ~ar1301~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/ar1301_~ END
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~ID4001.are~) BEGIN
+<<<<<<<< d5/id4001_.baf
+IF
+	Global("D5_IWD_REAL","GLOBAL",1)
+	Global("D5_TRA_IWD","ID4001",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_TRA_IWD","ID4001",1)
+	SetGlobal("D5_TRA_BG2","ID4001",0)
+	TriggerActivation("To4000",TRUE)
+	TriggerActivation("d5ix1301",FALSE)
+END
+
+IF
+	Global("D5_EET_IWD","GLOBAL",1)
+	Global("D5_TRA_BG2","ID4001",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_TRA_IWD","ID4001",0)
+	SetGlobal("D5_TRA_BG2","ID4001",1)
+	TriggerActivation("To4000",FALSE)
+	TriggerActivation("d5ix1301",TRUE)
+END
+>>>>>>>> 
+  COPY ~d5/id4001_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id4001_.baf~
+  LAF cd_extend_bg_area_script STR_VAR area = ~id4001~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id4001_~ END
+END
+
+////////////////////
+
+// set up travel triggers to severed hand
+
+COPY_EXISTING ~AR1700.are~ ~override~
+ /* add travel region that links to other area */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel - kind of trigger area
+    fj_box_left     = 1 // 885  // x coordinate
+    fj_box_top      = 3025 // y coordinate
+    fj_box_right    = 850 // 1135 // x coordinate
+    fj_box_bottom   = 3135 // y coordinate
+    fj_cursor_idx   = 30   //door - mouse cursor symbol
+    fj_flags        = 4
+    fj_vertex_0     = 1 + (3025 << 16) //start with the lowest point: x coodinate - y coordinate
+    fj_vertex_1     = 850 + (3025 << 16)
+    fj_vertex_2     = 850 + (3135 << 16)
+    fj_vertex_3     = 1 + (3135 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = d5ix1700 //name of this travel region so you can address it via script etc.
+    fj_destination_area = id5000 //name of the destination area
+    fj_destination_name = d5id5000 //name of exitpoint in destination area
+  END
+BUT_ONLY
+
+COPY_EXISTING ~ID5000.are~ ~override~
+ /* add travel region that links to other area */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel - kind of trigger area
+    fj_box_left     = 465 // 885  // x coordinate
+    fj_box_top      = 805 // y coordinate
+    fj_box_right    = 1340 // 1135 // x coordinate
+    fj_box_bottom   = 895 // y coordinate
+    fj_cursor_idx   = 30   //door - mouse cursor symbol
+    fj_flags        = 4
+    fj_vertex_0     = 465 + (805 << 16) //start with the lowest point: x coodinate - y coordinate
+    fj_vertex_1     = 1340 + (805 << 16)
+    fj_vertex_2     = 1340 + (895 << 16)
+    fj_vertex_3     = 465 + (895 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = d5ix5000 //name of this travel region so you can address it via script etc.
+    fj_destination_area = AR1700 //name of the destination area
+    fj_destination_name = L-Exit //name of exitpoint in destination area
+  END
+
+/* add exitpoint for backwards travel */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 995 //x coordinate where the group will spawn
+    fj_loc_y       = 810 //y coordinate where the group will spawn
+    fj_orientation = 6   // NW - face direction in which group is looking after coming through
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = d5id5000 //name of this new exitpoint so it can be referenced for the travel region of the other area
+  END
+BUT_ONLY 
+
+
+////////////////////
+
+// set up scripts to make severed hand travel triggers reactive to where the player is
+
+// use the GV set up above for Easthaven 
+
+// also, make severed hand inaccessible without the heartstone gem
+
+<<<<<<<< d5/id5000_.baf
+IF
+	Global("D5_IWD_REAL","GLOBAL",1)
+	Global("D5_SH_IWD","ID5000",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_SH_IWD","ID5000",1)
+	SetGlobal("D5_SH_BG2","ID5000",0)
+	TriggerActivation("d5ix5000",FALSE)
+END
+
+IF
+	Global("D5_EET_IWD","GLOBAL",1)
+	Global("D5_SH_BG2","ID4001",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_SH_IWD","ID4001",0)
+	SetGlobal("D5_SH_BG2","ID4001",1)
+	TriggerActivation("d5ix5000",TRUE)
+END
+
+IF
+	PartyHasItem("HEARTGM")  // Heartstone Gem
+	Global("BGHeartstone_Active","GLOBAL",1)
+	Global("D5_HAS_HGEM","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_HAS_HGEM","ID5000",1)
+	SetGlobal("D5_NOT_HGEM","ID5000",0)
+	TriggerActivation("To5001",TRUE)
+END
+
+IF
+	OR(2)
+	  !PartyHasItem("HEARTGM")  // Heartstone Gem
+	  GlobalLT("BGHeartstone_Active","GLOBAL",1)
+	Global("D5_NOT_HGEM","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_HAS_HGEM","ID5000",0)
+	SetGlobal("D5_NOT_HGEM","ID5000",1)
+	TriggerActivation("To5001",FALSE)
+END
+>>>>>>>> 
+  COPY ~d5/id5000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id5000_.baf~
+  LAF cd_extend_bg_area_script STR_VAR area = ~id5000~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id5000_~ END
+
+////////////////////
+
+ACTION_IF (MOD_IS_INSTALLED ~d5_iwd_eet_integration.TP2~ ~110~) BEGIN	//	if this mod has set IWD XP to full campaign values
+
+// don't do quest XP in dragon's eye unless playing from IWD
+
+  COPY_EXISTING ~id4005.bcs~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      REPLACE_TEXTUALLY
+~Global("YXUNOMEI_SLAIN","GLOBAL",0)~ 
+~Global("YXUNOMEI_SLAIN","GLOBAL",0)
+    Global("D5_IWD_REAL","GLOBAL",1)~
+      REPLACE_TEXTUALLY
+~Global("Kuldahar_Attack","GLOBAL",0)~
+~Global("Kuldahar_Attack","GLOBAL",0)
+    Global("D5_IWD_REAL","GLOBAL",1)~
+    END
+
+// adjust presio XP reward in id3003.bcs as well
+
+  COPY ~%MOD_FOLDER%/data/copy/id4003.bcs~ ~override~
+
+// and adjust the reward from villagers in ID4001
+
+  COPY ~%MOD_FOLDER%/data/copy/dcapvil3.dlg~ ~override~
+
+END	//	end if iwd xp was restored
+
+////////////////////
+
+// change larrel's dialogue to activate gem and teleport party to athkatla, no cut-scene
+
+// ***** probably want to play some kind of visual effect when he activates it
+
+<<<<<<<< d5/dlarrel+.d
+APPEND ~dlarrel~
+  IF ~~ THEN BEGIN ~d5bglarrel1~
+    SAY #499608 /* ~With that said, what is it you seek to learn from the Heartstone Gem?~ */
+    IF ~~ THEN REPLY ~We seek to activate the Gem in order to learn the location of my friend, Imoen.~  GOTO d5bglarrel2
+    IF ~~ THEN REPLY ~We seek to activate the Gem in order to learn the location of the mage Jon Irenicus~  GOTO d5bglarrel2
+  END
+
+  IF ~~ THEN BEGIN ~d5bglarrel2~
+  SAY ~Then you will have what you seek. I will activate the Heartstone Gem, and then it may be used to pierce even the most powerful magical concealment.~
+  IF ~~ THEN REPLY #250768 /* ~Here you are.~ */ DO ~SetGlobal("BGHeartstone_Active","GLOBAL",2) DisplayStringNoNameDlg(LastTalkedToBy,499613)~ EXIT
+  END
+END
+
+EXTEND_BOTTOM DLARREL 15 
+  IF ~	Global("D5_EET_IWD","GLOBAL",1)
+      PartyHasItem("HEARTGM")~  THEN GOTO ~d5bglarrel1~
+END
+>>>>>>>> 
+COMPILE ~d5/dlarrel+.d~
+
+////////////////////
+
+// change gaelan's dialogue to send player to severed hand, and accept activated heartstone gem
+
+<<<<<<<< d5/gaelan+.d
+APPEND ~gaelan~
+  IF WEIGHT #9 ~ Global("Linvail","GLOBAL",0)
+    Global("ShadowWork","GLOBAL",1)
+    PartyHasItem("HEARTGM")
+    Global("BGHeartstone_Active","GLOBAL",0)
+    Global("BodiWork","GLOBAL",0) ~ 
+  THEN BEGIN ~d5hggaelan1~
+    SAY ~Coo! A little birdy told me ye've come into possession of an artifact that can do powerful divination. Though the use of it be tricky for most folks, we have someone who can use it to assist in reaching Imoen and Irenicus. In fact, we would so appreciate having the gem that, if ye can part with it, we can forego our fee entirely. And to be honest, ye haven't the ability to use it, so it's worth nothing to ye. What say ye?~
+    IF ~~ THEN REPLY ~Sure, sounds good. I guess I have no use for the gem anyway.~  GOTO d5hggaelan2
+    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 49
+    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 51
+  END
+
+  IF ~~ THEN BEGIN ~d5hggaelan2~
+    SAY ~Ah, it be as I feared: the gem is inactive. It needs to be woken up, ye might say. Luckily our contact was prepared for this possibility, and told me how it can be done. Ye will have to find an elven lich who has had experience with the gem in the distant past. Don't worry, he be friendly. I think. What do ye think? Are ye up for it?~
+    IF ~~ THEN REPLY ~If it helps get us to our goal, I will find this lich and activate the gem.~ GOTO d5hggaelan3
+    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~On second thought, let's keep things simple. I'll pay your fee instead.~  GOTO 49
+    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~On second thought, let's keep things simple. I'll pay your fee instead.~  GOTO 51
+  END
+
+  IF ~~ THEN BEGIN ~d5hggaelan3~
+    SAY ~Coo! I half didn't expect ye to show the stones for it. Very well then, ye be wanting to find a ruined elven fortress, far t'other side of Small Teeth Pass. I hear 'twas once called 'Hand of the Seldarine,' tho it be fairly severed now. The gem should gain ye entry, but I know not what lurks within. Best of luck to ye!~
+    IF ~~ THEN REPLY ~Very well.~ DO ~SetGlobal("BGHeartstone_Active","GLOBAL",1) RevealAreaOnMap("AR1700")~ EXIT
+  END
+
+  IF WEIGHT #10 ~Global("BGHeartstone_Active","GLOBAL",2)~ THEN BEGIN ~d5hggaelan4~
+  SAY ~Ye survived! Astounding. I mean, wonderful! Now, is our deal still good? Will ye turn over the gem to me?~
+  IF ~~ THEN REPLY #21033 /* ~Yes, Here you go.~ */ 
+    DO ~ EraseJournalEntry(96385)
+      AddJournalEntry(96385,QUEST_DONE)
+      AddJournalEntry(96437,QUEST)
+      EraseJournalEntry(34183)
+      EraseJournalEntry(34187)
+      AddXPObject(Player1,45000)
+      AddXPObject(Player2,45000)
+      AddXPObject(Player3,45000)
+      AddXPObject(Player4,45000)
+      AddXPObject(Player5,45000)
+      AddXPObject(Player6,45000)
+      SetGlobal("WorkingForAran","GLOBAL",1) ~ SOLVED_JOURNAL #47537 /* ~Collect the fee for Gaelan Bayle
+
+I have given Gaelan Bayle the gold he asked for, and in return he has given me a key which will admit me to see the head of the Athkatlan Shadow Thieves. I am to go to the thieves' guild, it seems, and use the key on a secret entrance which is immediately to the right as I enter. ~ */ GOTO 53
+    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 49
+    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 51
+  END
+END
+>>>>>>>> 
+COMPILE ~d5/gaelan+.d~
+

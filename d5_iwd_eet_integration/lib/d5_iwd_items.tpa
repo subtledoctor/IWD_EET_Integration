@@ -1,0 +1,294 @@
+////////////////////
+
+WITH_TRA ~%MOD_FOLDER%/lang/en_US/items.tra~ BEGIN
+
+COPY ~%MOD_FOLDER%/data/iwd_items/shared~ ~override~
+
+COPY ~%MOD_FOLDER%/data/iwd_items/amulbar.itm~ ~override~
+  SAY NAME2 @1011
+  SAY DESC @1012
+
+OUTER_SET spell_ids = IDS_OF_SYMBOL (~spell~ ~WIZARD_EMOTION_COURAGE~)
+ACTION_IF !(spell_ids = 0 - 1) BEGIN
+  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_EMOTION_COURAGE~ RET spell_res END
+  COPY ~%MOD_FOLDER%/data/iwd_items/amulbra.itm~ ~override~
+   SAY NAME2 @1021
+   SAY DESC @1022
+   LPF ALTER_EFFECT INT_VAR match_opcode = 148 STR_VAR resource = EVAL ~%spell_res%~ END
+END
+
+COPY ~%MOD_FOLDER%/data/iwd_items/bardic.itm~ ~override~
+  SAY NAME2 @1031
+  SAY DESC @1032
+
+COPY ~%MOD_FOLDER%/data/iwd_items/beetshld.itm~ ~override~
+  SAY NAME2 @1041
+  SAY DESC @1042
+
+OUTER_SET spell_ids = IDS_OF_SYMBOL (~spell~ ~CLERIC_CIRCLE_OF_BONES~)
+ACTION_IF !(spell_ids = 0 - 1) BEGIN
+  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CIRCLE_OF_BONES~ RET spell_res END
+  COPY ~%MOD_FOLDER%/data/iwd_items/beltbon.itm~ ~override~
+   SAY NAME2 @1051
+   SAY DESC @1052
+   LPF ALTER_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~sppr323~ resource = EVAL ~%spell_res%~ END
+END
+
+COPY ~%MOD_FOLDER%/data/iwd_items/biteme.itm~ ~override~
+  SAY NAME2 @1061
+  SAY DESC @1062
+
+COPY ~%MOD_FOLDER%/data/iwd_items/boneam.itm~ ~override~
+  SAY NAME2 @1071
+  SAY DESC @1072
+
+COPY ~%MOD_FOLDER%/data/iwd_items/bootman.itm~ ~override~
+  SAY NAME2 @1081
+  SAY DESC @1082
+
+COPY ~%MOD_FOLDER%/data/iwd_items/bootmoa.itm~ ~override~
+  SAY NAME2 @1091
+  SAY DESC @1092
+
+COPY ~%MOD_FOLDER%/data/iwd_items/bwtalis.itm~ ~override~
+  SAY NAME2 @1101
+  SAY DESC @1102
+
+COPY ~%MOD_FOLDER%/data/iwd_items/cdrelm.itm~ ~override~
+  SAY NAME2 @1111
+  SAY DESC @1112
+
+OUTER_SET spell_ids = IDS_OF_SYMBOL (~spell~ ~WIZARD_EMOTION_COURAGE~)
+ACTION_IF !(spell_ids = 0 - 1) BEGIN
+  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_EMOTION_COURAGE~ RET spell_res END
+  COPY ~%MOD_FOLDER%/data/iwd_items/cittern.itm~ ~override~
+   SAY NAME2 @1121
+   SAY DESC @1122
+   LPF ALTER_EFFECT INT_VAR match_opcode = 148 STR_VAR resource = EVAL ~%spell_res%~ END
+END
+
+COPY ~%MOD_FOLDER%/data/iwd_items/clckbs.itm~ ~override~
+  SAY NAME2 @1131
+  SAY DESC @1132
+
+OUTER_SET spell_ids = IDS_OF_SYMBOL (~spell~ ~CLERIC_WHIRLWIND~)
+ACTION_IF !(spell_ids = 0 - 1) BEGIN
+  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_WHIRLWIND~ RET spell_res END
+  COPY ~%MOD_FOLDER%/data/iwd_items/cone.itm~ ~override~
+   SAY NAME2 @1141
+   SAY DESC @1142
+   LPF ALTER_EFFECT INT_VAR match_opcode = 148 STR_VAR match_resource = ~sppr617~ resource = EVAL ~%spell_res%~ END
+END
+
+COPY ~%MOD_FOLDER%/data/iwd_items/corello.itm~ ~override~
+  SAY NAME2 @1151
+  SAY DESC @1152
+
+COPY ~%MOD_FOLDER%/data/iwd_items/dazer.itm~ ~override~
+  SAY NAME2 @1161
+  SAY DESC @1162
+
+COPY ~%MOD_FOLDER%/data/iwd_items/diver.itm~ ~override~
+  SAY NAME2 @1171
+  SAY DESC @1172
+
+COPY ~%MOD_FOLDER%/data/iwd_items/erevain.itm~ ~override~
+  SAY NAME2 @1181
+  SAY DESC @1182
+
+COPY ~%MOD_FOLDER%/data/iwd_items/fkiller.itm~ ~override~
+  SAY NAME2 @1191
+  SAY DESC @1192
+
+COPY ~%MOD_FOLDER%/data/iwd_items/force.itm~ ~override~
+  SAY NAME2 @1201
+  SAY DESC @1202
+
+COPY ~%MOD_FOLDER%/data/iwd_items/holdfst.itm~ ~override~
+  SAY NAME2 @1211
+  SAY DESC @1212
+
+COPY ~%MOD_FOLDER%/data/iwd_items/intrces.itm~ ~override~
+  SAY NAME2 @1221
+  SAY DESC @1222
+
+COPY ~%MOD_FOLDER%/data/iwd_items/kreswrd.itm~ ~override~
+  SAY NAME2 @1231
+  SAY DESC @1232
+
+COPY ~%MOD_FOLDER%/data/iwd_items/lucky.itm~ ~override~
+  SAY NAME2 @1241
+  SAY DESC @1242
+
+COPY ~%MOD_FOLDER%/data/iwd_items/lyre.itm~ ~override~
+  SAY NAME2 @1251
+  SAY DESC @1252
+
+COPY ~%MOD_FOLDER%/data/iwd_items/mhorn.itm~ ~override~
+  SAY NAME2 @1261
+  SAY DESC @1262
+
+COPY ~%MOD_FOLDER%/data/iwd_items/nature.itm~ ~override~
+  SAY NAME2 @1271
+  SAY DESC @1272
+
+COPY ~%MOD_FOLDER%/data/iwd_items/ohbrac01.itm~ ~override~
+  SAY NAME2 @1281
+  SAY DESC @1282
+
+COPY ~%MOD_FOLDER%/data/iwd_items/ohioun02.itm~ ~override~
+  SAY NAME2 @1291
+  SAY DESC @1292
+
+COPY ~%MOD_FOLDER%/data/iwd_items/peaceke.itm~ ~override~
+  SAY NAME2 @1301
+  SAY DESC @1302
+
+COPY ~%MOD_FOLDER%/data/iwd_items/poker.itm~ ~override~
+  SAY NAME2 @1311
+  SAY DESC @1312
+
+COPY ~%MOD_FOLDER%/data/iwd_items/shboots.itm~ ~override~
+  SAY NAME2 @1321
+  SAY DESC @1322
+
+COPY ~%MOD_FOLDER%/data/iwd_items/shstaff.itm~ ~override~
+  SAY NAME2 @1331
+  SAY DESC @1332
+
+COPY ~%MOD_FOLDER%/data/iwd_items/slinged.itm~ ~override~
+  SAY NAME2 @1341
+  SAY DESC @1342
+
+COPY ~%MOD_FOLDER%/data/iwd_items/solonor.itm~ ~override~
+  SAY NAME2 @1351
+  SAY DESC @1352
+
+COPY ~%MOD_FOLDER%/data/iwd_items/spine.itm~ ~override~
+  SAY NAME2 @1361
+  SAY DESC @1362
+
+COPY ~%MOD_FOLDER%/data/iwd_items/stafhmg.itm~ ~override~
+  SAY NAME2 @1371
+  SAY DESC @1372
+
+COPY ~%MOD_FOLDER%/data/iwd_items/stout.itm~ ~override~
+  SAY NAME2 @1381
+  SAY DESC @1382
+
+COPY ~%MOD_FOLDER%/data/iwd_items/trnbolt.itm~ ~override~
+  SAY NAME2 @1391
+  SAY DESC @1392
+
+COPY ~%MOD_FOLDER%/data/iwd_items/turodah.itm~ ~override~
+  SAY NAME2 @1401
+  SAY DESC @1402
+
+COPY ~%MOD_FOLDER%/data/iwd_items/u1ham2a.itm~ ~override~
+  SAY NAME2 @1411
+  SAY DESC @1412
+
+COPY ~%MOD_FOLDER%/data/iwd_items/uarow2a.itm~ ~override~
+  SAY NAME2 @1421
+  SAY DESC @1422
+
+COPY ~%MOD_FOLDER%/data/iwd_items/udagg2a.itm~ ~override~
+  SAY NAME2 @1431
+  SAY DESC @1432
+  WRITE_ASCII 0x3a ~D5DAGG2A~ #8
+
+COPY ~%MOD_FOLDER%/data/iwd_items/udart3b.itm~ ~override~
+  SAY NAME2 @1441
+  SAY DESC @1442
+
+COPY ~%MOD_FOLDER%/data/iwd_items/uflal2a.itm~ ~override~
+  SAY NAME2 @1451
+  SAY DESC @1452
+//  WRITE_ASCII 0x3a ~D5FLAL2A~ #8	// *
+
+COPY ~%MOD_FOLDER%/data/iwd_items/uhalb3a.itm~ ~override~
+  SAY NAME2 @1461
+  SAY DESC @1462
+  WRITE_ASCII 0x3a ~D5HALB3A~ #8
+
+COPY ~%MOD_FOLDER%/data/iwd_items/uhxbw3a.itm~ ~override~
+  SAY NAME2 @1471
+  SAY DESC @1472
+  WRITE_ASCII 0x3a ~D5HXBW3A~ #8
+
+COPY ~%MOD_FOLDER%/data/iwd_items/ulbow3c.itm~ ~override~
+  SAY NAME2 @1481
+  SAY DESC @1482
+  WRITE_ASCII 0x3a ~D5LBOW3C~ #8
+
+COPY ~%MOD_FOLDER%/data/iwd_items/ulxbw3a.itm~ ~override~
+  SAY NAME2 @1491
+  SAY DESC @1492
+  WRITE_ASCII 0x3a ~D5LXBW3A~ #8
+
+COPY ~%MOD_FOLDER%/data/iwd_items/umhulk.itm~ ~override~
+  SAY NAME2 @1501
+  SAY DESC @1502
+
+COPY ~%MOD_FOLDER%/data/iwd_items/umstr2b.itm~ ~override~
+  SAY NAME2 @1511
+  SAY DESC @1512
+  WRITE_ASCII 0x3a ~D5MSTR2B~ #8
+
+COPY ~%MOD_FOLDER%/data/iwd_items/uring3b.itm~ ~override~
+  SAY NAME2 @1521
+  SAY DESC @1522
+  WRITE_ASCII 0x3a ~D5RING3B~ #8
+
+COPY ~%MOD_FOLDER%/data/iwd_items/urobe1a.itm~ ~override~
+  SAY NAME2 @1531
+  SAY DESC @1532
+  WRITE_ASCII 0x3a ~D5ROBE1A~ #8
+
+COPY ~%MOD_FOLDER%/data/iwd_items/usltr2a.itm~ ~override~
+  SAY NAME2 @1541
+  SAY DESC @1542
+  WRITE_ASCII 0x3a ~D5SLTR2A~ #8
+
+COPY ~%MOD_FOLDER%/data/iwd_items/uspot1a.itm~ ~override~
+  SAY NAME2 @1551
+  SAY DESC @1552
+
+COPY ~%MOD_FOLDER%/data/iwd_items/uspot3c.itm~ ~override~
+  SAY NAME2 @1561
+  SAY DESC @1562
+
+COPY ~%MOD_FOLDER%/data/iwd_items/uspot4b.itm~ ~override~
+  SAY NAME2 @1571
+  SAY DESC @1572
+
+COPY ~%MOD_FOLDER%/data/iwd_items/wandmis.itm~ ~override~
+  SAY NAME2 @1581
+  SAY DESC @1582
+
+COPY ~%MOD_FOLDER%/data/iwd_items/zze6pe.itm~ ~override~
+  SAY NAME2 @1591
+  SAY DESC @1592
+
+COPY ~%MOD_FOLDER%/data/iwd_items/zzm5mh.itm~ ~override~
+  SAY NAME2 @1601
+  SAY DESC @1602
+
+COPY ~%MOD_FOLDER%/data/iwd_items/zzs6sc.itm~ ~override~
+  SAY NAME2 @1611
+  SAY DESC @1612
+
+COPY ~%MOD_FOLDER%/data/iwd_items/u1hax4B.itm~ ~override~
+  SAY NAME2 @1621
+  SAY DESC @1622
+  WRITE_ASCII 0x3a ~D51HAX4B~ #8
+
+COPY ~%MOD_FOLDER%/data/iwd_items/helmpat.itm~ ~override~
+  SAY NAME2 @1631
+  SAY DESC @1632
+
+COPY ~%MOD_FOLDER%/data/iwd_items/bess.itm~ ~override~
+  SAY NAME2 @1641
+  SAY DESC @1642
+
+END	//	end with_tra

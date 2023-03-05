@@ -1,0 +1,205 @@
+////////////////////
+
+// mark real IWD vs IWD in EET
+
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__iwd_real.d5~) BEGIN
+  
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ID1000.are~) BEGIN
+<<<<<<<< d5/id1000_.baf
+IF
+	Global("D5_IWD_REAL","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_IWD_REAL","GLOBAL",1)
+	SetGlobal("D5_EET_IWD","GLOBAL",0)
+END
+>>>>>>>> 
+    COPY ~d5/id1000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id1000_.baf~
+    LAF cd_extend_bg_area_script STR_VAR area = ~id1000~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id1000_~ END
+  END
+
+  COPY_EXISTING ~sw1h04.itm~ ~override/d5__iwd_real.d5~
+
+END
+
+// add Hjollder to Bridge District
+
+COPY_EXISTING ~AR0500.are~ ~override~
+	LPF add_area_cre_acti
+		INT_VAR
+			pos_x       =   190
+			pos_y       =   2700
+			flags       =   9
+			anim        =   57927
+		STR_VAR
+			actor_name  = "Hjollder"
+			over_scr    = "IWHIDE1"
+			genr_scr    = "LWHJOLO"
+			clas_scr    = "EFPIKHST"
+			race_scr    = "EFMKENMY"
+			defl_scr    = "EFDLGMH"
+			cre_file    = "HJOLLDER"
+	END
+
+////////////////////
+
+// area script to make Hjollder disappear from Bridge district if already played HoW
+
+<<<<<<<< d5/ar0500_.baf
+IF
+	GlobalGT("Hjollder_Quest","GLOBAL",1)
+	GlobalLT("Hjollder_Quest","GLOBAL",999)
+THEN
+	RESPONSE #100
+		SetGlobal("Hjollder_Quest","GLOBAL",999)
+		ActionOverride("Hjollder",DestroySelf())
+END
+
+IF
+	GlobalLT("Hjollder_Quest","GLOBAL",2)
+	Global("HoW_BG2","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("HoW_BG2","GLOBAL",1)
+END
+>>>>>>>> 
+COPY ~d5/ar0500_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar0500_.baf~
+
+LAF cd_extend_bg_area_script STR_VAR area = ~ar0500~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/ar0500_~ END
+
+////////////////////
+
+// change end script to teleport party to the correct place - Ulgoth's Beard or Bridge District
+
+<<<<<<<< d5/IDTOEET.baf
+IF
+	Global("HoW_BG2","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(1)
+		ApplySpellRES("bdresurr",Player2)  // No such index
+		ApplySpellRES("bdresurr",Player3)  // No such index
+		ApplySpellRES("bdresurr",Player4)  // No such index
+		ApplySpellRES("bdresurr",Player5)  // No such index
+		ApplySpellRES("bdresurr",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("IDRM517",Player1)  // Resurrection
+		ApplySpellRES("IDRM517",Player2)  // Resurrection
+		ApplySpellRES("IDRM517",Player3)  // Resurrection
+		ApplySpellRES("IDRM517",Player4)  // Resurrection
+		ApplySpellRES("IDRM517",Player5)  // Resurrection
+		ApplySpellRES("IDRM517",Player6)  // Resurrection
+		Wait(1)
+		ApplySpellRES("bddispel",Player1)  // No such index
+		ApplySpellRES("bddispel",Player2)  // No such index
+		ApplySpellRES("bddispel",Player3)  // No such index
+		ApplySpellRES("bddispel",Player4)  // No such index
+		ApplySpellRES("bddispel",Player5)  // No such index
+		ApplySpellRES("bddispel",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("bdrejuve",Player1)  // No such index
+		ApplySpellRES("bdrejuve",Player2)  // No such index
+		ApplySpellRES("bdrejuve",Player3)  // No such index
+		ApplySpellRES("bdrejuve",Player4)  // No such index
+		ApplySpellRES("bdrejuve",Player5)  // No such index
+		ApplySpellRES("bdrejuve",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(2)
+		ActionOverride(Player2,LeaveAreaLUA("BG1001","",[668.193],N))  // Ulgoth's Beard: Inn
+		ActionOverride(Player3,LeaveAreaLUA("BG1001","",[707.219],NE))  // Ulgoth's Beard: Inn
+		ActionOverride(Player4,LeaveAreaLUA("BG1001","",[757.192],NW))  // Ulgoth's Beard: Inn
+		ActionOverride(Player5,LeaveAreaLUA("BG1001","",[653.220],NNE))  // Ulgoth's Beard: Inn
+		ActionOverride(Player6,LeaveAreaLUA("BG1001","",[755.209],NNW))  // Ulgoth's Beard: Inn
+		LeaveAreaLUAPanic("BG1001","",[709.192],N)  // Ulgoth's Beard: Inn
+		LeaveAreaLUA("BG1001","",[709.192],N)  // Ulgoth's Beard: Inn
+		Wait(1)
+		FadeFromColor([15.0],0)
+		Wait(2)
+		EndCutSceneMode()
+END
+
+IF
+	Global("HoW_BG2","GLOBAL",1)
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(1)
+		ApplySpellRES("bdresurr",Player2)  // No such index
+		ApplySpellRES("bdresurr",Player3)  // No such index
+		ApplySpellRES("bdresurr",Player4)  // No such index
+		ApplySpellRES("bdresurr",Player5)  // No such index
+		ApplySpellRES("bdresurr",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("IDRM517",Player1)  // Resurrection
+		ApplySpellRES("IDRM517",Player2)  // Resurrection
+		ApplySpellRES("IDRM517",Player3)  // Resurrection
+		ApplySpellRES("IDRM517",Player4)  // Resurrection
+		ApplySpellRES("IDRM517",Player5)  // Resurrection
+		ApplySpellRES("IDRM517",Player6)  // Resurrection
+		Wait(1)
+		ApplySpellRES("bddispel",Player1)  // No such index
+		ApplySpellRES("bddispel",Player2)  // No such index
+		ApplySpellRES("bddispel",Player3)  // No such index
+		ApplySpellRES("bddispel",Player4)  // No such index
+		ApplySpellRES("bddispel",Player5)  // No such index
+		ApplySpellRES("bddispel",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("bdrejuve",Player1)  // No such index
+		ApplySpellRES("bdrejuve",Player2)  // No such index
+		ApplySpellRES("bdrejuve",Player3)  // No such index
+		ApplySpellRES("bdrejuve",Player4)  // No such index
+		ApplySpellRES("bdrejuve",Player5)  // No such index
+		ApplySpellRES("bdrejuve",Player6)  // No such index
+		Wait(1)
+		ApplySpellRES("clearcld",Myself)  // No such index
+		Wait(2)
+		ActionOverride(Player2,LeaveAreaLUA("AR0500","",[115.2700],N)) 
+		ActionOverride(Player3,LeaveAreaLUA("AR0500","",[150.2760],NE))
+		ActionOverride(Player4,LeaveAreaLUA("AR0500","",[210.2790],NW))
+		ActionOverride(Player5,LeaveAreaLUA("AR0500","",[270.2790],NNE))
+		ActionOverride(Player6,LeaveAreaLUA("AR0500","",[320.2740],NNW))
+		LeaveAreaLUAPanic("AR0500","",[330.2680],N)
+		LeaveAreaLUA("AR0500","",[330.2680],N)
+		Wait(1)
+		FadeFromColor([15.0],0)
+		Wait(2)
+		EndCutSceneMode()
+END
+>>>>>>>> 
+COPY ~d5/IDTOEET.baf~ ~weidu_external/%MOD_FOLDER%/compile/IDTOEET.baf~
+
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/IDTOEET.BAF~
+
+////////////////////
+
+// make XP rewards in HoW reactive to how you got there (less xp from BG2, more from IWD)
+
+ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
+  COPY ~%MOD_FOLDER%/data/copy/id9200.bcs~ ~override~
+  COPY ~%MOD_FOLDER%/data/copy/ildrgdie.bcs~ ~override~
+  COPY ~%MOD_FOLDER%/data/copy/ilgemded.bcs~ ~override~
+  COPY ~%MOD_FOLDER%/data/copy/ilgemeff.bcs~ ~override~
+
+ WITH_TRA ~iwd1_eet/lang/%LANGUAGE%/dialog.tra~ BEGIN
+  COMPILE ~%MOD_FOLDER%/data/compile/dambere.d~
+  COMPILE ~%MOD_FOLDER%/data/compile/dhailee.d~
+  COMPILE ~%MOD_FOLDER%/data/compile/demmrch.d~
+  COMPILE ~%MOD_FOLDER%/data/compile/dkieran2.d~
+  COMPILE ~%MOD_FOLDER%/data/compile/dmurdaug.d~
+  COMPILE ~%MOD_FOLDER%/data/compile/dangaar.d~
+  COMPILE ~%MOD_FOLDER%/data/compile/dbeornen.d~
+  COMPILE ~%MOD_FOLDER%/data/compile/dhjollde.d~
+  COMPILE ~%MOD_FOLDER%/data/compile/dtiernon.d~
+  COMPILE ~%MOD_FOLDER%/data/compile/dtybald.d~
+  COMPILE ~%MOD_FOLDER%/data/compile/dwylf.d~
+ END
+END
+
+////////////////////
+
+// ***** should remove the wildly OP items
+

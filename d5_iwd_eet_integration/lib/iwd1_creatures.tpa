@@ -1,0 +1,203 @@
+////////////////////
+
+ACTION_FOR_EACH cre_file_half IN
+  ~goblin~
+  ~goblina~
+  ~gobline~
+  ~goblinea~
+  ~goblinsp~
+  ~goboaxe~
+  ~gobobow~
+  ~gobehq1~
+  ~ms2gobe~
+  ~sdgobax1~
+  ~sdgobax2~
+  ~sdgobbw1~
+  ~sdgobbw2~
+  ~sdgobtrn~
+  ~neguar01~
+  ~neguar02~
+  ~vsshadow~
+  ~vsyeti~
+  ~ktgst1~
+  ~ktghl1~
+  ~ktsk1~
+  ~ktzom1~
+  ~ktska1~
+  ~ktska2~
+  ~ktska3~
+  ~acolyte~
+  ~acolyted~
+  ~idspidwr~
+  ~beetbomb~
+  ~beetbor~
+  ~wightcol~
+  ~zombiep~
+  ~histach~
+  ~udwight~
+  ~udghoul~
+  ~udghast~
+BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%cre_file_half%.cre~) BEGIN
+    COPY_EXISTING ~%cre_file_half%.cre~ ~override~
+      READ_SHORT 0x24 curhp
+      READ_SHORT 0x26 maxhp
+      SET new_curhp = (curhp / 2)
+      SET new_maxhp = (maxhp / 2)
+      WRITE_SHORT 0x24 new_curhp
+      WRITE_SHORT 0x26 new_maxhp
+      SPRINT $mod_cres(~%SOURCE_RES%~)~1~
+  END
+END
+
+ACTION_FOR_EACH cre_file_third IN
+  ~ktwgt1~
+  ~ktwgt1i~
+  ~ktmum1~
+  ~idspidsw~
+  ~idspidph~
+  ~talonaf~
+  ~talonam~
+  ~albion~
+  ~eldathyf~
+  ~eldathyn~
+  ~winwol~
+  ~wticetrl~
+  ~orc2004~
+  ~orca2004~
+  ~orcewaxe~
+  ~orcewbow~
+  ~orcsham~
+  ~orcwaxe~
+  ~orcwbow~
+  ~rkpgobe~
+  ~rkpgobea~
+  ~rktskelm~
+  ~rktskelr~
+  ~rocorca~
+  ~rshorca~
+  ~rshorcb~
+  ~sdorcax1~
+  ~sdorcax3~
+  ~sdorcbw1~
+  ~sdorcbw2~
+  ~sdorcshm~
+  ~lm1hwax~
+  ~lm1hwaxy~
+  ~lm1hwms~
+  ~lm1hwmsy~
+  ~lm1hwpo~
+  ~lm1hwpoy~
+  ~lm2hwla~
+  ~lm2hwlay~
+  ~lm2hwna~
+  ~lm2hwnay~
+  ~lm2hwte~
+  ~lm2hwtey~
+  ~lmsham1~
+  ~lmsham2~
+  ~lmsham3~
+  ~lmshkid~
+BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%cre_file_third%.cre~) BEGIN
+    COPY_EXISTING ~%cre_file_third%.cre~ ~override~
+      READ_SHORT 0x24 curhp
+      READ_SHORT 0x26 maxhp
+      SET midcur = (curhp * 2)
+      SET midmax = (maxhp * 2)
+      SET new_curhp = (midcur / 3)
+      SET new_maxhp = (midmax / 3)
+      WRITE_SHORT 0x24 new_curhp
+      WRITE_SHORT 0x26 new_maxhp
+      SPRINT $mod_cres(~%SOURCE_RES%~)~1~
+  END
+END
+
+ACTION_FOR_EACH cre_file_fourth IN
+  ~neoorog~
+  ~neoorogc~
+  ~neooroge~
+  ~neoorogg~
+  ~neoorogs~
+  ~sdelfac~
+  ~sdelfacz~
+  ~sdelfbw1~
+  ~sdelfbw2~
+  ~sdelfcl~
+  ~sdelfcl2~
+  ~sdelfclz~
+  ~sdelfof1~
+  ~sdelfof2~
+  ~sdelfof3~
+  ~sdelfpr~
+  ~sdelfsw2~
+  ~sdelfsw3~
+  ~sdelfsw4~
+  ~sdelfsw5~
+  ~sdelfwz1~
+BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%cre_file_fourth%.cre~) BEGIN
+    COPY_EXISTING ~%cre_file_fourth%.cre~ ~override~
+      READ_SHORT 0x24 curhp
+      READ_SHORT 0x26 maxhp
+      SET midcur = (curhp * 3)
+      SET midmax = (maxhp * 3)
+      SET new_curhp = (midcur / 4)
+      SET new_maxhp = (midmax / 4)
+      WRITE_SHORT 0x24 new_curhp
+      WRITE_SHORT 0x26 new_maxhp
+      SPRINT $mod_cres(~%SOURCE_RES%~)~1~
+  END
+END
+
+ACTION_FOR_EACH cre_file_set_42 IN
+  ~yuaxdin~
+  ~yubldin~
+  ~yuswdin~
+  ~yuanmag~
+  ~yuanmag~
+  ~yuanwax~
+  ~yuanwbi~
+  ~yuanwsw~
+  ~skelblad~
+  ~skelarm~
+  ~skelblaz~
+  ~skelbow~
+BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%cre_file_set_42%.cre~) BEGIN
+    COPY_EXISTING ~%cre_file_set_42%.cre~ ~override~
+      WRITE_SHORT 0x24 42
+      WRITE_SHORT 0x26 42
+      SPRINT $mod_cres(~%SOURCE_RES%~)~1~
+  END
+END
+
+ACTION_FOR_EACH cre_file_set_50 IN
+  ~shadsoul~
+  ~verbeeg~
+  ~yuaewax~
+  ~yuaewbl~
+  ~yuaewbo~
+  ~yuaewsw~
+BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%cre_file_set_50%.cre~) BEGIN
+    COPY_EXISTING ~%cre_file_set_50%.cre~ ~override~
+      WRITE_SHORT 0x24 50
+      WRITE_SHORT 0x26 50
+      SPRINT $mod_cres(~%SOURCE_RES%~)~1~
+  END
+END
+
+ACTION_FOR_EACH cre_file_set_65 IN
+  ~wtsalf1~
+  ~wtsalf2~
+  ~wtsalf3~
+  ~wtsnotro~
+BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%cre_file_set_65%.cre~) BEGIN
+    COPY_EXISTING ~%cre_file_set_65%.cre~ ~override~
+      WRITE_SHORT 0x24 65
+      WRITE_SHORT 0x26 65
+      SPRINT $mod_cres(~%SOURCE_RES%~)~1~
+  END
+END

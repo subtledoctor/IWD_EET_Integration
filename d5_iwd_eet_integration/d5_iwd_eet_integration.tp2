@@ -1,7 +1,7 @@
 BACKUP ~d5_iwd_eet_integration/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~0.5~
+VERSION ~0.6~
 
 ALWAYS
 
@@ -9,10 +9,21 @@ ALWAYS
 
 END
 
-LANGUAGE
-  ~English~
-  ~english~
-  ~d5_iwd_eet_integration/lang/english/setup.tra~
+LANGUAGE ~Russian~
+	     ~ru_RU~
+	     ~d5_iwd_eet_integration/lang/ru_RU/dialog.tra~
+LANGUAGE ~English~
+	     ~en_US~
+	     ~d5_iwd_eet_integration/lang/en_US/setup.tra~
+LANGUAGE ~Deutsch~
+	     ~de_DE~
+	     ~d5_iwd_eet_integration/lang/de_DE/dialog.tra~
+LANGUAGE ~Français~
+	     ~fr_FR~
+	     ~d5_iwd_eet_integration/lang/fr_FR/dialog.tra~
+LANGUAGE ~Español~
+	     ~es_ES~
+	     ~d5_iwd_eet_integration/lang/es_ES/dialog.tra~
 
 
 ////////////////////
@@ -21,929 +32,109 @@ LANGUAGE
 
 BEGIN ~Add IWD Campaigns to EET Start Screen~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) OR (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) ~IWD campaigns required~
+DESIGNATED 100
+LABEL ~D5_TIPUN_IWD_CAMPAIGNS~
 
-ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
-    COPY_EXISTING ~songlist.2da~ ~override~
-      COUNT_2DA_ROWS 3 rows
-      FOR (row = 1; row < rows; ++row) BEGIN
-        READ_2DA_ENTRY row 0 3 index
-        READ_2DA_ENTRY row 1 3 theme
-        PATCH_IF (~%theme%~ STRING_EQUAL_CASE ~idthm~) BEGIN
-          PATCH_PRINT ~iwd1_theme_music = %index%~
-          SET iwd1_theme_music = %index%
-        END
-      END
-    BUT_ONLY
-  ACTION_IF !(VARIABLE_IS_SET %iwd1_theme_music%) BEGIN
-    OUTER_SPRINT iwd1_theme_music ~*~
-  END
+INCLUDE ~%MOD_FOLDER%/lib/campaign_separator.tpa~
 
-  APPEND ~campaign.2da~ ~ID1            BALDUR         -1             7              *              *              MASTAREA       %iwd1_theme_music%           -1             *              *              *              save           IDSTARTA       STRTGOLD       IDSTARTP       STWEAPON       STWEAPON       *              *              WORLDMAP       BALDUR         1              0xFFFFFFFF     0              IDINTRO        PARTY          INTERACT       D5IDYRS        REPUTATI       CLASTEXT       RACETEXT
-~
-
-  COPY ~%MOD_FOLDER%/data/idstarta.2da~ ~override~
-  COPY ~%MOD_FOLDER%/data/idstartp.2da~ ~override~
-  COPY ~%MOD_FOLDER%/data/d5idyrs.2da~ ~override~
-
-  COPY_EXISTING ~bgee.lua~ ~override~
-    REPLACE_TEXTUALLY ~START_CAMPAIGN_TUT = 7,~ ~START_CAMPAIGN_TUT = 7,%WNL%%TAB%START_CAMPAIGN_ID1 = 8,~
-  IF_EXISTS BUT_ONLY
-
-  COPY_EXISTING ~M_K#TBL.lua~ ~override~
-    REPLACE_TEXTUALLY 
-~{id = 'TUT', name = 'EET_CMP_TITLE_TUT', description = 'EET_CMP_TEXT_TUT', title = 6, bigLogo = 6, icon = 6, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = false, cheatAreasTable = cheatAreasTutorial},
-}~
-~{id = 'TUT', name = 'EET_CMP_TITLE_TUT', description = 'EET_CMP_TEXT_TUT', title = 6, bigLogo = 6, icon = 6, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = false, cheatAreasTable = cheatAreasTutorial},
-%TAB%{id = 'ID1', name = 'EET_CMP_TITLE_ID1', description = 'EET_CMP_TEXT_ID1', title = 7, bigLogo = 7, icon = 7, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
-}~
-    REPLACE_TEXTUALLY 
-~EET_CMP_TITLE_BG1 =~
-~EET_CMP_TEXT_ID1 = "\"Welcome to Icewind Dale\" - tipun",
-    EET_CMP_TITLE_BG1 =~
-    REPLACE_TEXTUALLY 
-~EET_WARNING_TITLE =~
-~EET_CMP_TITLE_ID1 = "Icewind Dale",
-    EET_WARNING_TITLE =~
-  IF_EXISTS BUT_ONLY
-
-END
-
-ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) BEGIN
-    COPY_EXISTING ~songlist.2da~ ~override~
-      COUNT_2DA_ROWS 3 rows
-      FOR (row = 1; row < rows; ++row) BEGIN
-        READ_2DA_ENTRY row 0 3 index
-        READ_2DA_ENTRY row 1 3 theme
-        PATCH_IF (~%theme%~ STRING_EQUAL_CASE ~iwthm~) BEGIN
-          PATCH_PRINT ~iwd2_theme_music = %index%~
-          SET iwd2_theme_music = %index%
-        END
-      END
-    BUT_ONLY
-  ACTION_IF !(VARIABLE_IS_SET %iwd2_theme_music%) BEGIN
-    OUTER_SPRINT iwd2_theme_music ~*~
-  END
-
-  APPEND ~campaign.2da~ ~ID2            BALDUR         -1             9              *              *              MASTAREA       %iwd2_theme_music%           -1             *              *              *              save           IWSTARTA       STRTGOLD       IWSTARTP       STWEAPON       STWEAPON       *              *              WORLDMAP       BALDUR         1              0xFFFFFFFF     0              IWINTRO        PARTY          INTERACT       D5IWYRS        REPUTATI       CLASTEXT       RACETEXT
-~
-
-  COPY ~%MOD_FOLDER%/data/iwstarta.2da~ ~override~
-  COPY ~%MOD_FOLDER%/data/iwstartp.2da~ ~override~
-  COPY ~%MOD_FOLDER%/data/d5iwyrs.2da~ ~override~
-
-  COPY_EXISTING ~bgee.lua~ ~override~
-    REPLACE_TEXTUALLY ~START_CAMPAIGN_ID1 = 8,~  ~START_CAMPAIGN_ID1 = 8,%WNL%%TAB%START_CAMPAIGN_ID2 = 9,~
-  BUT_ONLY
-
-  COPY_EXISTING ~M_K#TBL.lua~ ~override~
-      REPLACE_TEXTUALLY 
-~{id = 'ID1', name = 'EET_CMP_TITLE_ID1', description = 'EET_CMP_TEXT_ID1', title = 7, bigLogo = 7, icon = 7, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
-}~
-~{id = 'ID1', name = 'EET_CMP_TITLE_ID1', description = 'EET_CMP_TEXT_ID1', title = 7, bigLogo = 7, icon = 7, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
-%TAB%{id = 'ID2', name = 'EET_CMP_TITLE_ID2', description = 'EET_CMP_TEXT_ID2', title = 9, bigLogo = 9, icon = 9, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
-}~
-    REPLACE_TEXTUALLY 
-~EET_CMP_TITLE_BG1 =~
-~EET_CMP_TEXT_ID2 = "\"Welcome to Icewind Dale II\" - tipun",
-    EET_CMP_TITLE_BG1 =~
-    REPLACE_TEXTUALLY 
-~EET_WARNING_TITLE =~
-~EET_CMP_TITLE_ID2 = "Icewind Dale II",
-    EET_WARNING_TITLE =~
-  IF_EXISTS BUT_ONLY
-
-END
+// ***** need to remove icewind_eet connective stuff... or make that a different comp?
 
 
 ////////////////////
 ////////////////////
 
 
-BEGIN ~Add HoW in BG2~
+BEGIN ~Adjust IWD1 XP for Full Campaign~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1_EET required~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~d5_iwd_eet_integration.TP2~ ~100~) ~IWD1 Campaign required~
+DESIGNATED 110
+LABEL ~D5_IWD1_CAMPAIGN_XP~
+
+INCLUDE ~%MOD_FOLDER%/lib/iwd1_xp.tpa~
+
+
+////////////////////
+////////////////////
+
+
+BEGIN ~Adjust IWD1 Creature Stats~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1_EET required~
+DESIGNATED 115
+LABEL ~D5_IWD1_CREATURE_STATS~
+
+INCLUDE ~%MOD_FOLDER%/lib/iwd1_creatures.tpa~
+
+
+////////////////////
+////////////////////
+/*
+
+BEGIN ~Adjust IWD2 XP for Full Campaign~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) ~IWD2_EET required~
+DESIGNATED 130
+LABEL ~D5_IWD2_CAMPAIGN_XP~
+
+INCLUDE ~%MOD_FOLDER%/lib/iwd1_xp.tpa~
+
+
+////////////////////
+////////////////////
+
+
+BEGIN ~Adjust IWD2 Creature Stats~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) ~IWD2_EET required~
+DESIGNATED 125
+LABEL ~D5_IWD2_CREATURE_STATS~
+
+INCLUDE ~%MOD_FOLDER%/lib/iwd2_creatures.tpa~
+
+*/
+////////////////////
+////////////////////
+
+
+BEGIN ~Add HoW to BG2~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) OR (MOD_IS_INSTALLED ~SETUP-HOW_EET.TP2~ ~0~) ~HoW in EET required~
+DESIGNATED 150
+LABEL ~D5_HOW_SOA_INTEGRATION~
 
-// add Hjollder to Bridge District
-
-COPY_EXISTING ~AR0500.are~ ~override~
-	LPF add_area_cre_acti
-		INT_VAR
-			pos_x       =   190
-			pos_y       =   2700
-			flags       =   9
-			anim        =   57927
-		STR_VAR
-			actor_name  = "Hjollder"
-			over_scr    = "IWHIDE1"
-			genr_scr    = "LWHJOLO"
-			clas_scr    = "EFPIKHST"
-			race_scr    = "EFMKENMY"
-			defl_scr    = "EFDLGMH"
-			cre_file    = "HJOLLDER"
-	END
-
-////////////////////
-
-// area script to make Hjollder disappear from Bridge district if already played HoW
-
-<<<<<<<< d5/ar0500_.baf
-IF
-	GlobalGT("Hjollder_Quest","GLOBAL",1)
-	GlobalLT("Hjollder_Quest","GLOBAL",999)
-THEN
-	RESPONSE #100
-		SetGlobal("Hjollder_Quest","GLOBAL",999)
-		ActionOverride("Hjollder",DestroySelf())
-END
-
-IF
-	GlobalLT("Hjollder_Quest","GLOBAL",2)
-	Global("HoW_BG2","GLOBAL",0)
-THEN
-	RESPONSE #100
-		SetGlobal("HoW_BG2","GLOBAL",1)
-END
->>>>>>>> 
-COPY ~d5/ar0500_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar0500_.baf~
-
-LAF cd_extend_bg_area_script STR_VAR area = ar0500 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/ar0500_~ END
-
-////////////////////
-
-// change end script to teleport party to the correct place - Ulgoth's Beard or Bridge District
-
-<<<<<<<< d5/IDTOEET.baf
-IF
-	Global("HoW_BG2","GLOBAL",0)
-THEN
-	RESPONSE #100
-		CutSceneId(Player1)
-		ApplySpellRES("clearcld",Myself)  // No such index
-		Wait(1)
-		ApplySpellRES("bdresurr",Player2)  // No such index
-		ApplySpellRES("bdresurr",Player3)  // No such index
-		ApplySpellRES("bdresurr",Player4)  // No such index
-		ApplySpellRES("bdresurr",Player5)  // No such index
-		ApplySpellRES("bdresurr",Player6)  // No such index
-		Wait(1)
-		ApplySpellRES("IDRM517",Player1)  // Resurrection
-		ApplySpellRES("IDRM517",Player2)  // Resurrection
-		ApplySpellRES("IDRM517",Player3)  // Resurrection
-		ApplySpellRES("IDRM517",Player4)  // Resurrection
-		ApplySpellRES("IDRM517",Player5)  // Resurrection
-		ApplySpellRES("IDRM517",Player6)  // Resurrection
-		Wait(1)
-		ApplySpellRES("bddispel",Player1)  // No such index
-		ApplySpellRES("bddispel",Player2)  // No such index
-		ApplySpellRES("bddispel",Player3)  // No such index
-		ApplySpellRES("bddispel",Player4)  // No such index
-		ApplySpellRES("bddispel",Player5)  // No such index
-		ApplySpellRES("bddispel",Player6)  // No such index
-		Wait(1)
-		ApplySpellRES("bdrejuve",Player1)  // No such index
-		ApplySpellRES("bdrejuve",Player2)  // No such index
-		ApplySpellRES("bdrejuve",Player3)  // No such index
-		ApplySpellRES("bdrejuve",Player4)  // No such index
-		ApplySpellRES("bdrejuve",Player5)  // No such index
-		ApplySpellRES("bdrejuve",Player6)  // No such index
-		Wait(1)
-		ApplySpellRES("clearcld",Myself)  // No such index
-		Wait(2)
-		ActionOverride(Player2,LeaveAreaLUA("BG1001","",[668.193],N))  // Ulgoth's Beard: Inn
-		ActionOverride(Player3,LeaveAreaLUA("BG1001","",[707.219],NE))  // Ulgoth's Beard: Inn
-		ActionOverride(Player4,LeaveAreaLUA("BG1001","",[757.192],NW))  // Ulgoth's Beard: Inn
-		ActionOverride(Player5,LeaveAreaLUA("BG1001","",[653.220],NNE))  // Ulgoth's Beard: Inn
-		ActionOverride(Player6,LeaveAreaLUA("BG1001","",[755.209],NNW))  // Ulgoth's Beard: Inn
-		LeaveAreaLUAPanic("BG1001","",[709.192],N)  // Ulgoth's Beard: Inn
-		LeaveAreaLUA("BG1001","",[709.192],N)  // Ulgoth's Beard: Inn
-		Wait(1)
-		FadeFromColor([15.0],0)
-		Wait(2)
-		EndCutSceneMode()
-END
-
-IF
-	Global("HoW_BG2","GLOBAL",1)
-THEN
-	RESPONSE #100
-		CutSceneId(Player1)
-		ApplySpellRES("clearcld",Myself)  // No such index
-		Wait(1)
-		ApplySpellRES("bdresurr",Player2)  // No such index
-		ApplySpellRES("bdresurr",Player3)  // No such index
-		ApplySpellRES("bdresurr",Player4)  // No such index
-		ApplySpellRES("bdresurr",Player5)  // No such index
-		ApplySpellRES("bdresurr",Player6)  // No such index
-		Wait(1)
-		ApplySpellRES("IDRM517",Player1)  // Resurrection
-		ApplySpellRES("IDRM517",Player2)  // Resurrection
-		ApplySpellRES("IDRM517",Player3)  // Resurrection
-		ApplySpellRES("IDRM517",Player4)  // Resurrection
-		ApplySpellRES("IDRM517",Player5)  // Resurrection
-		ApplySpellRES("IDRM517",Player6)  // Resurrection
-		Wait(1)
-		ApplySpellRES("bddispel",Player1)  // No such index
-		ApplySpellRES("bddispel",Player2)  // No such index
-		ApplySpellRES("bddispel",Player3)  // No such index
-		ApplySpellRES("bddispel",Player4)  // No such index
-		ApplySpellRES("bddispel",Player5)  // No such index
-		ApplySpellRES("bddispel",Player6)  // No such index
-		Wait(1)
-		ApplySpellRES("bdrejuve",Player1)  // No such index
-		ApplySpellRES("bdrejuve",Player2)  // No such index
-		ApplySpellRES("bdrejuve",Player3)  // No such index
-		ApplySpellRES("bdrejuve",Player4)  // No such index
-		ApplySpellRES("bdrejuve",Player5)  // No such index
-		ApplySpellRES("bdrejuve",Player6)  // No such index
-		Wait(1)
-		ApplySpellRES("clearcld",Myself)  // No such index
-		Wait(2)
-		ActionOverride(Player2,LeaveAreaLUA("AR0500","",[115.2700],N)) 
-		ActionOverride(Player3,LeaveAreaLUA("AR0500","",[150.2760],NE))
-		ActionOverride(Player4,LeaveAreaLUA("AR0500","",[210.2790],NW))
-		ActionOverride(Player5,LeaveAreaLUA("AR0500","",[270.2790],NNE))
-		ActionOverride(Player6,LeaveAreaLUA("AR0500","",[320.2740],NNW))
-		LeaveAreaLUAPanic("AR0500","",[330.2680],N)
-		LeaveAreaLUA("AR0500","",[330.2680],N)
-		Wait(1)
-		FadeFromColor([15.0],0)
-		Wait(2)
-		EndCutSceneMode()
-END
->>>>>>>> 
-COPY ~d5/IDTOEET.baf~ ~weidu_external/%MOD_FOLDER%/compile/IDTOEET.baf~
-
-COMPILE ~weidu_external/%MOD_FOLDER%/compile/IDTOEET.BAF~
-
-////////////////////
-
-// ***** should remove the wildly OP items
+INCLUDE ~%MOD_FOLDER%/lib/how_integration.tpa~
 
 
 ////////////////////
 ////////////////////
 
 
-BEGIN ~Add IWD1 easter egg areas to BG2~
+BEGIN ~Add IWD1 Content Easter Egg to BG2~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1_EET required~
+DESIGNATED 160
+LABEL ~D5_IWD1_SOA_INTEGRATION~
+
+INCLUDE ~%MOD_FOLDER%/lib/soa_easter_egg.tpa~
+
+
+////////////////////
+////////////////////
+/*
+
+BEGIN ~Overwrite Some Items with SD Versions~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1 campaign required~
+DESIGNATED 190
+LABEL ~D5_IWD1_ITEMS~
+
+INCLUDE ~%MOD_FOLDER%/lib/d5_iwd_items.tpa~
+
+*/
+////////////////////
+////////////////////
+/*
+
+BEGIN ~Adjust IWD Random Drops~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1_EET required~
 
-////////////////////
+// [grab from the modified version of SoB]
 
-// add travel triggers between de'arnise keep and dragon's eye
-
-COPY_EXISTING ~AR1301.are~ ~override~
- /* add travel region that links to other area */
-  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
-    INT_VAR
-    fj_type         = 2    //travel - kind of trigger area
-    fj_box_left     = 290  // x coordinate
-    fj_box_top      = 990 // y coordinate
-    fj_box_right    = 550 // x coordinate
-    fj_box_bottom   = 1080 // y coordinate
-    fj_cursor_idx   = 30   //door - mouse cursor symbol
-    fj_flags        = 4
-    fj_vertex_0     = 290 + (990 << 16) //start with the lowest point: x coodinate - y coordinate
-    fj_vertex_1     = 550 + (990 << 16)
-    fj_vertex_2     = 550 + (1080 << 16)
-    fj_vertex_3     = 290 + (1080 << 16)
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = d5ix4001 //name of this travel region so you can address it via script etc.
-    fj_destination_area = ID4001 //name of the destination area
-    fj_destination_name = FR4000 //name of exitpoint in destination area
-  END
-
-/* add exitpoint for backwards travel */
-  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
-    INT_VAR
-    fj_loc_x       = 760 //x coordinate where the group will spawn
-    fj_loc_y       = 1235 //y coordinate where the group will spawn
-    fj_orientation = 13   //ESE - face direction in which group is looking after coming through
-    STR_VAR
-    fj_structure_type = entrance
-    fj_name           = d5id1301 //name of this new exitpoint so it can be referenced for the travel region of the other area
-  END
-BUT_ONLY 
-
-ACTION_IF (FILE_EXISTS_IN_GAME ~ID4001.are~) BEGIN
- COPY_EXISTING ~ID4001.are~ ~override~
- /* add travel region that links to other area */
-  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
-    INT_VAR
-    fj_type         = 2    //travel - kind of trigger area
-    fj_box_left     = 10  // x coordinate
-    fj_box_top      = 1080 // y coordinate
-    fj_box_right    = 300 // x coordinate
-    fj_box_bottom   = 1300 // y coordinate
-    fj_cursor_idx   = 30   //door - mouse cursor symbol
-    fj_flags        = 4
-    fj_vertex_0     = 10 + (1080 << 16) //start with the lowest point: x coodinate - y coordinate
-    fj_vertex_1     = 300 + (1080 << 16)
-    fj_vertex_2     = 300 + (1300 << 16)
-    fj_vertex_3     = 10 + (1300 << 16)
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = d5ix1301 //name of this travel region so you can address it via script etc.
-    fj_destination_area = AR1301 //name of the destination area
-    fj_destination_name = d5id1301 //name of exitpoint in destination area
-  END
-/* don't think this is needed?
-  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
-    INT_VAR
-    fj_loc_x       = 345 //x coordinate where the group will spawn
-    fj_loc_y       = 1200 //y coordinate where the group will spawn
-    fj_orientation = 12   //E - face direction in which group is looking after coming through
-    STR_VAR
-    fj_structure_type = entrance
-    fj_name           = d5id1301 //name of this new exitpoint so it can be referenced for the travel region of the other area
-  END
 */
- BUT_ONLY
-END 
-
-////////////////////
-
-// set up scripts to make dragon's eye travel triggers reactive to where the player is
-
-ACTION_IF (FILE_EXISTS_IN_GAME ~ID1000.are~) BEGIN
-<<<<<<<< d5/id1000_.baf
-IF
-	Global("D5_IWD_REAL","GLOBAL",0)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_IWD_REAL","GLOBAL",1)
-	SetGlobal("D5_EET_IWD","GLOBAL",0)
-END
->>>>>>>> 
-  COPY ~d5/id1000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id1000_.baf~
-  LAF cd_extend_bg_area_script STR_VAR area = id1000 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id1000_~ END
-END
-
-ACTION_IF (FILE_EXISTS_IN_GAME ~AR1301.are~) BEGIN
-<<<<<<<< d5/ar1301_.baf
-IF
-	Global("D5_IWD_REAL","GLOBAL",0)
-	Global("D5_EET_IWD","GLOBAL",0)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_EET_IWD","GLOBAL",1)
-	TriggerActivation("d5ix4000",TRUE)
-END
-
-IF
-	Global("D5_IWD_REAL","GLOBAL",1)
-	Global("D5TRAVEL","AR1301",0)
-THEN
-	RESPONSE #100
-	SetGlobal("D5TRAVEL","AR1301",1)
-	TriggerActivation("d5ix4000",FALSE)
-END
->>>>>>>> 
-  COPY ~d5/ar1301_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar1301_.baf~
-  LAF cd_extend_bg_area_script STR_VAR area = ar1301 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/ar1301_~ END
-END
-
-ACTION_IF (FILE_EXISTS_IN_GAME ~ID4001.are~) BEGIN
-<<<<<<<< d5/id4001_.baf
-IF
-	Global("D5_IWD_REAL","GLOBAL",1)
-	Global("D5_TRA_IWD","ID4001",0)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_TRA_IWD","ID4001",1)
-	SetGlobal("D5_TRA_BG2","ID4001",0)
-	TriggerActivation("To4000",TRUE)
-	TriggerActivation("d5ix1301",FALSE)
-END
-
-IF
-	Global("D5_EET_IWD","GLOBAL",1)
-	Global("D5_TRA_BG2","ID4001",0)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_TRA_IWD","ID4001",0)
-	SetGlobal("D5_TRA_BG2","ID4001",1)
-	TriggerActivation("To4000",FALSE)
-	TriggerActivation("d5ix1301",TRUE)
-END
->>>>>>>> 
-  COPY ~d5/id4001_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id4001_.baf~
-  LAF cd_extend_bg_area_script STR_VAR area = id4001 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id4001_~ END
-END
-
-////////////////////
-
-// set up travel triggers to severed hand
-
-COPY_EXISTING ~AR1700.are~ ~override~
- /* add travel region that links to other area */
-  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
-    INT_VAR
-    fj_type         = 2    //travel - kind of trigger area
-    fj_box_left     = 1 // 885  // x coordinate
-    fj_box_top      = 3025 // y coordinate
-    fj_box_right    = 850 // 1135 // x coordinate
-    fj_box_bottom   = 3135 // y coordinate
-    fj_cursor_idx   = 30   //door - mouse cursor symbol
-    fj_flags        = 4
-    fj_vertex_0     = 1 + (3025 << 16) //start with the lowest point: x coodinate - y coordinate
-    fj_vertex_1     = 850 + (3025 << 16)
-    fj_vertex_2     = 850 + (3135 << 16)
-    fj_vertex_3     = 1 + (3135 << 16)
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = d5ix1700 //name of this travel region so you can address it via script etc.
-    fj_destination_area = id5000 //name of the destination area
-    fj_destination_name = d5id5000 //name of exitpoint in destination area
-  END
-BUT_ONLY
-
-COPY_EXISTING ~ID5000.are~ ~override~
- /* add travel region that links to other area */
-  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
-    INT_VAR
-    fj_type         = 2    //travel - kind of trigger area
-    fj_box_left     = 465 // 885  // x coordinate
-    fj_box_top      = 805 // y coordinate
-    fj_box_right    = 1340 // 1135 // x coordinate
-    fj_box_bottom   = 895 // y coordinate
-    fj_cursor_idx   = 30   //door - mouse cursor symbol
-    fj_flags        = 4
-    fj_vertex_0     = 465 + (805 << 16) //start with the lowest point: x coodinate - y coordinate
-    fj_vertex_1     = 1340 + (805 << 16)
-    fj_vertex_2     = 1340 + (895 << 16)
-    fj_vertex_3     = 465 + (895 << 16)
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = d5ix5000 //name of this travel region so you can address it via script etc.
-    fj_destination_area = AR1700 //name of the destination area
-    fj_destination_name = L-Exit //name of exitpoint in destination area
-  END
-
-/* add exitpoint for backwards travel */
-  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
-    INT_VAR
-    fj_loc_x       = 995 //x coordinate where the group will spawn
-    fj_loc_y       = 810 //y coordinate where the group will spawn
-    fj_orientation = 6   // NW - face direction in which group is looking after coming through
-    STR_VAR
-    fj_structure_type = entrance
-    fj_name           = d5id5000 //name of this new exitpoint so it can be referenced for the travel region of the other area
-  END
-BUT_ONLY 
-
-
-////////////////////
-
-// set up scripts to make severed hand travel triggers reactive to where the player is
-
-// use the GV set up above for Easthaven 
-
-// also, make severed hand inaccessible without the heartstone gem
-
-<<<<<<<< d5/id5000_.baf
-IF
-	Global("D5_IWD_REAL","GLOBAL",1)
-	Global("D5_SH_IWD","ID5000",0)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_SH_IWD","ID5000",1)
-	SetGlobal("D5_SH_BG2","ID5000",0)
-	TriggerActivation("d5ix5000",FALSE)
-END
-
-IF
-	Global("D5_EET_IWD","GLOBAL",1)
-	Global("D5_SH_BG2","ID4001",0)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_SH_IWD","ID4001",0)
-	SetGlobal("D5_SH_BG2","ID4001",1)
-	TriggerActivation("d5ix5000",TRUE)
-END
-
-IF
-	PartyHasItem("HEARTGM")  // Heartstone Gem
-	Global("BGHeartstone_Active","GLOBAL",1)
-	Global("D5_HAS_HGEM","GLOBAL",0)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_HAS_HGEM","ID5000",1)
-	SetGlobal("D5_NOT_HGEM","ID5000",0)
-	TriggerActivation("To5001",TRUE)
-END
-
-IF
-	OR(2)
-	  !PartyHasItem("HEARTGM")  // Heartstone Gem
-	  GlobalLT("BGHeartstone_Active","GLOBAL",1)
-	Global("D5_NOT_HGEM","GLOBAL",0)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_HAS_HGEM","ID5000",0)
-	SetGlobal("D5_NOT_HGEM","ID5000",1)
-	TriggerActivation("To5001",FALSE)
-END
->>>>>>>> 
-  COPY ~d5/id5000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id5000_.baf~
-  LAF cd_extend_bg_area_script STR_VAR area = id5000 script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id5000_~ END
-
-////////////////////
-
-// don't do 'yxunomei-is-dead' stuff unless playing from IWD
-
-COPY_EXISTING ~id4005.bcs~ ~override~
-  DECOMPILE_AND_PATCH BEGIN
-    REPLACE_TEXTUALLY
-~Global("YXUNOMEI_SLAIN","GLOBAL",0)~ 
-~Global("YXUNOMEI_SLAIN","GLOBAL",0)
-    Global("D5_IWD_REAL","GLOBAL",1)~
-    REPLACE_TEXTUALLY
-~Global("Kuldahar_Attack","GLOBAL",0)~
-~Global("Kuldahar_Attack","GLOBAL",0)
-    Global("D5_IWD_REAL","GLOBAL",1)~
-  END
-
-////////////////////
-
-// change larrel's dialogue to activate gem and teleport party to athkatla, no cut-scene
-
-// mess with state 15 since it has no response
-// actually sounds maybe, kind of, easy!
-
-// probably want to play some kind of visual effect when he activates it
-
-<<<<<<<< d5/dlarrel+.d
-APPEND ~dlarrel~
-  IF ~~ THEN BEGIN ~d5bglarrel1~
-    SAY #499608 /* ~With that said, what is it you seek to learn from the Heartstone Gem?~ */
-    IF ~~ THEN REPLY ~We seek to activate the Gem in order to learn the location of my friend, Imoen.~  GOTO d5bglarrel2
-    IF ~~ THEN REPLY ~We seek to activate the Gem in order to learn the location of the mage Jon Irenicus~  GOTO d5bglarrel2
-  END
-
-  IF ~~ THEN BEGIN ~d5bglarrel2~
-  SAY ~Then you will have what you seek. I will activate the Heartstone Gem, and then it may be used to pierce even the most powerful magical concealment.~
-  IF ~~ THEN REPLY #250768 /* ~Here you are.~ */ DO ~SetGlobal("BGHeartstone_Active","GLOBAL",2) DisplayStringNoNameDlg(LastTalkedToBy,499613)~ EXIT
-  END
-END
-
-EXTEND_BOTTOM DLARREL 15 
-  IF ~	Global("D5_EET_IWD","GLOBAL",1)
-      PartyHasItem("HEARTGM")~  THEN GOTO ~d5bglarrel1~
-END
->>>>>>>> 
-COMPILE ~d5/dlarrel+.d~
-
-////////////////////
-
-// change gaelan's dialogue to send player to severed hand, and accept activated heartstone gem
-
-<<<<<<<< d5/gaelan+.d
-APPEND ~gaelan~
-  IF WEIGHT #9 ~ Global("Linvail","GLOBAL",0)
-    Global("ShadowWork","GLOBAL",1)
-    PartyHasItem("HEARTGM")
-    Global("BGHeartstone_Active","GLOBAL",0)
-    Global("BodiWork","GLOBAL",0) ~ 
-  THEN BEGIN ~d5hggaelan1~
-    SAY ~Coo! A little birdy told me ye've come into possession of an artifact that can do powerful divination. Though the use of it be tricky for most folks, we have someone who can use it to assist in reaching Imoen and Irenicus. In fact, we would so appreciate having the gem that, if ye can part with it, we can forego our fee entirely. And to be honest, ye haven't the ability to use it, so it's worth nothing to ye. What say ye?~
-    IF ~~ THEN REPLY ~Sure, sounds good. I guess I have no use for the gem anyway.~  GOTO d5hggaelan2
-    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 49
-    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 51
-  END
-
-  IF ~~ THEN BEGIN ~d5hggaelan2~
-    SAY ~Ah, it be as I feared: the gem is inactive. It needs to be woken up, ye might say. Luckily our contact was prepared for this possibility, and told me how it can be done. Ye will have to find an elven lich who has had experience with the gem in the distant past. Don't worry, he be friendly. I think. What do ye think? Are ye up for it?~
-    IF ~~ THEN REPLY ~If it helps get us to our goal, I will find this lich and activate the gem.~ GOTO d5hggaelan3
-    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~On second thought, let's keep things simple. I'll pay your fee instead.~  GOTO 49
-    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~On second thought, let's keep things simple. I'll pay your fee instead.~  GOTO 51
-  END
-
-  IF ~~ THEN BEGIN ~d5hggaelan3~
-    SAY ~Coo! I half didn't expect ye to show the stones for it. Very well then, ye be wanting to find a ruined elven fortress, far t'other side of Small Teeth Pass. I hear 'twas once called 'Hand of the Seldarine,' tho it be fairly severed now. The gem should gain ye entry, but I know not what lurks within. Best of luck to ye!~
-    IF ~~ THEN REPLY ~Very well.~ DO ~SetGlobal("BGHeartstone_Active","GLOBAL",1) RevealAreaOnMap("AR1700")~ EXIT
-  END
-
-  IF WEIGHT #10 ~Global("BGHeartstone_Active","GLOBAL",2)~ THEN BEGIN ~d5hggaelan4~
-  SAY ~Ye survived! Astounding. I mean, wonderful! Now, is our deal still good? Will ye turn over the gem to us?~
-  IF ~~ THEN REPLY #21033 /* ~Yes, Here you go.~ */ 
-    DO ~ EraseJournalEntry(96385)
-      AddJournalEntry(96385,QUEST_DONE)
-      AddJournalEntry(96437,QUEST)
-      EraseJournalEntry(34183)
-      EraseJournalEntry(34187)
-      AddXPObject(Player1,45000)
-      AddXPObject(Player2,45000)
-      AddXPObject(Player3,45000)
-      AddXPObject(Player4,45000)
-      AddXPObject(Player5,45000)
-      AddXPObject(Player6,45000)
-      TakePartyGold(15000)
-      SetGlobal("WorkingForAran","GLOBAL",1) ~ SOLVED_JOURNAL #47537 /* ~Collect the fee for Gaelan Bayle
-
-I have given Gaelan Bayle the gold he asked for, and in return he has given me a key which will admit me to see the head of the Athkatlan Shadow Thieves. I am to go to the thieves' guild, it seems, and use the key on a secret entrance which is immediately to the right as I enter. ~ */ GOTO 53
-    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 49
-    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 51
-  END
-END
->>>>>>>> 
-COMPILE ~d5/gaelan+.d~
-
-
-////////////////////
-////////////////////
-
-
-BEGIN ~Overwrite Some Items with SD versions~
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1 campaign required~
-
-COPY ~%MOD_FOLDER%/data/iwd_items/amulbar.itm~ ~override~
-  SAY NAME2 @1011
-  SAY DESC @1012
-
-OUTER_SET spell_ids = IDS_OF_SYMBOL (~spell~ ~WIZARD_EMOTION_COURAGE~)
-ACTION_IF !(spell_ids = 0 - 1) BEGIN
-  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_EMOTION_COURAGE~ RET spell_res END
-  COPY ~%MOD_FOLDER%/data/iwd_items/amulbra.itm~ ~override~
-   SAY NAME2 @1021
-   SAY DESC @1022
-   LPF ALTER_EFFECT INT_VAR match_opcode = 148 STR_VAR resource = EVAL ~%spell_res%~ END
-END
-
-COPY ~%MOD_FOLDER%/data/iwd_items/bardic.itm~ ~override~
-  SAY NAME2 @1031
-  SAY DESC @1032
-
-COPY ~%MOD_FOLDER%/data/iwd_items/beetshld.itm~ ~override~
-  SAY NAME2 @1041
-  SAY DESC @1042
-
-OUTER_SET spell_ids = IDS_OF_SYMBOL (~spell~ ~CLERIC_CIRCLE_OF_BONES~)
-ACTION_IF !(spell_ids = 0 - 1) BEGIN
-  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CIRCLE_OF_BONES~ RET spell_res END
-  COPY ~%MOD_FOLDER%/data/iwd_items/beltbon.itm~ ~override~
-   SAY NAME2 @1051
-   SAY DESC @1052
-   LPF ALTER_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~sppr323~ resource = EVAL ~%spell_res%~ END
-END
-
-COPY ~%MOD_FOLDER%/data/iwd_items/biteme.itm~ ~override~
-  SAY NAME2 @1061
-  SAY DESC @1062
-
-COPY ~%MOD_FOLDER%/data/iwd_items/boneam.itm~ ~override~
-  SAY NAME2 @1071
-  SAY DESC @1072
-
-COPY ~%MOD_FOLDER%/data/iwd_items/bootman.itm~ ~override~
-  SAY NAME2 @1081
-  SAY DESC @1082
-
-COPY ~%MOD_FOLDER%/data/iwd_items/bootmoa.itm~ ~override~
-  SAY NAME2 @1091
-  SAY DESC @1092
-
-COPY ~%MOD_FOLDER%/data/iwd_items/bwtalis.itm~ ~override~
-  SAY NAME2 @1101
-  SAY DESC @1102
-
-COPY ~%MOD_FOLDER%/data/iwd_items/cdrelm.itm~ ~override~
-  SAY NAME2 @1111
-  SAY DESC @1112
-
-OUTER_SET spell_ids = IDS_OF_SYMBOL (~spell~ ~WIZARD_EMOTION_COURAGE~)
-ACTION_IF !(spell_ids = 0 - 1) BEGIN
-  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_EMOTION_COURAGE~ RET spell_res END
-  COPY ~%MOD_FOLDER%/data/iwd_items/cittern.itm~ ~override~
-   SAY NAME2 @1121
-   SAY DESC @1122
-   LPF ALTER_EFFECT INT_VAR match_opcode = 148 STR_VAR resource = EVAL ~%spell_res%~ END
-END
-
-COPY ~%MOD_FOLDER%/data/iwd_items/clckbs.itm~ ~override~
-  SAY NAME2 @1131
-  SAY DESC @1132
-
-OUTER_SET spell_ids = IDS_OF_SYMBOL (~spell~ ~CLERIC_WHIRLWIND~)
-ACTION_IF !(spell_ids = 0 - 1) BEGIN
-  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_WHIRLWIND~ RET spell_res END
-  COPY ~%MOD_FOLDER%/data/iwd_items/cone.itm~ ~override~
-   SAY NAME2 @1141
-   SAY DESC @1142
-   LPF ALTER_EFFECT INT_VAR match_opcode = 148 STR_VAR match_resource = ~sppr617~ resource = EVAL ~%spell_res%~ END
-END
-
-COPY ~%MOD_FOLDER%/data/iwd_items/corello.itm~ ~override~
-  SAY NAME2 @1151
-  SAY DESC @1152
-
-COPY ~%MOD_FOLDER%/data/iwd_items/dazer.itm~ ~override~
-  SAY NAME2 @1161
-  SAY DESC @1162
-
-COPY ~%MOD_FOLDER%/data/iwd_items/diver.itm~ ~override~
-  SAY NAME2 @1171
-  SAY DESC @1172
-
-COPY ~%MOD_FOLDER%/data/iwd_items/erevain.itm~ ~override~
-  SAY NAME2 @1181
-  SAY DESC @1182
-
-COPY ~%MOD_FOLDER%/data/iwd_items/fkiller.itm~ ~override~
-  SAY NAME2 @1191
-  SAY DESC @1192
-
-COPY ~%MOD_FOLDER%/data/iwd_items/force.itm~ ~override~
-  SAY NAME2 @1201
-  SAY DESC @1202
-
-COPY ~%MOD_FOLDER%/data/iwd_items/holdfst.itm~ ~override~
-  SAY NAME2 @1211
-  SAY DESC @1212
-
-COPY ~%MOD_FOLDER%/data/iwd_items/intrces.itm~ ~override~
-  SAY NAME2 @1221
-  SAY DESC @1222
-
-COPY ~%MOD_FOLDER%/data/iwd_items/kreswrd.itm~ ~override~
-  SAY NAME2 @1231
-  SAY DESC @1232
-
-COPY ~%MOD_FOLDER%/data/iwd_items/lucky.itm~ ~override~
-  SAY NAME2 @1241
-  SAY DESC @1242
-
-COPY ~%MOD_FOLDER%/data/iwd_items/lyre.itm~ ~override~
-  SAY NAME2 @1251
-  SAY DESC @1252
-
-COPY ~%MOD_FOLDER%/data/iwd_items/mhorn.itm~ ~override~
-  SAY NAME2 @1261
-  SAY DESC @1262
-
-COPY ~%MOD_FOLDER%/data/iwd_items/nature.itm~ ~override~
-  SAY NAME2 @1271
-  SAY DESC @1272
-
-COPY ~%MOD_FOLDER%/data/iwd_items/ohbrac01.itm~ ~override~
-  SAY NAME2 @1281
-  SAY DESC @1282
-
-COPY ~%MOD_FOLDER%/data/iwd_items/ohioun02.itm~ ~override~
-  SAY NAME2 @1291
-  SAY DESC @1292
-
-COPY ~%MOD_FOLDER%/data/iwd_items/peaceke.itm~ ~override~
-  SAY NAME2 @1301
-  SAY DESC @1302
-
-COPY ~%MOD_FOLDER%/data/iwd_items/poker.itm~ ~override~
-  SAY NAME2 @1311
-  SAY DESC @1312
-
-COPY ~%MOD_FOLDER%/data/iwd_items/shboots.itm~ ~override~
-  SAY NAME2 @1321
-  SAY DESC @1322
-
-COPY ~%MOD_FOLDER%/data/iwd_items/shstaff.itm~ ~override~
-  SAY NAME2 @1331
-  SAY DESC @1332
-
-COPY ~%MOD_FOLDER%/data/iwd_items/slinged.itm~ ~override~
-  SAY NAME2 @1341
-  SAY DESC @1342
-
-COPY ~%MOD_FOLDER%/data/iwd_items/solonor.itm~ ~override~
-  SAY NAME2 @1351
-  SAY DESC @1352
-
-COPY ~%MOD_FOLDER%/data/iwd_items/spine.itm~ ~override~
-  SAY NAME2 @1361
-  SAY DESC @1362
-
-COPY ~%MOD_FOLDER%/data/iwd_items/stafhmg.itm~ ~override~
-  SAY NAME2 @1371
-  SAY DESC @1372
-
-COPY ~%MOD_FOLDER%/data/iwd_items/stout.itm~ ~override~
-  SAY NAME2 @1381
-  SAY DESC @1382
-
-COPY ~%MOD_FOLDER%/data/iwd_items/trnbolt.itm~ ~override~
-  SAY NAME2 @1391
-  SAY DESC @1392
-
-COPY ~%MOD_FOLDER%/data/iwd_items/turodah.itm~ ~override~
-  SAY NAME2 @1401
-  SAY DESC @1402
-
-COPY ~%MOD_FOLDER%/data/iwd_items/u1ham2a.itm~ ~override~
-  SAY NAME2 @1411
-  SAY DESC @1412
-
-COPY ~%MOD_FOLDER%/data/iwd_items/uarow2a.itm~ ~override~
-  SAY NAME2 @1421
-  SAY DESC @1422
-
-COPY ~%MOD_FOLDER%/data/iwd_items/udagg2a.itm~ ~override~
-  SAY NAME2 @1431
-  SAY DESC @1432
-  WRITE_ASCII 0x3a ~D5DAGG2A~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/udart3b.itm~ ~override~
-  SAY NAME2 @1441
-  SAY DESC @1442
-
-COPY ~%MOD_FOLDER%/data/iwd_items/uflal2a.itm~ ~override~
-  SAY NAME2 @1451
-  SAY DESC @1452
-  WRITE_ASCII 0x3a ~D5FLAL2A~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/uhalb3a.itm~ ~override~
-  SAY NAME2 @1461
-  SAY DESC @1462
-  WRITE_ASCII 0x3a ~D5HALB3A~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/uhxbw3a.itm~ ~override~
-  SAY NAME2 @1471
-  SAY DESC @1472
-  WRITE_ASCII 0x3a ~D5HXBW3A~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/ulbow3c.itm~ ~override~
-  SAY NAME2 @1481
-  SAY DESC @1482
-  WRITE_ASCII 0x3a ~D5LBOW3C~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/ulxbw3a.itm~ ~override~
-  SAY NAME2 @1491
-  SAY DESC @1492
-  WRITE_ASCII 0x3a ~D5LXBW3A~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/umhulk.itm~ ~override~
-  SAY NAME2 @1501
-  SAY DESC @1502
-
-COPY ~%MOD_FOLDER%/data/iwd_items/umstr2b.itm~ ~override~
-  SAY NAME2 @1511
-  SAY DESC @1512
-  WRITE_ASCII 0x3a ~D5UMSTR2B~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/uring3b.itm~ ~override~
-  SAY NAME2 @1521
-  SAY DESC @1522
-  WRITE_ASCII 0x3a ~D5RING3B~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/urobe1a.itm~ ~override~
-  SAY NAME2 @1531
-  SAY DESC @1532
-  WRITE_ASCII 0x3a ~D5ROBE1A~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/usltr2a.itm~ ~override~
-  SAY NAME2 @1541
-  SAY DESC @1542
-  WRITE_ASCII 0x3a ~D5SLTR2A~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/uspot1a.itm~ ~override~
-  SAY NAME2 @1551
-  SAY DESC @1552
-
-COPY ~%MOD_FOLDER%/data/iwd_items/uspot3c.itm~ ~override~
-  SAY NAME2 @1561
-  SAY DESC @1562
-
-COPY ~%MOD_FOLDER%/data/iwd_items/uspot4b.itm~ ~override~
-  SAY NAME2 @1571
-  SAY DESC @1572
-
-COPY ~%MOD_FOLDER%/data/iwd_items/wandmis.itm~ ~override~
-  SAY NAME2 @1581
-  SAY DESC @1582
-
-COPY ~%MOD_FOLDER%/data/iwd_items/zze6pe.itm~ ~override~
-  SAY NAME2 @1591
-  SAY DESC @1592
-
-COPY ~%MOD_FOLDER%/data/iwd_items/zzm5mh.itm~ ~override~
-  SAY NAME2 @1601
-  SAY DESC @1602
-
-COPY ~%MOD_FOLDER%/data/iwd_items/zzs6sc.itm~ ~override~
-  SAY NAME2 @1611
-  SAY DESC @1612
-
-COPY ~%MOD_FOLDER%/data/iwd_items/u1hax4B.itm~ ~override~
-  SAY NAME2 @1621
-  SAY DESC @1622
-  WRITE_ASCII 0x3a ~D51HAX4B~ #8
-
-COPY ~%MOD_FOLDER%/data/iwd_items/helmpat.itm~ ~override~
-  SAY NAME2 @1631
-  SAY DESC @1632
-
-COPY ~%MOD_FOLDER%/data/iwd_items/bess.itm~ ~override~
-  SAY NAME2 @1641
-  SAY DESC @1642
-
-
 ////////////////////
 ////////////////////
 
@@ -1005,7 +196,7 @@ Flozem attacks, along with Seth and a bunch of Kraken Society mages, after your 
 
 Orrick the Grey's enhancement of the Rhino Beetle Shield is undroppable
 
-I've taken a detour to IWD2.  I've gotten through most of it without any significant issues.  But in the bottom level of Dragon's Eye, there's supposed to be a cutscene during a conversation between King Lothar and Inquisitor Venomin, and it's not firing.  Not sure how to make it; I've tried changing variables so I can at least move forward (backward?) to the next day in the time loop, but no luck
+I've taken a detour to IWD2. in the bottom level of Dragon's Eye, there's supposed to be a cutscene during a conversation between King Lothar and Inquisitor Venomin, and it's not firing.  Not sure how to make it; I've tried changing variables so I can at least move forward (backward?) to the next day in the time loop, but no luck
 
 
 */

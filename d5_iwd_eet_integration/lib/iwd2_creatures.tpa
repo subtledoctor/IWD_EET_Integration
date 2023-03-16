@@ -1,0 +1,230 @@
+////////////////////
+
+COPY ~%MOD_FOLDER%/data/iw2_cres.2da~ ~override~
+  COUNT_2DA_COLS i2cols
+  COUNT_2DA_ROWS i2cols i2rows
+  FOR (row = 0; row < i2rows; ++row) BEGIN
+    READ_2DA_ENTRY row 0 i2cols name
+    PATCH_IF (FILE_EXISTS_IN_GAME ~%name%.cre~) BEGIN
+      READ_2DA_ENTRY row 1 i2cols xpval
+      READ_2DA_ENTRY row 4 i2cols curhp
+      READ_2DA_ENTRY row 5 i2cols maxhp
+      READ_2DA_ENTRY row 6 i2cols ac
+      READ_2DA_ENTRY row 7 i2cols bab
+      READ_2DA_ENTRY row 8 i2cols fortsave
+      READ_2DA_ENTRY row 9 i2cols reflsave
+      READ_2DA_ENTRY row 10 i2cols willsave
+      READ_2DA_ENTRY row 11 i2cols str
+      READ_2DA_ENTRY row 12 i2cols dex
+      READ_2DA_ENTRY row 13 i2cols con
+      READ_2DA_ENTRY row 14 i2cols int
+      READ_2DA_ENTRY row 15 i2cols wis
+      READ_2DA_ENTRY row 16 i2cols cha
+      INNER_ACTION BEGIN
+        COPY_EXISTING ~%name%.cre~ ~override~
+          READ_LONG 0x14 old_xpval
+          READ_SHORT 0x24 old_curhp
+          READ_SHORT 0x26 old_maxhp
+          READ_SHORT 0x46 old_natac
+          READ_SHORT 0x48 old_effac
+          READ_BYTE 0x52 old_thac0
+          READ_BYTE 0x54 old_deathsave
+          READ_BYTE 0x55 old_wandsave
+          READ_BYTE 0x56 old_polymorphsave
+          READ_BYTE 0x57 old_breathsave
+          READ_BYTE 0x58 old_spellsave
+          READ_BYTE 0x238 old_lev1
+          READ_BYTE 0x238 old_str
+          READ_BYTE 0x23a old_int
+          READ_BYTE 0x23b old_wis
+          READ_BYTE 0x23c old_dex
+          READ_BYTE 0x23d old_con
+          READ_BYTE 0x23e old_cha
+          SET hd = (maxhp / 6)
+          SET dbl = (maxhp / 6)
+          SET new_xpval = (dbl ** 3)
+          SET x = (ac - 10)
+          SET new_ac = (10 - x)
+		  SET new_thac0 = (20 - bab)
+		  PATCH_IF (xpval > old_xpval) AND (xpval > new_xpval) BEGIN
+		    WRITE_LONG 0x14 xpval
+		  END
+		  PATCH_IF (new_xpval > old_xpval) AND (new_xpval > xpval) BEGIN
+		    WRITE_LONG 0x14 new_xpval
+		  END
+		  PATCH_IF (curhp < old_curhp) BEGIN
+		    WRITE_SHORT 0x24 curhp
+		  END
+		  PATCH_IF (maxhp < old_maxhp) BEGIN
+		    WRITE_SHORT 0x26 maxhp
+		  END
+		  PATCH_IF (new_ac > old_natac) BEGIN
+		    WRITE_SHORT 0x46 new_ac
+		  END
+		  PATCH_IF (new_ac > old_effac) BEGIN
+		    WRITE_SHORT 0x48 new_ac
+		  END
+		  PATCH_IF (new_thac0 > old_thac0) BEGIN
+		    WRITE_BYTE 0x52 new_thac0
+		  END
+		  PATCH_IF (fortsave > old_deathsave) BEGIN
+		    WRITE_BYTE 0x54 fortsave
+		  END
+		  PATCH_IF (reflsave > old_wandsave) BEGIN
+		    WRITE_BYTE 0x55 reflsave
+		  END
+		  PATCH_IF (fortsave > old_polymorphsave) BEGIN
+		    WRITE_BYTE 0x56 fortsave
+		  END
+		  PATCH_IF (reflsave > old_breathsave) BEGIN
+		    WRITE_BYTE 0x57 reflsave
+		  END
+		  PATCH_IF (willsave > old_spellsave) BEGIN
+		    WRITE_BYTE 0x58 willsave
+		  END
+		  PATCH_IF (str < old_str) BEGIN
+		    WRITE_BYTE 0x238 str
+		  END
+		  PATCH_IF (int < old_int) BEGIN
+		    WRITE_BYTE 0x23a int
+		  END
+		  PATCH_IF (wis < old_wis) BEGIN
+		    WRITE_BYTE 0x23b wis
+		  END
+		  PATCH_IF (dex < old_dex) BEGIN
+		    WRITE_BYTE 0x23c dex
+		  END
+		  PATCH_IF (con < old_con) BEGIN
+		    WRITE_BYTE 0x23d con
+		  END
+		  PATCH_IF (cha < old_cha) BEGIN
+		    WRITE_BYTE 0x23e cha
+		  END
+		  PATCH_IF (hd < old_lev1) BEGIN
+		    WRITE_BYTE 0x234 hd
+		  END
+		BUT_ONLY
+	  END
+	END
+  END
+
+/*
+COPY ~override/50HNT.cre~    ~override/50HNT_1.cre~ 
+	WRITE_ASCII 0x280 ~HUNTER_1_NEW~ (32)
+COPY ~override/50HNT.cre~    ~override/50HNT_2.cre~ 
+	WRITE_ASCII 0x280 ~HUNTER_2_NEW~ (32)
+COPY ~override/50HNT2.cre~   ~override/50HNT_3.cre~ 
+	WRITE_ASCII 0x280 ~HUNTER_3_NEW~ (32)
+COPY ~override/50HNT2.cre~   ~override/50HNT_4.cre~ 
+	WRITE_ASCII 0x280 ~HUNTER_4_NEW~ (32)
+COPY ~override/50HNT3.cre~   ~override/50HNT_5.cre~ 
+	WRITE_ASCII 0x280 ~HUNTER_5_NEW~ (32)
+COPY ~override/52MNKCRG.cre~ ~override/52MNKCR1.cre~ 
+	WRITE_ASCII 0x280 ~08_52MNKCRG_02~ (32)
+COPY ~override/52MNKCL.cre~ ~override/52MNKCL1.cre~ 
+	WRITE_ASCII 0x280 ~07_52MNKCL_02~ (32)
+COPY ~override/52MNKCL.cre~ ~override/52MNKCL2.cre~ 
+	WRITE_ASCII 0x280 ~07_52MNKCL_03~ (32)
+COPY ~override/52MNKSA.cre~ ~override/52MNKSA1.cre~ 
+	WRITE_ASCII 0x280 ~04_52MNKSA_2~ (32)
+COPY ~override/52MnkCRB.cre~ ~override/52MnkCR2.cre~ 
+	WRITE_ASCII 0x280 ~C7_MONK_2~ (32)
+COPY ~override/52MNKBR.cre~ ~override/52MNKBR1.cre~ 
+	WRITE_ASCII 0x280 ~06_52MNKBR_2~ (32)
+COPY ~override/52MnkSt.cre~ ~override/52MnkSt1.cre~ 
+	WRITE_ASCII 0x280 ~52MNKST_1~ (32)
+COPY ~override/52MnkSt.cre~ ~override/52MnkSt2.cre~ 
+	WRITE_ASCII 0x280 ~52MNKST_2~ (32)
+COPY ~override/52MnkSt.cre~ ~override/52MnkSt3.cre~ 
+	WRITE_ASCII 0x280 ~52MNKST_3~ (32)
+COPY ~override/60VIFANG.cre~ ~override/60VIFAN1.cre~   
+	WRITE_ASCII 0x250 ~00T07ET~ (8)
+	WRITE_ASCII 0x258 ~60VIFNGC~ (8) 
+	WRITE_ASCII 0x268 ~00T07M~ (8)
+	WRITE_ASCII 0x2cc ~60VIFANG~ (8)
+COPY ~override/52YETUH.cre~ ~override/6051HC1.cre~ 
+	WRITE_ASCII 0x280 ~6051HC1~ (32) 
+	WRITE_ASCII 0x250 ~6051HC1~ (8)    
+	WRITE_BYTE  0x270 128
+COPY ~override/52YETUH.cre~ ~override/6051HC6.cre~ 
+	WRITE_ASCII 0x280 ~6051HC6~ (32) 
+	WRITE_ASCII 0x250 ~6051HC6~ (8)    
+	WRITE_BYTE  0x270 128
+COPY ~override/52YETUH.cre~ ~override/6051HC7.cre~ 
+	WRITE_ASCII 0x280 ~6051HC7~ (32) 
+	WRITE_ASCII 0x250 ~6051HC7~ (8)    
+	WRITE_BYTE  0x270 128
+COPY ~override/52YETUH.cre~ ~override/6051HC8.cre~ 
+	WRITE_ASCII 0x280 ~6051HC8~ (32) 
+	WRITE_ASCII 0x250 ~6051HC8~ (8)    
+	WRITE_BYTE  0x270 128
+COPY ~override/52YETUH.cre~ ~override/IDVOLCN.cre~ 
+	WRITE_ASCII 0x280 ~Volcano~ (32)
+	WRITE_BYTE  0x270 128
+COPY ~override/61rYHPri.cre~ ~override/61rYHPr1.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed1~ (32)
+COPY ~override/61rYHPri.cre~ ~override/61rYHPr2.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed2~ (32)
+COPY ~override/61rYHPri.cre~ ~override/61rYHPr3.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed3~ (32)
+COPY ~override/61rYHPri.cre~ ~override/61rYHPr4.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed4~ (32)
+COPY ~override/61rYHPri.cre~ ~override/61rYHPr5.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed5~ (32)
+COPY ~override/61rYHPri.cre~ ~override/61rYHPr6.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed6~ (32)
+COPY ~override/61rYHSor.cre~ ~override/61rYHSo1.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed1~ (32)
+COPY ~override/61rYHSor.cre~ ~override/61rYHSo2.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed2~ (32)
+COPY ~override/61rYHSor.cre~ ~override/61rYHSo3.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed3~ (32)
+COPY ~override/61rYHSor.cre~ ~override/61rYHSo4.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed4~ (32)
+COPY ~override/61rYHSor.cre~ ~override/61rYHSo5.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed5~ (32)
+COPY ~override/61rYHSor.cre~ ~override/61rYHSo6.cre~ 
+	WRITE_ASCII 0x280 ~Halfbreed6~ (32)
+COPY ~override/61snaGia.cre~ ~override/61snaGi1.cre~ 
+	WRITE_ASCII 0x280 ~SnakeSpawn~ (32)
+COPY ~override/61xFirpe.cre~ ~override/61xFirp1.cre~ 
+	WRITE_ASCII 0x280 ~IW6104Flamewalker_03~ (32)
+COPY ~override/61xFirpe.cre~ ~override/61xFirp2.cre~ 
+	WRITE_ASCII 0x280 ~IW6104Flamewalker_04~ (32)
+COPY ~override/61xFirpe.cre~ ~override/61xFirp3.cre~ 
+	WRITE_ASCII 0x280 ~IW6104Flamewalker_05~ (32)
+COPY ~override/61xFirpe.cre~ ~override/61xFirp4.cre~ 
+	WRITE_ASCII 0x280 ~IW6104Flamewalker_06~ (32)
+COPY ~override/61xFirpe.cre~ ~override/61xFirp5.cre~ 
+	WRITE_ASCII 0x280 ~IW6104Flamewalker_07~ (32)
+COPY ~override/61xTroll.cre~ ~override/61xTrol1.cre~ 
+	WRITE_ASCII 0x280 ~IW6104_Efri_Troll_09~ (32)
+COPY ~override/61xTroll.cre~ ~override/61xTrol2.cre~ 
+	WRITE_ASCII 0x280 ~IW6104_Efri_Troll_10~ (32)
+COPY ~override/61xTroll.cre~ ~override/61xTrol3.cre~ 
+	WRITE_ASCII 0x280 ~IW6104_Efri_Troll_11~ (32)
+COPY ~override/61xTroll.cre~ ~override/61xTrol4.cre~ 
+	WRITE_ASCII 0x280 ~IW6104_Efri_Troll_12~ (32)
+COPY ~override/61xHelho.cre~ ~override/61xHelh1.cre~ 
+	WRITE_ASCII 0x280 ~IW6104E_HellHound_14~ (32)
+COPY ~override/61xHelho.cre~ ~override/61xHelh2.cre~ 
+	WRITE_ASCII 0x280 ~IW6104E_HellHound_15~ (32)
+COPY ~override/61xHelho.cre~ ~override/61xHelh3.cre~ 
+	WRITE_ASCII 0x280 ~IW6104E_HellHound_16~ (32)
+COPY ~override/61xHelho.cre~ ~override/61xHelh4.cre~ 
+	WRITE_ASCII 0x280 ~IW6104E_HellHound_17~ (32)
+COPY ~override/61xMepLa.cre~ ~override/61xMepL1.cre~ 
+	WRITE_ASCII 0x280 ~IW6104_LavaMephit_19~ (32)
+COPY ~override/61xMepLa.cre~ ~override/61xMepL2.cre~ 
+	WRITE_ASCII 0x280 ~IW6104_LavaMephit_20~ (32)
+COPY ~override/61mepLav.cre~ ~override/61mepLa1.cre~ 
+	WRITE_ASCII 0x280 ~MyBuddy~ (32)
+COPY ~override/00RogBas.cre~ ~override/00RogBa1.cre~ 
+	WRITE_ASCII 0x280 ~ROGUE_1~ (32)
+COPY ~override/00RogBas.cre~ ~override/00RogBa2.cre~ 
+	WRITE_ASCII 0x280 ~ROGUE_2~ (32)
+COPY ~override/00SolBas.cre~ ~override/00SolBa1.cre~ 
+	WRITE_ASCII 0x280 ~SOLDIER_1~ (32)
+COPY ~override/00SolBas.cre~ ~override/00SolBa2.cre~ 
+	WRITE_ASCII 0x280 ~SOLDIER_2~ (32)  
+*/

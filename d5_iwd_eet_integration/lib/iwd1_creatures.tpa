@@ -46,6 +46,9 @@ BEGIN
       SET new_maxhp = (maxhp / 2)
       WRITE_SHORT 0x24 new_curhp
       WRITE_SHORT 0x26 new_maxhp
+      READ_LONG 0x14 oldxp
+      SET newxp = (oldxp * 2)
+      WRITE_LONG 0x14 newxp
       SPRINT $mod_cres(~%SOURCE_RES%~)~1~
   END
 END
@@ -109,6 +112,9 @@ BEGIN
       SET new_maxhp = (midmax / 3)
       WRITE_SHORT 0x24 new_curhp
       WRITE_SHORT 0x26 new_maxhp
+      READ_LONG 0x14 oldxp
+      SET newxp = (oldxp * 4)
+      WRITE_LONG 0x14 newxp
       SPRINT $mod_cres(~%SOURCE_RES%~)~1~
   END
 END
@@ -146,6 +152,9 @@ BEGIN
       SET new_maxhp = (midmax / 4)
       WRITE_SHORT 0x24 new_curhp
       WRITE_SHORT 0x26 new_maxhp
+      READ_LONG 0x14 oldxp
+      SET newxp = (oldxp * 4)
+      WRITE_LONG 0x14 newxp
       SPRINT $mod_cres(~%SOURCE_RES%~)~1~
   END
 END
@@ -168,6 +177,9 @@ BEGIN
     COPY_EXISTING ~%cre_file_set_42%.cre~ ~override~
       WRITE_SHORT 0x24 42
       WRITE_SHORT 0x26 42
+      READ_LONG 0x14 oldxp
+      SET newxp = (oldxp * 4)
+      WRITE_LONG 0x14 newxp
       SPRINT $mod_cres(~%SOURCE_RES%~)~1~
   END
 END
@@ -179,11 +191,17 @@ ACTION_FOR_EACH cre_file_set_50 IN
   ~yuaewbl~
   ~yuaewbo~
   ~yuaewsw~
+  ~wticetr1~
+  ~wticetrl~
+  ~trollice~
 BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%cre_file_set_50%.cre~) BEGIN
     COPY_EXISTING ~%cre_file_set_50%.cre~ ~override~
       WRITE_SHORT 0x24 50
       WRITE_SHORT 0x26 50
+      READ_LONG 0x14 oldxp
+      SET newxp = (oldxp * 4)
+      WRITE_LONG 0x14 newxp
       SPRINT $mod_cres(~%SOURCE_RES%~)~1~
   END
 END
@@ -193,11 +211,16 @@ ACTION_FOR_EACH cre_file_set_65 IN
   ~wtsalf2~
   ~wtsalf3~
   ~wtsnotro~
+  ~trolsno~
+  ~trolly~
 BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%cre_file_set_65%.cre~) BEGIN
     COPY_EXISTING ~%cre_file_set_65%.cre~ ~override~
       WRITE_SHORT 0x24 65
       WRITE_SHORT 0x26 65
+      READ_LONG 0x14 oldxp
+      SET newxp = (oldxp * 3)
+      WRITE_LONG 0x14 newxp
       SPRINT $mod_cres(~%SOURCE_RES%~)~1~
   END
 END

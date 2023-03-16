@@ -1,7 +1,7 @@
 BACKUP ~d5_iwd_eet_integration/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~0.6~
+VERSION ~0.7~
 
 ALWAYS
 
@@ -30,7 +30,7 @@ LANGUAGE ~Español~
 ////////////////////
 
 
-BEGIN ~Add IWD Campaigns to EET Start Screen~
+BEGIN ~Add IWD Campaigns to the EET Menu~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) OR (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) ~IWD campaigns required~
 DESIGNATED 100
 LABEL ~D5_TIPUN_IWD_CAMPAIGNS~
@@ -57,7 +57,7 @@ INCLUDE ~%MOD_FOLDER%/lib/iwd1_xp.tpa~
 ////////////////////
 
 
-BEGIN ~Adjust IWD1 Creature Stats~
+BEGIN ~Adjust IWD1 Creature Stats for Full Campaign~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1_EET required~
 DESIGNATED 115
 LABEL ~D5_IWD1_CREATURE_STATS~
@@ -67,33 +67,33 @@ INCLUDE ~%MOD_FOLDER%/lib/iwd1_creatures.tpa~
 
 ////////////////////
 ////////////////////
-/*
+
 
 BEGIN ~Adjust IWD2 XP for Full Campaign~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) ~IWD2_EET required~
 DESIGNATED 130
 LABEL ~D5_IWD2_CAMPAIGN_XP~
 
-INCLUDE ~%MOD_FOLDER%/lib/iwd1_xp.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/iwd2_xp.tpa~
 
 
 ////////////////////
 ////////////////////
 
 
-BEGIN ~Adjust IWD2 Creature Stats~
+BEGIN ~Adjust IWD2 Creature Stats for Full Campaign~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) ~IWD2_EET required~
 DESIGNATED 125
 LABEL ~D5_IWD2_CREATURE_STATS~
 
 INCLUDE ~%MOD_FOLDER%/lib/iwd2_creatures.tpa~
 
-*/
+
 ////////////////////
 ////////////////////
 
 
-BEGIN ~Add HoW to BG2~
+BEGIN ~Add HoW access to BG2~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) OR (MOD_IS_INSTALLED ~SETUP-HOW_EET.TP2~ ~0~) ~HoW in EET required~
 DESIGNATED 150
 LABEL ~D5_HOW_SOA_INTEGRATION~
@@ -103,9 +103,21 @@ INCLUDE ~%MOD_FOLDER%/lib/how_integration.tpa~
 
 ////////////////////
 ////////////////////
+/*
+
+BEGIN ~Remove Overpowered Items from HoW~
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) OR (MOD_IS_INSTALLED ~SETUP-HOW_EET.TP2~ ~0~) ~HoW in EET required~
+DESIGNATED 155
+LABEL ~D5_HOW_ITEMS~
+
+INCLUDE ~%MOD_FOLDER%/lib/d5_how_items.tpa~
+
+*/
+////////////////////
+////////////////////
 
 
-BEGIN ~Add IWD1 Content Easter Egg to BG2~
+BEGIN ~Add IWD1 Easter Egg Content to BG2~
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) ~IWD1_EET required~
 DESIGNATED 160
 LABEL ~D5_IWD1_SOA_INTEGRATION~

@@ -1,0 +1,15 @@
+////////////////////
+
+// use fj_are_structure to remove biron.itm, svian.itm, young.itm
+
+// ID9400.are
+
+// container 2 "tomb 3" has blood iron
+// container 3 "tomb 4" has svian's club
+// container 4 "tomb 5" has young rage
+
+COPY_EXISTING ~ID9400.are~ ~override~
+  LPF DELETE_AREA_ITEM STR_VAR item_to_delete = ~biron~ END
+  LPF DELETE_AREA_ITEM STR_VAR item_to_delete = ~svian~ END
+  LPF DELETE_AREA_ITEM STR_VAR item_to_delete = ~young~ END
+IF_EXISTS 

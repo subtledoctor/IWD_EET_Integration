@@ -22,9 +22,77 @@ END
 
 END
 
-// add Hjollder to Bridge District
+////////////////////
 
-COPY_EXISTING ~AR0500.are~ ~override~
+// if IWD_EET, add duplicate Hjollder to Athkatla
+
+ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
+
+// make custom copy of Hjollder so it can have different dialogue
+
+  COPY_EXISTING ~hjollder.cre~ ~override/d5hjoll.cre~
+    WRITE_ASCII 0x2cc ~d5hjoll~ #8
+  IF_EXISTS
+
+// add new Hjollder to Bridge District
+
+  COPY_EXISTING ~AR0500.are~ ~override~
+	LPF add_area_cre_acti
+		INT_VAR
+			pos_x       =   190
+			pos_y       =   2700
+			flags       =   9
+			anim        =   57927
+		STR_VAR
+			actor_name  = "Hjollder"
+			over_scr    = "IWHIDE1"
+			genr_scr    = "LWHJOLO"
+			clas_scr    = "EFPIKHST"
+			race_scr    = "EFMKENMY"
+			defl_scr    = "EFDLGMH"
+			cre_file    = "D5HJOLL"
+	END
+
+END
+
+ACTION_IF !(VARIABLE_IS_SET %EE_LANGUAGE%) BEGIN
+  COPY_EXISTING ~spwi101.spl~ ~override~
+	READ_STRREF 0x50 description_string
+  BUT_ONLY
+  ACTION_FOR_EACH lang IN ~en_US~ ~fr_FR~/* ~ru_RU~ */ BEGIN
+	WITH_TRA ~%MOD_FOLDER%/lang/%lang%/how.tra~ BEGIN
+	  OUTER_SPRINT duration_lang @10 
+	END	
+	ACTION_IF !(~%description_string%~ STRING_CONTAINS_REGEXP ~%duration_lang%~) BEGIN
+	  OUTER_SPRINT game_lang ~%lang%~
+	END
+  END
+END
+ACTION_IF (VARIABLE_IS_SET %EE_LANGUAGE%) BEGIN
+  OUTER_SPRINT ee_lang ~%EE_LANGUAGE%~
+  ACTION_IF (FILE_EXISTS ~%MOD_FOLDER%/lang/%ee_lang%/how.tra~) BEGIN
+	OUTER_SPRINT game_lang ~%EE_LANGUAGE%~
+  END
+END
+ACTION_IF !(VARIABLE_IS_SET %game_lang%) BEGIN
+	OUTER_SPRINT game_lang ~en_US~
+END
+
+WITH_TRA ~%MOD_FOLDER%/lang/%game_lang%/how.tra~ BEGIN
+
+  COMPILE ~%MOD_FOLDER%/data/compile/d5hjoll.d~
+
+END
+
+////////////////////
+
+// if HoW_EET, add existing Hjollder to Athkatla
+
+ACTION_IF (MOD_IS_INSTALLED ~SETUP-HOW_EET.TP2~ ~0~) BEGIN
+
+// add old Hjollder to Bridge District
+
+  COPY_EXISTING ~AR0500.are~ ~override~
 	LPF add_area_cre_acti
 		INT_VAR
 			pos_x       =   190
@@ -41,18 +109,27 @@ COPY_EXISTING ~AR0500.are~ ~override~
 			cre_file    = "HJOLLDER"
 	END
 
+END
+
 ////////////////////
 
 // area script to make Hjollder disappear from Bridge district if already played HoW
 
 <<<<<<<< d5/ar0500_.baf
 IF
+	Global("Join_Posse","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("Join_Posse","GLOBAL",1)
+END
+
+IF
 	GlobalGT("Hjollder_Quest","GLOBAL",1)
 	GlobalLT("Hjollder_Quest","GLOBAL",999)
 THEN
 	RESPONSE #100
-		SetGlobal("Hjollder_Quest","GLOBAL",999)
-		ActionOverride("Hjollder",DestroySelf())
+	SetGlobal("Hjollder_Quest","GLOBAL",999)
+	ActionOverride("Hjollder",DestroySelf())
 END
 
 IF
@@ -60,7 +137,7 @@ IF
 	Global("HoW_BG2","GLOBAL",0)
 THEN
 	RESPONSE #100
-		SetGlobal("HoW_BG2","GLOBAL",1)
+	SetGlobal("HoW_BG2","GLOBAL",1)
 END
 >>>>>>>> 
 COPY ~d5/ar0500_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar0500_.baf~

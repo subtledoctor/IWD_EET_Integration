@@ -730,7 +730,27 @@ COMPILE ~weidu_external/%MOD_FOLDER%/compile/dlarrel+.d~
 // change gaelan's dialogue to send player to severed hand, and accept activated heartstone gem
 
 <<<<<<<< d5/gaelan+.d
-APPEND ~gaelan~
+ADD_STATE_TRIGGER GAELAN 51 ~GlobalLT("BGHeartstone_Active","GLOBAL",2)~
+
+EXTEND_BOTTOM GAELAN 49
+  IF ~Global("BGHeartstone_Active","GLOBAL",2)~ THEN REPLY ~I have activated the Heartstone Gem. You may have it instead of the fee.~
+    DO ~ EraseJournalEntry(96385)
+      AddJournalEntry(96385,QUEST_DONE)
+      AddJournalEntry(96437,QUEST)
+      EraseJournalEntry(34183)
+      EraseJournalEntry(34187)
+      AddXPObject(Player1,45000)
+      AddXPObject(Player2,45000)
+      AddXPObject(Player3,45000)
+      AddXPObject(Player4,45000)
+      AddXPObject(Player5,45000)
+      AddXPObject(Player6,45000)
+      SetGlobal("WorkingForAran","GLOBAL",1) ~ SOLVED_JOURNAL #47537 /* ~Collect the fee for Gaelan Bayle
+
+I have given Gaelan Bayle the gold he asked for, and in return he has given me a key which will admit me to see the head of the Athkatlan Shadow Thieves. I am to go to the thieves' guild, it seems, and use the key on a secret entrance which is immediately to the right as I enter. ~ */ GOTO 53
+END
+
+APPEND GAELAN
   IF WEIGHT #9 ~ Global("Linvail","GLOBAL",0)
     Global("ShadowWork","GLOBAL",1)
     PartyHasItem("HEARTGM")
@@ -773,7 +793,7 @@ APPEND ~gaelan~
 
 I have given Gaelan Bayle the gold he asked for, and in return he has given me a key which will admit me to see the head of the Athkatlan Shadow Thieves. I am to go to the thieves' guild, it seems, and use the key on a secret entrance which is immediately to the right as I enter. ~ */ GOTO 53
     IF ~ PartyGoldLT(15000) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 49
-    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 51
+    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 84
   END
 END
 >>>>>>>> 

@@ -124,11 +124,19 @@ THEN
 END
 
 IF
-	GlobalGT("Hjollder_Quest","GLOBAL",1)
-	GlobalLT("Hjollder_Quest","GLOBAL",999)
+	GlobalLT("Hjollder_Quest","GLOBAL",2)
+	Global("Hjollder_Over","GLOBAL",0)
 THEN
 	RESPONSE #100
-	SetGlobal("Hjollder_Quest","GLOBAL",999)
+	SetGlobal("Hjollder_Over","GLOBAL",1)
+END
+
+IF
+	GlobalGT("Hjollder_Quest","GLOBAL",1)
+	Global("Hjollder_Over","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("Hjollder_Over","GLOBAL",1)
 	ActionOverride("Hjollder",DestroySelf())
 END
 
@@ -260,6 +268,7 @@ ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
   COPY ~%MOD_FOLDER%/data/copy/ildrgdie.bcs~ ~override~
   COPY ~%MOD_FOLDER%/data/copy/ilgemded.bcs~ ~override~
   COPY ~%MOD_FOLDER%/data/copy/ilgemeff.bcs~ ~override~
+  COPY ~%MOD_FOLDER%/data/copy/idlu2109.bcs~ ~override~
 
  WITH_TRA ~iwd1_eet/lang/%LANGUAGE%/dialog.tra~ BEGIN
   COMPILE ~%MOD_FOLDER%/data/compile/dambere.d~

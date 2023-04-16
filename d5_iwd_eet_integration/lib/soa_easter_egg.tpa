@@ -732,6 +732,8 @@ COMPILE ~weidu_external/%MOD_FOLDER%/compile/dlarrel+.d~
 <<<<<<<< d5/gaelan+.d
 ADD_STATE_TRIGGER GAELAN 51 ~GlobalLT("BGHeartstone_Active","GLOBAL",2)~
 
+ADD_STATE_TRIGGER GAELAN 49 ~!PartyHasItem("HEARTGM")~
+
 EXTEND_BOTTOM GAELAN 49
   IF ~Global("BGHeartstone_Active","GLOBAL",2)~ THEN REPLY ~I have activated the Heartstone Gem. You may have it instead of the fee.~
     DO ~ EraseJournalEntry(96385)
@@ -751,7 +753,7 @@ I have given Gaelan Bayle the gold he asked for, and in return he has given me a
 END
 
 APPEND GAELAN
-  IF WEIGHT #9 ~ Global("Linvail","GLOBAL",0)
+  IF WEIGHT #7 ~ Global("Linvail","GLOBAL",0)
     Global("ShadowWork","GLOBAL",1)
     PartyHasItem("HEARTGM")
     Global("BGHeartstone_Active","GLOBAL",0)
@@ -759,15 +761,13 @@ APPEND GAELAN
   THEN BEGIN ~d5hggaelan1~
     SAY ~Coo! A little birdy told me ye've come into possession of an artifact that can do powerful divination. Though the use of it be tricky for most folks, we have someone who can use it to assist in reaching Imoen and Irenicus. In fact, we would so appreciate having the gem that, if ye can part with it, we can forego our fee entirely. And to be honest, ye haven't the ability to use it, so it's worth nothing to ye. What say ye?~
     IF ~~ THEN REPLY ~Sure, sounds good. I guess I have no use for the gem anyway.~  GOTO d5hggaelan2
-    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 49
-    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 51
+    IF ~~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense Can you remind me of the cost of the fee you had asked for?~  GOTO 84
   END
 
   IF ~~ THEN BEGIN ~d5hggaelan2~
     SAY ~Ah, it be as I feared: the gem is inactive. It needs to be woken up, ye might say. Luckily our contact was prepared for this possibility, and told me how it can be done. Ye will have to find an elven lich who has had experience with the gem in the distant past. Don't worry, he be friendly. I think. What do ye think? Are ye up for it?~
     IF ~~ THEN REPLY ~If it helps get us to our goal, I will find this lich and activate the gem.~ GOTO d5hggaelan3
-    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~On second thought, let's keep things simple. I'll pay your fee instead.~  GOTO 49
-    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~On second thought, let's keep things simple. I'll pay your fee instead.~  GOTO 51
+    IF ~~ THEN REPLY ~On second thought, let's keep things simple. Tell me what it would cost to pay the fee instead.~  GOTO 84
   END
 
   IF ~~ THEN BEGIN ~d5hggaelan3~
@@ -792,8 +792,7 @@ APPEND GAELAN
       SetGlobal("WorkingForAran","GLOBAL",1) ~ SOLVED_JOURNAL #47537 /* ~Collect the fee for Gaelan Bayle
 
 I have given Gaelan Bayle the gold he asked for, and in return he has given me a key which will admit me to see the head of the Athkatlan Shadow Thieves. I am to go to the thieves' guild, it seems, and use the key on a secret entrance which is immediately to the right as I enter. ~ */ GOTO 53
-    IF ~ PartyGoldLT(15000) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 49
-    IF ~ PartyGoldGT(14999) ~ THEN REPLY ~On second thought, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense. I'll pay the fee instead.~  GOTO 84
+    IF ~~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense Can you remind me of the cost of the fee you had asked for?~  GOTO 84
   END
 END
 >>>>>>>> 

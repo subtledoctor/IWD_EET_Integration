@@ -21,7 +21,7 @@
 @20    = ~Oui... Joril envoyé. Oui... nourriture. Morgel mange... clan mange... oui...~
 @21    = ~Je vois. Mais que puis-je y faire ?~
 @22    = ~Test dialogue~
-@23    = ~C'est de votre faute si ces géants sillonnent Kuldahar, pas vrai ? Quel remue-ménage... "héros".~
+@23    = ~C'est de votre faute si ces géants sillonnent Kuldahar, pas vrai ? Quel remue-ménage... « héros ».~
 @24    = ~Momie~
 @25    = ~Vous faites partie de ces aventuriers qui sont allés dans l'Œil du Dragon, pas vrai ? ! Eh bien, qui vous a dit de faire un tel remue-ménage en enfer pour ramener toutes ces bêtes en ville ? !~
 @26    = ~Qui êtes-vous ?~
@@ -81,7 +81,7 @@
 @80    = ~Truite~
 @81    = ~Formidable ! Quelle chance, de vrais aventuriers ! Vous pouvez peut-être m'aider.~
 @82    = ~Merci de m'avoir sauvé. Maintenant que Shikata est mort, la délivrance de mon peuple approche. Vous avez toute notre gratitude.~
-@83    = ~Elle déclenche la quête "sauvetage d'Haer'Dalis".~
+@83    = ~Elle déclenche la quête « sauvetage d'Haer'Dalis ».~
 @84    = ~Eh bien, je connais un coin de pêche secret...~
 @85    = ~C'est un endroit super ! On peut y pêcher des truites presque aussi grandes que moi !~
 @86    = ~Seigneur Ketlaar Argrim~
@@ -185,7 +185,7 @@
 @184   = ~C'est fait. Ces insectes ne vous causeront plus de problèmes.~
 @185   = ~Merci. Avant de partir, j'aimerais acheter quelques sorts.~
 @186   = ~Bonjour. Je m'appelle Accalia. Je suis une initiée ici, au temple de Tempus. J'aide Everard à s'occuper de l'armurerie du temple et à accomplir les rituels.~
-@187   = ~Les tribus barbares vénèrent Tempus. Elles le surnomment "Tempos". Nous, les immigrants, sommes témoins de beaucoup de violence et de conflits par ici et les gens veulent leur donner un sens.~
+@187   = ~Les tribus barbares vénèrent Tempus. Elles le surnomment « Tempos ». Nous, les immigrants, sommes témoins de beaucoup de violence et de conflits par ici et les gens veulent leur donner un sens.~
 @188   = ~Nous célébrons la Fête de la Lune en souvenir de ceux qui sont tombés à la guerre. Nous chantons aussi la Chanson de l'Épée au moins une fois tous les dix jours. Compte tenu de la proximité de l'église avec tant de champs de grandes batailles, notre congrégation organise aussi des célébrations locales en souvenir des grands conflits qui ont fait rage à Val de Bise. Les cérémonies quotidiennes les plus importantes sont la Fête des Héros lorsque le soleil est au zénith et l'Hymne des Morts, au coucher du soleil.~
 @189   = ~Cela change de saison en saison, d'année en année... Comme tout. Ils se méfient de nous, les immigrants, et considèrent souvent nos campements comme des intrusions sur leurs terres. Il arrive qu'ils commercent avec nous, mais il arrive aussi qu'ils nous fassent la guerre.~
 @190   = ~Cela fait partie d'une simple vérité à laquelle nous, Tempuriens, adhérons. Les conflits sont omniprésents. Chacun croit en quelque chose, chacun peut mourir pour promouvoir ou préserver cette croyance. Selon Tempus, nous devons vivre pour quelque chose qui a de l'importance. Si nous tuons, si nous mourons... c'est pareil. Nous prêchons que le conflit et la guerre sont essentiels à l'existence de l'humanité.~
@@ -1941,7 +1941,7 @@ Vous pouvez modifier votre taux d'image avec l'utilitaire de configuration.~ ~Y 
 @1854  = ~"Tirizi kalo !"~
 @1855  = ~"HA HA HA HA !"~
 @1856  = ~"Kaval hito sssep matol pesti chiruni !"~
-@1857  = ~"Attrapez-les ! Attrapez nourriture ! »~
+@1857  = ~« Attrapez-les ! Attrapez nourriture ! »~
 @1858  = ~Kresselack~
 @1859  = ~Mets-y un terme, Maglubiyet !~
 @1860  = ~Maudit soient Vaprak et ses rejetons ! Quelle douleur !~
@@ -3968,7 +3968,7 @@ Poids : 3~
 @3324  = ~Messager de Sseth +1~
 @3325  = ~Une histoire...
 
-"Deux chastes shugenjas marchaient sous la pluie lorsqu'ils aperçurent une belle jeune femme abritée sous un arbre. Celle-ci demanda aux moines de l'aider à traverser un petit ruisseau. Le premier accourut à son aide, malgré les protestations silencieuses de son compagnon. Il souleva la jeune femme et la transporta de l'autre côté du ruisseau, reprenant aussitôt son chemin après l'avoir déposée à terre. Le second moine ne pipa mot jusqu'à ce que la jeune femme ait disparu, puis il s'adressa à son frère :
+Deux chastes shugenjas marchaient sous la pluie lorsqu'ils aperçurent une belle jeune femme abritée sous un arbre. Celle-ci demanda aux moines de l'aider à traverser un petit ruisseau. Le premier accourut à son aide, malgré les protestations silencieuses de son compagnon. Il souleva la jeune femme et la transporta de l'autre côté du ruisseau, reprenant aussitôt son chemin après l'avoir déposée à terre. Le second moine ne pipa mot jusqu'à ce que la jeune femme ait disparu, puis il s'adressa à son frère :
 
 "Nous ne sommes pas censés avoir de contact avec les femmes, nous autres shugenjas ! Pourquoi l'as-tu portée ainsi ?"
 
@@ -26784,7 +26784,7 @@ Capacités d'équipement :
 
 Poids : 3~
 @16976 = ~Le Casque du Patriote
-Ce casque a été porté par le guerrier nain Danel Givredargent, roi et martyre de la cité-état perdue de Rochedargent. Les exploits de Danel ne sont pas aussi connus que ceux d'autres héros nains, mais sans doute est-ce dû au fait que son royaume a disparu avec lui. Sa nation a terriblement souffert lorsque trolls et géants du froid l'ont attaquée voici plus de mille ans, au cours de la presque oubliée "Guerre du Sang Caillé". Le conflit opposant les monstres au clan de Rochedargent se prolongea quinze années durant. Danel ne tenta jamais de fuir, de rechercher l'aide des nations voisines ou d'abandonner les siens. Malgré la désertion de nombre de ses sujets, il demeura à Rochedargent jusqu'à la fin. À la veille de l'ultime bataille, il s'adressa aux siens en ces termes : "Quand vous verrez disparaître le panache de mon casque, vous saurez que les nôtres ne plient pas comme l'or, mais qu'ils cassent comme le fer . Dès le début du combat, Danel chargea les lignes adverses et se retrouva opposé à une dizaine de trolls. Quand son panache disparut sous les griffes des monstres, tous les hommes, femmes et enfants de Rochedargent enjambèrent les barricades pour emporter dans la mort autant de trolls et de géants qu'ils le pouvaient. Des tonneaux d'huile enflammée furent renversés dans le palais de Danel et les autres quartiers de la cité, embrasant nains, trolls et géants. Les monstres remportèrent finalement une victoire, mais qui se révéla au bout du compte fatalement vaine. Quand le combat s'acheva, la cité n'était plus que ruines, d'où ils ne tirèrent ni trésor, ni esclaves, ni nourriture. Nombre de trolls moururent de faim au cours de l'hiver et, quand ils se retournèrent contre leurs alliés géants pour se nourrir, leur armée se désagrégea à tout jamais.
+Ce casque a été porté par le guerrier nain Danel Givredargent, roi et martyre de la cité-état perdue de Rochedargent. Les exploits de Danel ne sont pas aussi connus que ceux d'autres héros nains, mais sans doute est-ce dû au fait que son royaume a disparu avec lui. Sa nation a terriblement souffert lorsque trolls et géants du froid l'ont attaquée voici plus de mille ans, au cours de la presque oubliée "Guerre du Sang Caillé". Le conflit opposant les monstres au clan de Rochedargent se prolongea quinze années durant. Danel ne tenta jamais de fuir, de rechercher l'aide des nations voisines ou d'abandonner les siens. Malgré la désertion de nombre de ses sujets, il demeura à Rochedargent jusqu'à la fin. À la veille de l'ultime bataille, il s'adressa aux siens en ces termes : "Quand vous verrez disparaître le panache de mon casque, vous saurez que les nôtres ne plient pas comme l'or, mais qu'ils cassent comme le fer". Dès le début du combat, Danel chargea les lignes adverses et se retrouva opposé à une dizaine de trolls. Quand son panache disparut sous les griffes des monstres, tous les hommes, femmes et enfants de Rochedargent enjambèrent les barricades pour emporter dans la mort autant de trolls et de géants qu'ils le pouvaient. Des tonneaux d'huile enflammée furent renversés dans le palais de Danel et les autres quartiers de la cité, embrasant nains, trolls et géants. Les monstres remportèrent finalement une victoire, mais qui se révéla au bout du compte fatalement vaine. Quand le combat s'acheva, la cité n'était plus que ruines, d'où ils ne tirèrent ni trésor, ni esclaves, ni nourriture. Nombre de trolls moururent de faim au cours de l'hiver et, quand ils se retournèrent contre leurs alliés géants pour se nourrir, leur armée se désagrégea à tout jamais.
 
 PARAMÈTRES :
 
@@ -26989,7 +26989,7 @@ Poids : 2~
 @17131 = ~Plein écran~
 @17132 = ~Le nom de la partie sauvegardée n'est pas un intitulé de fichier valide.~
 @17133 = ~Le nom de la partie sauvegardée ne peut pas contenir les caractères suivants :
-? . : \< \> | * / \\ "~
+? . : \< \> | * / \\ ""~
 @17134 = ~Réflexion logicielle~ ~Réflexion logicielle
 ~
 @17135 = ~Transparence logicielle~
@@ -36845,7 +36845,9 @@ Poids : 3~
 @23395 = ~[no text]~
 @23396 = ~[no text]~
 @23397 = ~[no text]~
-@23398 = ~Nous avons couché avec la femme du tonnelier avant de le dire à ce dernier. Nous avons pris grand plaisir à voir ses traits se décomposer quand nous lui avons parlé des talents de courtisane de son épouse...~
+@23398 = ~La famille Dunn
+
+Nous avons couché avec la femme du tonnelier avant de le dire à ce dernier. Nous avons pris grand plaisir à voir ses traits se décomposer quand nous lui avons parlé des talents de courtisane de son épouse...~
 @23399 = ~[no text]~
 @23400 = ~[no text]~
 @23401 = ~[no text]~
@@ -36986,7 +36988,9 @@ Remarques à ma seule intention : à compléter par quelque chose de nutritif, 
 @23482 = ~[no text]~
 @23483 = ~[no text]~
 @23484 = ~[no text]~
-@23485 = ~Nous avons assassiné un innocent afin de sceller notre pacte avec Frustralion. Nous avons désormais le pouvoir de l'appeler... mais une fois seulement.~
+@23485 = ~Frustralion
+
+Nous avons assassiné un innocent afin de sceller notre pacte avec Frustralion. Nous avons désormais le pouvoir de l'appeler... mais une fois seulement.~
 @23486 = ~[no text]~
 @23487 = ~[no text]~
 @23488 = ~[no text]~
@@ -37028,43 +37032,95 @@ Remarques à ma seule intention : à compléter par quelque chose de nutritif, 
 @23524 = ~[no text]~
 @23525 = ~[no text]~
 @23526 = ~[no text]~
-@23527 = ~Nous avons montré le miroir de glace à Wylfdene et cela a démasqué la créature qui se cachait sous ses traits.~
+@23527 = ~Wylfdene et son reflet
+
+Nous avons montré le miroir de glace à Wylfdene et cela a démasqué la créature qui se cachait sous ses traits.~
 @23528 = ~[no text]~
 @23529 = ~[no text]~
 @23530 = ~[no text]~
 @23531 = ~[no text]~
 @23532 = ~[no text]~
-@23533 = ~Nous avons trouvé la voyante de Morneglace dans les profondeurs du glacier. Elle nous a expliqué que la dépouille de Wylfdene avait été possédée par un monstre au "cœur de l'hiver". Elle nous a également dit de confronter Wylfdene à son image dans le miroir de glace que nous avons utilisé pour entrer chez elle. La créature qui est en Wylfdene n'aura alors d'autre choix que de se dévoiler.~
-@23534 = ~En voyant le talent dont Tiernon faisait preuve pour travailler la glace, nous nous sommes souvenus de l'histoire de Murdaugh et nous avons demandé au nain de tailler une rose de glace. Quand il l'a sculptée, celle-ci a semblé éclore dans ses mains. Elle est d'une beauté stupéfiante.~
-@23535 = ~Nous avons dit à Davin que nous avions nettoyé la caverne du nord. Nous avons également tué le géant du froid qui gardait les esclaves, ce qui leur a permis de s'enfuir.~
-@23536 = ~Nous avons vu Tiernon "apaiser" l'épée reforgée d'Aihonen. Apparemment, Tiernon connaissait Aihonen, et ce serait même lui qui aurait fabriqué l'épée utilisée pour tuer Icasaracht. Mais il n'avait manifestement pas envie d'en parler, et nous en sommes restés là.~
-@23537 = ~Nous avons découvert Tiernon Frappecasque, le célèbre forgeron nain, dans une caverne reculée du glacier de Morneglace. On raconte de nombreuses histoires au sujet des armes et armures légendaires qu'il a forgées, mais toutes s'achèvent par sa mystérieuse disparition, voici quelques années. Les membres du clan de la Pierre-de-l'Âtre, qui résident près des monts du Crépuscule, seront soulagés d'apprendre que Tiernon est en bonne santé.~
-@23538 = ~Nous avons découvert Tiernon Frappecasque, le célèbre forgeron nain, dans une caverne reculée du glacier de Morneglace. On raconte de nombreuses histoires au sujet des armes et armures légendaires qu'il a forgées, mais toutes s'achèvent par sa mystérieuse disparition, voici quelques années. Notre barde devrait faire des malheurs dans les tavernes du val de Bise avec cette histoire à son répertoire.~
+@23533 = ~La voyante de Morneglace
+
+Nous avons trouvé la voyante de Morneglace dans les profondeurs du glacier. Elle nous a expliqué que la dépouille de Wylfdene avait été possédée par un monstre au "cœur de l'hiver". Elle nous a également dit de confronter Wylfdene à son image dans le miroir de glace que nous avons utilisé pour entrer chez elle. La créature qui est en Wylfdene n'aura alors d'autre choix que de se dévoiler.~
+@23534 = ~Rose glacée
+
+En voyant le talent dont Tiernon faisait preuve pour travailler la glace, nous nous sommes souvenus de l'histoire de Murdaugh et nous avons demandé au nain de tailler une rose de glace. Quand il l'a sculptée, celle-ci a semblé éclore dans ses mains. Elle est d'une beauté stupéfiante.~
+@23535 = ~Libérer les esclaves des géants du froid
+
+Nous avons dit à Davin que nous avions nettoyé la caverne du nord. Nous avons également tué le géant du froid qui gardait les esclaves, ce qui leur a permis de s'enfuir.~
+@23536 = ~L'épée d'Aihonen
+
+Nous avons vu Tiernon "apaiser" l'épée reforgée d'Aihonen. Apparemment, Tiernon connaissait Aihonen, et ce serait même lui qui aurait fabriqué l'épée utilisée pour tuer Icasaracht. Mais il n'avait manifestement pas envie d'en parler, et nous en sommes restés là.~
+@23537 = ~Tiernon le forgeron
+
+Nous avons découvert Tiernon Frappecasque, le célèbre forgeron nain, dans une caverne reculée du glacier de Morneglace. On raconte de nombreuses histoires au sujet des armes et armures légendaires qu'il a forgées, mais toutes s'achèvent par sa mystérieuse disparition, voici quelques années. Les membres du clan de la Pierre-de-l'Âtre, qui résident près des monts du Crépuscule, seront soulagés d'apprendre que Tiernon est en bonne santé.~
+@23538 = ~Tiernon le forgeron
+
+Nous avons découvert Tiernon Frappecasque, le célèbre forgeron nain, dans une caverne reculée du glacier de Morneglace. On raconte de nombreuses histoires au sujet des armes et armures légendaires qu'il a forgées, mais toutes s'achèvent par sa mystérieuse disparition, voici quelques années. Notre barde devrait faire des malheurs dans les tavernes du val de Bise avec cette histoire à son répertoire.~
 @23539 = ~Giran~
-@23540 = ~Nous avons fait la connaissance d'un nain aveugle, Tiernon, dans les profondeurs du glacier de Morneglace. Il nous a expliqué que la voyante se cachait ici pour nous fuir, persuadée que nous serons la cause de sa mort. Tiernon nous a donné un miroir de glace, en nous disant qu'il devrait nous permettre d'entrer dans les quartiers de la voyante, situés à l'étage inférieur.~
+@23540 = ~La voyante de Morneglace
+
+Nous avons fait la connaissance d'un nain aveugle, Tiernon, dans les profondeurs du glacier de Morneglace. Il nous a expliqué que la voyante se cachait ici pour nous fuir, persuadée que nous serons la cause de sa mort. Tiernon nous a donné un miroir de glace, en nous disant qu'il devrait nous permettre d'entrer dans les quartiers de la voyante, situés à l'étage inférieur.~
 @23541 = ~Giran~
 @23542 = ~Perter~
-@23543 = ~Nous avons aidé Tiernon à créer son grand-œuvre, une arme de glace. Apparemment, l'arme a en elle le pouvoir du glacier... et de ses créateurs.~
-@23544 = ~Frustralion nous a demandé de tuer un innocent en échange de son aide.~
-@23545 = ~Nous avons demandé à Frustralion de se soumettre à notre volonté et il a accepté.~
-@23546 = ~Nous avons forcé Frustralion à se soumettre à notre volonté en utilisant le pouvoir de son vrai nom.~
-@23547 = ~Nous avons rencontré un glabrezu du nom de Frustralion, qui avait pris la forme d'une armure. Son précédent possesseur lui avait demandé de se transformer de la sorte mais, au bout du compte, l'homme a fini par oublier le vrai nom du démon et celui-ci l'a déchiqueté.~
-@23548 = ~Quand nous avons demandé à Kiéran de nous parler de la pièce secrète située derrière le miroir de sa chambre, il a craqué et nous a expliqué qu'il s'était volontairement exilé afin d'échapper à une organisation corrompue de magiciens appelée Tour de l'Arcanium. En échange de notre silence, il nous a proposé plusieurs objets magiques rares qu'il a réunis au fil des ans.~
-@23549 = ~Nous nous sommes entretenus avec Angaar de Wylfdene. Il semblerait que ce dernier prétende être possédé par l'esprit de Jerrod. Angaar affirme que Wylfdene aurait été longuement questionné par le chaman de la tribu, à qui il aurait prouvé qu'il connaissait l'existence de Jerrod jusque dans ses moindres détails. Intéressant...~
-@23550 = ~Nous avons parlé avec Angaar de l'assassin chargé de tuer Wylfdene. Angaar n'a pas l'air convaincu que cet individu ait été un tueur professionnel. Sous la torture, l'homme aurait admis qu'il avait bien été envoyé par le conseil des Dix-Cités, et payé par le représentant du Bois Isolé. Mais il aurait péri avant d'avouer quelle était la teneur exacte de sa mission...~
+@23543 = ~Glace armé
+
+Nous avons aidé Tiernon à créer son grand-œuvre, une arme de glace. Apparemment, l'arme a en elle le pouvoir du glacier... et de ses créateurs.~
+@23544 = ~Frustralion
+
+Frustralion nous a demandé de tuer un innocent en échange de son aide.~
+@23545 = ~Frustralion
+
+Nous avons demandé à Frustralion de se soumettre à notre volonté et il a accepté.~
+@23546 = ~Frustralion
+
+Nous avons forcé Frustralion à se soumettre à notre volonté en utilisant le pouvoir de son vrai nom.~
+@23547 = ~Frustralion
+
+Nous avons rencontré un glabrezu du nom de Frustralion, qui avait pris la forme d'une armure. Son précédent possesseur lui avait demandé de se transformer de la sorte mais, au bout du compte, l'homme a fini par oublier le vrai nom du démon et celui-ci l'a déchiqueté.~
+@23548 = ~Le secret de Kieran
+
+Quand nous avons demandé à Kiéran de nous parler de la pièce secrète située derrière le miroir de sa chambre, il a craqué et nous a expliqué qu'il s'était volontairement exilé afin d'échapper à une organisation corrompue de magiciens appelée Tour de l'Arcanium. En échange de notre silence, il nous a proposé plusieurs objets magiques rares qu'il a réunis au fil des ans.~
+@23549 = ~Wylfdene ou Jerrod
+
+Nous nous sommes entretenus avec Angaar de Wylfdene. Il semblerait que ce dernier prétende être possédé par l'esprit de Jerrod. Angaar affirme que Wylfdene aurait été longuement questionné par le chaman de la tribu, à qui il aurait prouvé qu'il connaissait l'existence de Jerrod jusque dans ses moindres détails. Intéressant...~
+@23550 = ~Assassin
+
+Nous avons parlé avec Angaar de l'assassin chargé de tuer Wylfdene. Angaar n'a pas l'air convaincu que cet individu ait été un tueur professionnel. Sous la torture, l'homme aurait admis qu'il avait bien été envoyé par le conseil des Dix-Cités, et payé par le représentant du Bois Isolé. Mais il aurait péri avant d'avouer quelle était la teneur exacte de sa mission...~
 @23551 = ~Nous avons discuté du bannissement de Hjollder avec Angaar. Apparemment, le chaman aurait été exilé sur l'île aux tertres, qui se dresse au milieu du lac du Bois Isolé. Selon Angaar, le manque de nourriture et la fureur des éléments auront probablement raison de lui.~
-@23552 = ~Nous avons dit à Kerish que Véra, la meneuse des esclaves, était morte. Il nous a remerciés, jugeant que l'affront avait été lavé.~
-@23553 = ~Nous nous sommes entretenus avec Beornen, de la tribu de la Baleine Bleue. Il nous a raconté ce qu'il savait de l'esprit qui s'est emparé du corps de Wylfdene. Il s'agirait apparemment de celui d'une reine des dragons, Icasaracht, tuée par un habitant des Dix-Cités au-dessus du lac Dinneshere. Elle est vénérée par une tribu dépravée, celle du Grand Dracosire Blanc, qui vit sur un iceberg dérivant à la surface de la mer des Glaces Mouvantes.~
+@23552 = ~La cheffe des esclaves
+
+Nous avons dit à Kerish que Véra, la meneuse des esclaves, était morte. Il nous a remerciés, jugeant que l'affront avait été lavé.~
+@23553 = ~Icasaracht
+
+Nous nous sommes entretenus avec Beornen, de la tribu de la Baleine Bleue. Il nous a raconté ce qu'il savait de l'esprit qui s'est emparé du corps de Wylfdene. Il s'agirait apparemment de celui d'une reine des dragons, Icasaracht, tuée par un habitant des Dix-Cités au-dessus du lac Dinneshere. Elle est vénérée par une tribu dépravée, celle du Grand Dracosire Blanc, qui vit sur un iceberg dérivant à la surface de la mer des Glaces Mouvantes.~
 @23554 = ~Echec de sauvegarde. Voulez-vous quitter la partie ?~
-@23555 = ~Dougal semble penser que les loups qui ont tué Dolan et Digby sont liés à Emmerich. Il prétend que celui-ci a fait venir les loups dans le seul but de massacrer ses deux frères.~
+@23555 = ~Des loups et...  Emmerich
+
+Dougal semble penser que les loups qui ont tué Dolan et Digby sont liés à Emmerich. Il prétend que celui-ci a fait venir les loups dans le seul but de massacrer ses deux frères.~
 @23556 = ~Perter~
-@23557 = ~Nous avons discuté avec Dougal, le dernier des trois frères. Il prétend que son frère Dolan a été tué par un loup. Dougal a assisté à l'agression et a essayé de sauver son frère mais, selon lui, sa dague est restée sans effet contre l'animal.~
-@23558 = ~Nous avons parlé avec un des trois frères, Dougal. Il dit que son frère Digby a été tué par un animal, probablement un ours.~
-@23559 = ~Nous avons parlé avec un des trois frères, Dolan. Il dit que son frère Digby a été tué par un animal, probablement un ours ou un loup.~
-@23560 = ~Nous avons rencontré un guerrier nain blessé du nom de Roald dans l'auberge du Gibet Siffleur. Il nous a suffisamment décrit l'endroit où se trouve le camp des barbares pour que nous puissions nous y rendre par nous-mêmes.~
-@23561 = ~Nous étions en train de discuter avec Tybald, le tonnelier, quand celui-ci nous a appris qu'un homme venu du sud avait récemment séjourné chez Baldemar. Apparemment, l'inconnu était un envoyé des Dix-Cités, chargé de négocier avec les barbares.~
-@23562 = ~Nous avons couché avec Ambère et en échange, nous lui avons promis de l'emmener au sud quand la neige aura fondu et que les barbares ne constitueront plus une menace.~
-@23563 = ~Nous avons rencontré la mère d'Hailye à l'auberge du Gibet Siffleur, et elle nous a expliqué que sa fille s'était moquée de nous. Il semblerait qu'Hailye soit fille unique, mais cela ne l'empêche pas de s'amuser à affoler tous les étrangers de passage en prétendant que "son petit frère est tombé dans le puits". Nous devrions retourner lui en toucher deux mots.~
+@23557 = ~Les trois frères
+
+Nous avons discuté avec Dougal, le dernier des trois frères. Il prétend que son frère Dolan a été tué par un loup. Dougal a assisté à l'agression et a essayé de sauver son frère mais, selon lui, sa dague est restée sans effet contre l'animal.~
+@23558 = ~Les trois frères
+
+Nous avons parlé avec un des trois frères, Dougal. Il dit que son frère Digby a été tué par un animal, probablement un ours.~
+@23559 = ~Les trois frères
+
+Nous avons parlé avec un des trois frères, Dolan. Il dit que son frère Digby a été tué par un animal, probablement un ours ou un loup.~
+@23560 = ~Camp des barbares
+
+Nous avons rencontré un guerrier nain blessé du nom de Roald dans l'auberge du Gibet Siffleur. Il nous a suffisamment décrit l'endroit où se trouve le camp des barbares pour que nous puissions nous y rendre par nous-mêmes.~
+@23561 = ~Un homme du sud chez Baldemar
+
+Nous étions en train de discuter avec Tybald, le tonnelier, quand celui-ci nous a appris qu'un homme venu du sud avait récemment séjourné chez Baldemar. Apparemment, l'inconnu était un envoyé des Dix-Cités, chargé de négocier avec les barbares.~
+@23562 = ~La famille Dunn
+
+Nous avons couché avec Ambère et en échange, nous lui avons promis de l'emmener au sud quand la neige aura fondu et que les barbares ne constitueront plus une menace.~
+@23563 = ~Hailye Dunn
+
+Nous avons rencontré la mère d'Hailye à l'auberge du Gibet Siffleur, et elle nous a expliqué que sa fille s'était moquée de nous. Il semblerait qu'Hailye soit fille unique, mais cela ne l'empêche pas de s'amuser à affoler tous les étrangers de passage en prétendant que "son petit frère est tombé dans le puits". Nous devrions retourner lui en toucher deux mots.~
 @23564 = ~Méronie~
 @23565 = ~Vous êtes trop loin pour utiliser cet objet.~
 @23566 = ~Méronie~
@@ -37284,7 +37340,9 @@ Il n'y a rien d'autre d'intéressant dans la volière.~
 @23778 = ~Pourquoi ne peut-il quitter l'île ?~
 @23779 = ~Absorption d'énergie~
 @23780 = ~Métamorphose~
-@23781 = ~Nous avons convaincu cette catin d'Ambère Dunn de quitter le Bois Isolé. Son mari et sa fille ne se porteront que mieux sans elle.~
+@23781 = ~La famille Dunn
+
+Nous avons convaincu cette catin d'Ambère Dunn de quitter le Bois Isolé. Son mari et sa fille ne se porteront que mieux sans elle.~
 @23782 = ~Vous distinguez à peine une inscription effacée par le passage du temps. On dirait un avertissement pour quiconque voudrait entrer dans la tombe et réveiller les gardiens.~
 @23783 = ~~
 @23784 = ~~
@@ -39334,7 +39392,9 @@ REMARQUE : en raison de la nature des lieux et des monstres proposés dans l'ext
 @24879 = ~De grosses pierres constituent les cairns où sont enterrés des guerriers morts au combat.~
 @24880 = ~La neige qui recouvre cet autel aide à cacher les traces de sang séché qui ornent sa surface.~
 @24881 = ~Ce navire barbare semble avoir été brûlé en l'honneur d'un grand chef.~
-@24882 = ~Vous avez découvert la vérité sur le complot.~
+@24882 = ~Assassin
+
+Vous avez découvert la vérité sur le complot.~
 @24883 = ~Vous avez découvert la vérité sur le complot et convaincu Baldemar de le révéler au conseil.~
 @24884 = ~Vous avez découvert qu'Emmerich est le loup-garou.~
 @24885 = ~Vous avez guéri Emmerich.~
@@ -40176,14 +40236,26 @@ Poids : 50~
 @25422 = ~Dans ce cas, nous nous en allons. Adieu.~
 @25423 = ~Nous en avons entendu parler. C'était un représentant du conseil des Dix-Cités, n'est-ce pas ?~
 @25424 = ~Parlez-moi de votre invité.~
-@25425 = ~Nous avons discuté avec Arden, la femme de Baldemar. Elle nous a appris qu'un étranger borgne avait passé une nuit chez eux. Apparemment, il serait venu voici plusieurs jours afin de rencontrer Baldemar. Selon Arden, les deux hommes auraient passé la nuit à parler affaires dans le bureau de Baldemar.~
+@25425 = ~Un borgne chez Baldemar
+
+Nous avons discuté avec Arden, la femme de Baldemar. Elle nous a appris qu'un étranger borgne avait passé une nuit chez eux. Apparemment, il serait venu voici plusieurs jours afin de rencontrer Baldemar. Selon Arden, les deux hommes auraient passé la nuit à parler affaires dans le bureau de Baldemar.~
 @25426 = ~Nous avons parlé à Baldemar de l'assassin qui aurait, selon Wylfdene, été envoyé par les Dix-Cités. Après avoir nié, Baldemar a fini par reconnaître que le conseil avait en effet essayé de faire tuer le chef barbare, même si lui-même prétend avoir été obligé de suivre le mouvement.~
 @25427 = ~Éclat de glace~
-@25428 = ~Nous avons parlé à Baldemar de l'assassin qui aurait, selon Wylfdene, été envoyé par les Dix-Cités. Après avoir nié, Baldemar a fini par reconnaître que le conseil avait en effet essayé de faire tuer le chef barbare, même si lui-même prétend avoir été obligé de suivre le mouvement. Nous lui avons rappelé le sens de vertus telles que l'honnêteté et les principes. Il a paru convaincu par nos paroles et nous a affirmé qu'il rapporterait les détails du plan au reste du conseil.~
-@25429 = ~Nous avons discuté avec le rôdeur déchu, Emmerich Faukon, qui nous a raconté qu'il avait affronté un grand loup blanc dans les bois, en expliquant qu'il pense que le Père de la Forêt le punit pour ses défauts. Il pense apparemment que le fait qu'il n'ait pas réussi à empêcher les trois trappeurs de poser leurs pièges a provoqué le courroux du dieu de la Nature.~
-@25430 = ~Emmerich nous a appris qu'il y avait de fortes chances pour que les barbares aient dressé leur camp à l'est du Bois Isolé, dans les collines rocailleuses appelées Pas de Brémen. Cela devrait nous permettre de nous y rendre.~
-@25431 = ~Nous avons parlé avec Emmerich de la mort de Digby. Il semble persuadé que le trappeur a été tué par le loup blanc avec lequel il a lui aussi eu maille à partir.~
-@25432 = ~Nous avons discuté avec Arden, la femme de Baldemar. Elle nous a appris qu'un étranger borgne avait passé une nuit chez eux. Apparemment, il serait arrivé en ville quelques jours plus tôt pour rencontrer Baldemar. Selon Arden, les deux hommes auraient passé la nuit à parler affaires dans le bureau de Baldemar.~
+@25428 = ~Assassin
+
+Nous avons parlé à Baldemar de l'assassin qui aurait, selon Wylfdene, été envoyé par les Dix-Cités. Après avoir nié, Baldemar a fini par reconnaître que le conseil avait en effet essayé de faire tuer le chef barbare, même si lui-même prétend avoir été obligé de suivre le mouvement. Nous lui avons rappelé le sens de vertus telles que l'honnêteté et les principes. Il a paru convaincu par nos paroles et nous a affirmé qu'il rapporterait les détails du plan au reste du conseil.~
+@25429 = ~Le grand loup blanc et...  Emmerich
+
+Nous avons discuté avec le rôdeur déchu, Emmerich Faukon, qui nous a raconté qu'il avait affronté un grand loup blanc dans les bois, en expliquant qu'il pense que le Père de la Forêt le punit pour ses défauts. Il pense apparemment que le fait qu'il n'ait pas réussi à empêcher les trois trappeurs de poser leurs pièges a provoqué le courroux du dieu de la Nature.~
+@25430 = ~Camp des barbares
+
+Emmerich nous a appris qu'il y avait de fortes chances pour que les barbares aient dressé leur camp à l'est du Bois Isolé, dans les collines rocailleuses appelées Pas de Brémen. Cela devrait nous permettre de nous y rendre.~
+@25431 = ~Le grand loup blanc et...  Emmerich
+
+Nous avons parlé avec Emmerich de la mort de Digby. Il semble persuadé que le trappeur a été tué par le loup blanc avec lequel il a lui aussi eu maille à partir.~
+@25432 = ~Un homme du sud borgne chez Baldemar
+
+Nous avons discuté avec Arden, la femme de Baldemar. Elle nous a appris qu'un étranger borgne avait passé une nuit chez eux. Apparemment, il serait arrivé en ville quelques jours plus tôt pour rencontrer Baldemar. Selon Arden, les deux hommes auraient passé la nuit à parler affaires dans le bureau de Baldemar.~
 @25433 = ~Quel est le métier de votre mari ?~
 @25434 = ~Je vois. Dans ce cas, adieu.~
 @25435 = ~De quoi avait-il l'air ?~
@@ -40734,16 +40806,36 @@ Poids :  3~
 @25826 = ~Yéti de berg~
 @25827 = ~Adieu, voyante.~
 @25828 = ~Adieu, voyante.~
-@25829 = ~Emmerich a dit que Dougal cherchait à acheter une épée magique auprès de Kiéran. Étrange qu'un aubergiste possède un tel objet... Quand nous avons demandé des précisions à Emmerich, il nous a appris qu'il y avait un passage secret derrière le miroir de la chambre de Kiéran. Il nous a suggéré d'en parler à l'aubergiste, et d'en profiter pour lui demander s'il sait ce que manigance Dougal.~
-@25830 = ~Emmerich a dit que Dougal cherchait à acheter une épée magique auprès de Kiéran. Il nous a suggéré de nous rendre au Gibet Siffleur et de demander à Kiéran s'il sait ce que manigance Dougal.~
-@25831 = ~Nous avons découvert qu'Emmerich est responsable des meurtres perpétrés au Bois Isolé. Il apparaît que le loup qui l'a attaqué en forêt était en réalité un loup-garou et que le rôdeur a hérité de la malédiction. Il ne se doutait nullement de ce qu'il était devenu jusqu'à ce que nous lui faisions prendre conscience de la vérité. Malgré son ignorance, les crimes étaient bien de son fait, et nous n'avons eu d'autre choix que de le mettre à mort.~
-@25832 = ~Nous avons découvert qu'Emmerich est responsable des meurtres perpétrés au Bois Isolé. Il apparaît que le loup qui l'a attaqué en forêt était en réalité un loup-garou et que le rôdeur a hérité de la malédiction. Il ne se doutait nullement de ce qu'il était devenu jusqu'à ce que nous lui faisions prendre conscience de la vérité. Nous avons décidé de mettre un terme à ses souffrances en le tuant.~
-@25833 = ~Nous avons découvert qu'Emmerich est responsable des meurtres perpétrés au Bois Isolé. Il apparaît que le loup qui l'a attaqué en forêt était en réalité un loup-garou et que le rôdeur a hérité de la malédiction. Il ne se doutait nullement de ce qu'il était devenu jusqu'à ce que nous lui faisions prendre conscience de la vérité. Nous lui avons dit que nous nous moquions bien qu'il soit devenu un loup-garou, du moment qu'il se tenait à l'écart de nous.~
-@25834 = ~Nous avons découvert qu'Emmerich est responsable des meurtres perpétrés au Bois Isolé. Il apparaît que le loup qui l'a attaqué en forêt était en réalité un loup-garou et que le rôdeur a hérité de la malédiction. Il ne se doutait nullement de ce qu'il était devenu jusqu'à ce que nous lui faisions prendre conscience de la vérité. Nous lui avons dit que nous chercherions le moyen de le libérer de la malédiction.~
-@25835 = ~Nous avons donné à Emmerich une amulette l'empêchant de se transformer en loup-garou. Peut-être les rues du Bois Isolé redeviendront-elles sûres la nuit, désormais.~
-@25836 = ~Nous avons rencontré un chaman barbare qui se terrait dans une des maisons abandonnées de Kuldahar. Il s'est présenté comme étant Hjollder, chaman de la tribu de l'Ours. Il nous a expliqué que son peuple était sur le point de déclarer la guerre aux Dix-Cités, et que plusieurs de ses visions l'incitaient à croire que nous pourrions éviter le conflit. Nous avons accepté de l'accompagner et de faire tout notre possible.~
-@25837 = ~Nous avons rencontré un chaman barbare qui se terrait dans une des maisons abandonnées de Kuldahar. Il nous a rabattu les oreilles avec ses visions, nous implorant de sauver son peuple. Il avait dû rester un peu trop longtemps dans la neige. Nous l'avons envoyé promener et nous sommes partis.~
-@25838 = ~Nous avons questionné Emmerich au sujet des attaques perpétrées par des animaux. Il est convaincu que le loup qui l'a agressé est également responsable des meurtres.~
+@25829 = ~L'épée magique
+
+Emmerich a dit que Dougal cherchait à acheter une épée magique auprès de Kiéran. Étrange qu'un aubergiste possède un tel objet... Quand nous avons demandé des précisions à Emmerich, il nous a appris qu'il y avait un passage secret derrière le miroir de la chambre de Kiéran. Il nous a suggéré d'en parler à l'aubergiste, et d'en profiter pour lui demander s'il sait ce que manigance Dougal.~
+@25830 = ~L'épée magique
+
+Emmerich a dit que Dougal cherchait à acheter une épée magique auprès de Kiéran. Il nous a suggéré de nous rendre au Gibet Siffleur et de demander à Kiéran s'il sait ce que manigance Dougal.~
+@25831 = ~Le grand loup blanc est...  Emmerich
+
+Nous avons découvert qu'Emmerich est responsable des meurtres perpétrés au Bois Isolé. Il apparaît que le loup qui l'a attaqué en forêt était en réalité un loup-garou et que le rôdeur a hérité de la malédiction. Il ne se doutait nullement de ce qu'il était devenu jusqu'à ce que nous lui faisions prendre conscience de la vérité. Malgré son ignorance, les crimes étaient bien de son fait, et nous n'avons eu d'autre choix que de le mettre à mort.~
+@25832 = ~Le grand loup blanc est...  Emmerich
+
+Nous avons découvert qu'Emmerich est responsable des meurtres perpétrés au Bois Isolé. Il apparaît que le loup qui l'a attaqué en forêt était en réalité un loup-garou et que le rôdeur a hérité de la malédiction. Il ne se doutait nullement de ce qu'il était devenu jusqu'à ce que nous lui faisions prendre conscience de la vérité. Nous avons décidé de mettre un terme à ses souffrances en le tuant.~
+@25833 = ~Le grand loup blanc est...  Emmerich
+
+Nous avons découvert qu'Emmerich est responsable des meurtres perpétrés au Bois Isolé. Il apparaît que le loup qui l'a attaqué en forêt était en réalité un loup-garou et que le rôdeur a hérité de la malédiction. Il ne se doutait nullement de ce qu'il était devenu jusqu'à ce que nous lui faisions prendre conscience de la vérité. Nous lui avons dit que nous nous moquions bien qu'il soit devenu un loup-garou, du moment qu'il se tenait à l'écart de nous.~
+@25834 = ~Le grand loup blanc est...  Emmerich
+
+Nous avons découvert qu'Emmerich est responsable des meurtres perpétrés au Bois Isolé. Il apparaît que le loup qui l'a attaqué en forêt était en réalité un loup-garou et que le rôdeur a hérité de la malédiction. Il ne se doutait nullement de ce qu'il était devenu jusqu'à ce que nous lui faisions prendre conscience de la vérité. Nous lui avons dit que nous chercherions le moyen de le libérer de la malédiction.~
+@25835 = ~Une amulette pour Emmerich
+
+Nous avons donné à Emmerich une amulette l'empêchant de se transformer en loup-garou. Peut-être les rues du Bois Isolé redeviendront-elles sûres la nuit, désormais.~
+@25836 = ~Le Cœur de L'Hiver
+
+Nous avons rencontré un chaman barbare qui se terrait dans une des maisons abandonnées de Kuldahar. Il s'est présenté comme étant Hjollder, chaman de la tribu de l'Ours. Il nous a expliqué que son peuple était sur le point de déclarer la guerre aux Dix-Cités, et que plusieurs de ses visions l'incitaient à croire que nous pourrions éviter le conflit. Nous avons accepté de l'accompagner et de faire tout notre possible.~
+@25837 = ~Le Cœur de L'Hiver
+
+Nous avons rencontré un chaman barbare qui se terrait dans une des maisons abandonnées de Kuldahar. Il nous a rabattu les oreilles avec ses visions, nous implorant de sauver son peuple. Il avait dû rester un peu trop longtemps dans la neige. Nous l'avons envoyé promener et nous sommes partis.~
+@25838 = ~Le grand loup blanc est...  Emmerich
+
+Nous avons questionné Emmerich au sujet des attaques perpétrées par des animaux. Il est convaincu que le loup qui l'a agressé est également responsable des meurtres.~
 @25839 = ~Bonjour, étrangers. Que puis-je pour vous ?~
 @25840 = ~Dans ce cas, vous avez l'avantage sur moi, car j'ignore tout de vous. Dites-moi, qu'est-ce qui peut attirer un groupe d'aventuriers armés jusqu'aux dents au Bois Isolé ?~
 @25841 = ~Je vois... Ce n'est pas une tâche facile, même pour des aventuriers aussi expérimentés que vous. Mais votre mission est louable. Si je peux faire quoi que ce soit pour vous aider, n'hésitez pas.~
@@ -41595,7 +41687,9 @@ Met la cible hors de combat pour 1d4 rounds.~
 @26292 = ~Meuh !~ [COW001C]
 @26293 = ~...~
 @26294 = ~Invulnérabilité aux sorts~
-@26295 = ~Malgré tous les efforts que nous avons déployés pour le sauver, Hjollder semble résigné à être banni. Peut-être les esprits de l'île sauront-ils quelque chose qui l'incitera à changer d'avis...~
+@26295 = ~Le bannissement de Hjollder
+
+Malgré tous les efforts que nous avons déployés pour le sauver, Hjollder semble résigné à être banni. Peut-être les esprits de l'île sauront-ils quelque chose qui l'incitera à changer d'avis...~
 @26296 = ~Invulnérabilité aux sorts
 (Abjuration)
 
@@ -41605,12 +41699,22 @@ Durée : 1 tour + 1 round par niveau
 Temps d'incantation : 9
 Zone d'effet : le lanceur
 Jet de sauvegarde : aucun~
-@26297 = ~Nous avons accepté de partir en quête avec Hjollder, le chaman barbare, afin d'éviter la guerre entre son peuple et les Dix-Cités. Mais il semble penser que nous ne sommes pas d'attaque. Il nous a demandé de revenir quand nous serions plus forts.~
-@26298 = ~Avant de nous quitter, Hjollder nous a demandé de nous rendre au Hall Hydromel, de paraître devant le conseil de son peuple et de demander la paix. Selon lui, les habitants du Bois Isolé devraient pouvoir nous indiquer où se trouve le camp.~
-@26299 = ~Nous avons donné à Hjollder l'amulette trouvée dans la tombe de Wylfdene. L'objet endommagé et le tombeau saccagé ont suffi pour convaincre le chaman que l'esprit occupant le corps de Wylfdene ne peut être celui du héros des barbares, Jerrod.~
-@26300 = ~Nous avons répété à Hjollder ce que nous avaient appris les esprits de l'île aux tertres. Bien qu'apparemment convaincu, il nous a demandé de lui apporter des preuves de ce que nous avancions. Il nous a suggéré de fouiller les tertres jusqu'à trouver la preuve tangible de la corruption qui fermente en Wylfdene.~
+@26297 = ~Le Cœur de L'Hiver
+
+Nous avons accepté de partir en quête avec Hjollder, le chaman barbare, afin d'éviter la guerre entre son peuple et les Dix-Cités. Mais il semble penser que nous ne sommes pas d'attaque. Il nous a demandé de revenir quand nous serions plus forts.~
+@26298 = ~Camp des barbares
+
+Avant de nous quitter, Hjollder nous a demandé de nous rendre au Hall Hydromel, de paraître devant le conseil de son peuple et de demander la paix. Selon lui, les habitants du Bois Isolé devraient pouvoir nous indiquer où se trouve le camp.~
+@26299 = ~L'amulette de Wylfdene
+
+Nous avons donné à Hjollder l'amulette trouvée dans la tombe de Wylfdene. L'objet endommagé et le tombeau saccagé ont suffi pour convaincre le chaman que l'esprit occupant le corps de Wylfdene ne peut être celui du héros des barbares, Jerrod.~
+@26300 = ~Les preuves de la corruption de Wylfdene
+
+Nous avons répété à Hjollder ce que nous avaient appris les esprits de l'île aux tertres. Bien qu'apparemment convaincu, il nous a demandé de lui apporter des preuves de ce que nous avancions. Il nous a suggéré de fouiller les tertres jusqu'à trouver la preuve tangible de la corruption qui fermente en Wylfdene.~
 @26301 = ~Protégé par Invulnérabilité aux sorts~
-@26302 = ~Aujourd'hui, nous sommes enfin arrivés au Bois Isolé. Nous venions à peine d'apercevoir les premières maisons du village quand nous avons été accostés par un homme de grande taille, vêtu de peaux de cerfs. Il s'est présenté comme étant Hjollder, chaman de la tribu de l'Ours. Il nous a expliqué que son peuple était sur le point de déclarer la guerre aux Dix-Cités, et que plusieurs de ses visions l'incitaient à croire que nous pourrions empêcher ce conflit. Nous avons accepté de l'accompagner et de faire tout notre possible.~
+@26302 = ~Le Cœur de L'Hiver
+
+Aujourd'hui, nous sommes enfin arrivés au Bois Isolé. Nous venions à peine d'apercevoir les premières maisons du village quand nous avons été accostés par un homme de grande taille, vêtu de peaux de cerfs. Il s'est présenté comme étant Hjollder, chaman de la tribu de l'Ours. Il nous a expliqué que son peuple était sur le point de déclarer la guerre aux Dix-Cités, et que plusieurs de ses visions l'incitaient à croire que nous pourrions empêcher ce conflit. Nous avons accepté de l'accompagner et de faire tout notre possible.~
 @26303 = ~Ossements gelés~
 @26304 = ~Piège à sorts~
 @26305 = ~Piège à sorts
@@ -41655,9 +41759,13 @@ Cet enchantement dissipe toutes les protections magiques dont bénéficie la cib
 @26318 = ~REMARQUE : l'extension pour Icewind Dale est réservée aux personnages de haut niveau. Êtes-vous sûr de vouloir en créer de nouveaux ?~
 @26319 = ~[no text]~
 @26320 = ~Chant de barde appris : <SPECIALABILITYNAME>~
-@26321 = ~Hjollder nous a demandé d'aller trouver une devineresse du nom de Voyante de Morneglace afin de découvrir la véritable identité de l'esprit qui habite le corps de Wylfdene. Il nous a indiqué sur la carte l'endroit où se trouve cette voyante. Une fois que nous l'aurons trouvée et que nous saurons la vérité, il nous faudra retourner au camp des barbares et demander audience auprès du conseil.~
+@26321 = ~La voyante de Morneglace
+
+Hjollder nous a demandé d'aller trouver une devineresse du nom de Voyante de Morneglace afin de découvrir la véritable identité de l'esprit qui habite le corps de Wylfdene. Il nous a indiqué sur la carte l'endroit où se trouve cette voyante. Une fois que nous l'aurons trouvée et que nous saurons la vérité, il nous faudra retourner au camp des barbares et demander audience auprès du conseil.~
 @26322 = ~Forme de sable~
-@26323 = ~Nous avons discuté avec Kiéran et nous lui avons demandé s'il savait pourquoi Dougal souhaitait acheter une lame enchantée. Il nous a répondu que la créature qui tue les trappeurs pourrait bien être un loup-garou, monstre connu pour son immunité contre les armes ordinaires. Cela expliquerait la démarche de Dougal...~
+@26323 = ~L'épée magique
+
+Nous avons discuté avec Kiéran et nous lui avons demandé s'il savait pourquoi Dougal souhaitait acheter une lame enchantée. Il nous a répondu que la créature qui tue les trappeurs pourrait bien être un loup-garou, monstre connu pour son immunité contre les armes ordinaires. Cela expliquerait la démarche de Dougal...~
 @26324 = ~Forme de sable
 (Nécromancie)
 
@@ -41667,9 +41775,15 @@ Durée : 1 heure par niveau
 Temps d'incantation : 1 tour
 Zone d'effet : spéciale
 Jet de sauvegarde : aucun~
-@26325 = ~Nous avons discuté avec Murdaugh, le barde ivrogne de l'auberge du Gibet Siffleur. Il nous a longuement narré comment il espérait gagner la main d'une princesse en partant en quête d'une rose de glace. Hélas, comme il nous l'a lui-même dit, cette rose n'existe pas. Mais rien ne nous empêche d'ouvrir l'œil au cours de nos pérégrinations, au cas où...~
-@26326 = ~Nous avons donné à Murdaugh la rose de glace taillée par Tiernon, le nain aveugle. Dès qu'il l'a vue, les yeux du barde se sont illuminés, on aurait dit qu'il sortait d'un mauvais rêve. Nous ne lui avons pas dit comment nous avions obtenu la rose, car ces menus détails sont mieux servis par l'imagination des troubadours.~
-@26327 = ~Kiéran nous a confié une amulette pour que nous la donnions à Emmerich. Il a dit qu'elle ne ferait pas disparaître la malédiction, mais qu'elle empêcherait au moins Emmerich de changer de forme et de contaminer les autres.~
+@26325 = ~Rose glacée
+
+Nous avons discuté avec Murdaugh, le barde ivrogne de l'auberge du Gibet Siffleur. Il nous a longuement narré comment il espérait gagner la main d'une princesse en partant en quête d'une rose de glace. Hélas, comme il nous l'a lui-même dit, cette rose n'existe pas. Mais rien ne nous empêche d'ouvrir l'œil au cours de nos pérégrinations, au cas où...~
+@26326 = ~Rose glacée
+
+Nous avons donné à Murdaugh la rose de glace taillée par Tiernon, le nain aveugle. Dès qu'il l'a vue, les yeux du barde se sont illuminés, on aurait dit qu'il sortait d'un mauvais rêve. Nous ne lui avons pas dit comment nous avions obtenu la rose, car ces menus détails sont mieux servis par l'imagination des troubadours.~
+@26327 = ~Une amulette pour Emmerich
+
+Kiéran nous a confié une amulette pour que nous la donnions à Emmerich. Il a dit qu'elle ne ferait pas disparaître la malédiction, mais qu'elle empêcherait au moins Emmerich de changer de forme et de contaminer les autres.~
 @26328 = ~Chaîne de contingences
 (Invocation/Évocation)
 
@@ -41681,11 +41795,17 @@ Zone d'effet : le lanceur
 Jet de sauvegarde : aucun
 
 Qui sait quel sera l'effet de ce sort ?~
-@26329 = ~Hjollder nous a dit qu'il allait défier l'édit le bannissant et retourner au camp barbare en secret. Le camp est bien gardé et il est difficile, voire impossible, d'y pénétrer. Peut-être Hjollder avait-il l'intention de se cacher dans la forêt toute proche. C'est sans doute là que nous devrions le chercher.~
+@26329 = ~Le retour de Hjollder
+
+Hjollder nous a dit qu'il allait défier l'édit le bannissant et retourner au camp barbare en secret. Le camp est bien gardé et il est difficile, voire impossible, d'y pénétrer. Peut-être Hjollder avait-il l'intention de se cacher dans la forêt toute proche. C'est sans doute là que nous devrions le chercher.~
 @26330 = ~Chaîne de contingences~
-@26331 = ~En dévoilant la duplicité de Wylfdene au conseil, nous avons réussi à empêcher la guerre entre les barbares et les Dix-Cités. Mais notre quête est loin d'être terminée. Hjollder pense que l'esprit corrompu qui a fui le corps de Wylfdene présente toujours une menace pour les siens. Nous avons accepté de nous rendre en bateau sur une île de la mer des Glaces Mouvantes. Nous devrons y traquer l'esprit malfaisant et le détruire une bonne fois pour toutes.~
+@26331 = ~La Mer des Glaces Mouvantes
+
+En dévoilant la duplicité de Wylfdene au conseil, nous avons réussi à empêcher la guerre entre les barbares et les Dix-Cités. Mais notre quête est loin d'être terminée. Hjollder pense que l'esprit corrompu qui a fui le corps de Wylfdene présente toujours une menace pour les siens. Nous avons accepté de nous rendre en bateau sur une île de la mer des Glaces Mouvantes. Nous devrons y traquer l'esprit malfaisant et le détruire une bonne fois pour toutes.~
 @26332 = ~Arrêt du temps~
-@26333 = ~De retour au camp des barbares, nous avons parlé à Hjollder du miroir que nous a donné la voyante de Morneglace. Le chaman nous a dit d'amener le miroir au Hall Hydromel et de nous en servir pour exposer la duplicité de Wylfdene devant le conseil.~
+@26333 = ~Wylfdene et son reflet
+
+De retour au camp des barbares, nous avons parlé à Hjollder du miroir que nous a donné la voyante de Morneglace. Le chaman nous a dit d'amener le miroir au Hall Hydromel et de nous en servir pour exposer la duplicité de Wylfdene devant le conseil.~
 @26334 = ~Arrêt du temps
 (Transmutation)
 
@@ -43427,21 +43547,21 @@ Je m'assurais que les portes de la chapelle étaient ouvertes. Quel que soit le 
 
 Les paysans et les acolytes de Heaum se sont interrogés sur ce qui était arrivé aux Sentinelles (j'avais ramené les corps, sur les conseils du barde, ce qui nous avait valu de prendre plusieurs jours de retard). Pour éviter que des doutes ne viennent gâcher l'atmosphère de fête, j'ordonnai de les placer dans des cryptes scellées. Je parlai de leur courage au cours du combat, la voix vibrante d'émotion... Tout le monde fut impressionné...
 
-Je m'inquiète néanmoins : s'ils ne sont pas enterrés bientôt, le fait que les corps soient couverts de blessures va faire peser le doute sur le fait que je sois sorti du combat sans une égratignure. C'est un sujet sur lequel je préfère ne pas m'attarder. Comme je l'ai dit au barde, il faut laisser le passé en paix. C'est le futur qui m'intéresse !"
+"Je m'inquiète néanmoins : s'ils ne sont pas enterrés bientôt, le fait que les corps soient couverts de blessures va faire peser le doute sur le fait que je sois sorti du combat sans une égratignure. C'est un sujet sur lequel je préfère ne pas m'attarder. Comme je l'ai dit au barde, il faut laisser le passé en paix. C'est le futur qui m'intéresse !"
 * * *
-"Ce maudit barde m'a trahi ! Ses mots acérés m'ont meurtri plus profondément que ne l'a jamais fait une épée ! Comment a-t-il pu oser répandre de telles calomnies ? Son récit de la bataille n'a fait que mettre en avant le courage et les faits d'armes des Sentinelles, mais il n'a pas oublié de me mentionner, comme exemple de lâcheté au combat ! Moi ! Son seigneur !
+"Ce maudit barde m'a trahi ! Ses mots acérés m'ont meurtri plus profondément que ne l'a jamais fait une épée ! Comment a-t-il pu oser répandre de telles calomnies ? Son récit de la bataille n'a fait que mettre en avant le courage et les faits d'armes des Sentinelles, mais il n'a pas oublié de me mentionner, comme exemple de lâcheté au combat ! Moi ! Son seigneur !"
 
 Mais il a su rester subtil, le fourbe ! Il s'imaginait peut-être que je ne verrais pas sa traîtrise, que je ne pourrais pas déceler ses mensonges ? J'ai ordonné aux gardes de s'emparer de lui avant qu'il n'ait pu terminer et je lui ai arraché ce torchon d'infamie. Je l'ai envoyé au donjon : il pourrira couvert de chaînes avant de revoir la lumière du soleil !
 
 Alors qu'ils l'emmenaient aux oubliettes, j'ai donné l'ordre aux gardes de lui couper les mains. Une dure leçon, certes, mais personne ne peut se permettre de tolérer des traîtres dans sa demeure, à moins de vouloir mettre en péril tout son domaine.
 
-Ce n'est que lorsque j'ai voulu brûler les pages emplies d'insultes de ce poème impie que je me suis rendu compte qu'il en manquait. Cela m'inquiète... Si jamais elles tombaient entre des mains malintentionnées... Non, je ne dois pas y penser ! Cette histoire est terminée, le compte de ce barde est définitivement réglé."
+"Ce n'est que lorsque j'ai voulu brûler les pages emplies d'insultes de ce poème impie que je me suis rendu compte qu'il en manquait. Cela m'inquiète... Si jamais elles tombaient entre des mains malintentionnées... Non, je ne dois pas y penser ! Cette histoire est terminée, le compte de ce barde est définitivement réglé."
 * * *
 "La Sentinelle Suprême de Heaum est venue me voir. Sous des abords d'obséquiosité, elle a réclamé l'ouverture de la crypte de ses hommes pour que "les morts soient honorés comme ils doivent l'être". Je l'ai jeté hors de la salle d'audience : depuis quand les actions des héros sont-elles contestées ? Qu'a donc accompli ce vieux prêtre au nom de son dieu borgne ? Qu'a-t-il fait pour mériter une place dans l'histoire ? Il finira sur un pal s'il ose questionner mes actes à nouveau ! De plus... Même s'il a dit qu'il obéirait, je ne lui fais pas confiance ; les Sentinelles appartenaient au clergé de Heaum, tout comme ce prêtre... Rien ne le lie à moi ! Je dois le surveiller... Je dois surveiller ses moindres faits et gestes. S'il fait ne serait-ce qu'une esquisse de tentative de trahison, il ira pourrir aux côtés de ce satané barde !"
 * * *
-"Aujourd'hui, l'un de mes gardes a osé prononcer le nom du barde... Ce fut comme du plomb incandescent sur une blessure mal refermée ! J'ai envoyé cet idiot se faire fouetter dans les galères, avec la bouche pleine de détritus pimentés. J'ai ensuite interdit à quiconque de prononcer ce nom honni, voire de mentionner l'existence de ce barde. Son nom disparaîtra à jamais de l'histoire, et ses mots injurieux iront rejoindre ses cendres, dispersées par le vent de l'oubli ! Sort légitime pour une créature à la bouche emplie de venin !
+"Aujourd'hui, l'un de mes gardes a osé prononcer le nom du barde... Ce fut comme du plomb incandescent sur une blessure mal refermée ! J'ai envoyé cet idiot se faire fouetter dans les galères, avec la bouche pleine de détritus pimentés. J'ai ensuite interdit à quiconque de prononcer ce nom honni, voire de mentionner l'existence de ce barde. Son nom disparaîtra à jamais de l'histoire, et ses mots injurieux iront rejoindre ses cendres, dispersées par le vent de l'oubli ! Sort légitime pour une créature à la bouche emplie de venin !"
 
-J'ai pris possession de l'unique clef du donjon. Elle restera toujours près de moi, même pendant mon sommeil. Nul ne verra le barde, nul ne le nourrira ; qu'il meure de faim, comme la vermine qu'il est ! Qu'il se nourrisse de ses mots empoisonnés, et qu'il s'étouffe avec !"
+"J'ai pris possession de l'unique clef du donjon. Elle restera toujours près de moi, même pendant mon sommeil. Nul ne verra le barde, nul ne le nourrira ; qu'il meure de faim, comme la vermine qu'il est ! Qu'il se nourrisse de ses mots empoisonnés, et qu'il s'étouffe avec !"
 * * *
 "Il chante ! Ce satané barde ose chanter ! Et ses paroles impies me parviennent même à travers les murs de ma chambre ! J'en perds le sommeil ! Il chante si fort que personne dans le château ne peut l'ignorer ! Arrête de me torturer, manant, ou tu finiras au bout d'une corde !"
 * * *
@@ -48071,7 +48191,9 @@ Je suis désolé de devoir vous imposer de tels jeux, mais je suis certain que v
 @31999 = ~~
 @32000 = ~~
 @32001 = ~~
-@32002 = ~Nous avons convaincu Ambère Dunn de voir les bons côtés de sa vie familiale et de vivre avec.~
+@32002 = ~La famille Dunn
+
+Nous avons convaincu Ambère Dunn de voir les bons côtés de sa vie familiale et de vivre avec.~
 @32003 = ~~
 @32004 = ~~
 @32005 = ~~
@@ -50272,7 +50394,9 @@ Je pense que j'aurai mes réponses avant le coucher du soleil...~
 @34086 = ~~
 @34087 = ~~
 @34088 = ~~
-@34089 = ~Nous avons finalement convaincu Hailye de cesser d'errer en ville et de rentrer chez elle. Si j'ai besoin de lui parler de nouveau, c'est sans doute là que je la trouverai.~
+@34089 = ~Hailye Dunn
+
+Nous avons finalement convaincu Hailye de cesser d'errer en ville et de rentrer chez elle. Si j'ai besoin de lui parler de nouveau, c'est sans doute là que je la trouverai.~
 @34090 = ~Lilarcor
 Lawrence Lilarcor était très connu, non pour sa bravoure, mais pour sa bêtise. D'après la légende, Lilarcor le Prétentieux avait quitté son village à la demande de ses amis, qui suppliaient leur "grand héros" d'aller combattre un sylvanien fou. Il marcha des jours durant au coeur de l'hiver, jusqu'à ce que, fiévreux, il trouve sa proie. Commença alors un combat épique. Malheureusement (ou heureusement, peut-être), le "sylvanien" n'était rien d'autre qu'un malheureux chêne normal et tout craquelé. Ses amis s'étaient moqués de lui, et ne s'étaient pas attendus à ce que Lilarcor aille réellement lutter contre l'arbre prétendument dangereux. Cela aurait pu finir ainsi, mais Lilarcor, ne sachant pas réellement ce qu'était un sylvanien, ne comprit pas qu'on s'était joué de lui. Il finit par déraciner le chêne et, rentrant fièrement chez lui, il se déclara héros. Ainsi naquit une source de plaisanteries pour le moins épiques, et au fil des temps, on l'affubla du surnom "le Brillant... mais Pas Trop". En tant qu'arme, Lilarcor est bien pratique, mais plus d'un guerrier a fini par s'en débarrasser. Des remarques comme: "Ouch, ça doit faire mal", "Ouais ! Joli coup !", et "Gare à ma morsure, ou ça pourrait... euhhh... pourrait bien te faire mal" est au bout d'un moment difficile à supporter pour un guerrier. On ne sait si cette arme est Lilarcor lui-même, emprisonné par un mage maléfique ou par une malheureuse coïncidence, mais elle agit en tout cas un peu comme il le ferait. Il est toutefois hautement improbable que deux êtres aussi stupides que Lilarcor aient pu exister dans les royaumes. Si c'est lui, il ne s'est jamais plaint de sa captivité. Il ne se rend peut-être pas compte qu'il n'est plus humain, ou peut-être n'en a-t-il cure.
 
@@ -50284,34 +50408,58 @@ Type de compétence : épée à deux mains
 Type : arme à deux mains
 
 Poids : 15~
-@34091 = ~Pour connaître le secret d'Hailye, notre barde a improvisé une histoire de poisson chanteur. Ce n'était pas bien fameux, mais nous ne nous attendions à guère mieux de sa part.~
+@34091 = ~Hailye Dunn
+
+Pour connaître le secret d'Hailye, notre barde a improvisé une histoire de poisson chanteur. Ce n'était pas bien fameux, mais nous ne nous attendions à guère mieux de sa part.~
 @34092 = ~Fengla nous a dit qu'elle emmenait à manger à la tour du garde du quartier sud-est de Durdel Anatha. La tour est solidement fortifiée et entourée d'enclos pleins d'esclaves svirfnebelins.~
-@34093 = ~Pour connaître le secret d'Hailye, notre barde a improvisé une histoire de poisson chanteur. Ce n'était pas bien fameux, mais nous ne nous attendions à guère mieux de sa part.~
+@34093 = ~Hailye Dunn
+
+Pour connaître le secret d'Hailye, notre barde a improvisé une histoire de poisson chanteur. Ce n'était pas bien fameux, mais nous ne nous attendions à guère mieux de sa part.~
 @34094 = ~~
 @34095 = ~~
 @34096 = ~~
 @34097 = ~~
 @34098 = ~~
-@34099 = ~Hailye nous a appris l'existence d'un passage secret dans l'auberge du Gibet Siffleur. Il serait dissimulé derrière un miroir mural fixé dans la chambre de Kiéran.~
+@34099 = ~Le secret de Kieran
+
+Hailye nous a appris l'existence d'un passage secret dans l'auberge du Gibet Siffleur. Il serait dissimulé derrière un miroir mural fixé dans la chambre de Kiéran.~
 @34100 = ~~
 @34101 = ~~
 @34102 = ~~
 @34103 = ~~
 @34104 = ~~
-@34105 = ~Il s'est avéré que le frère d'Hailye tombé dans le puits n'était qu'une affabulation. Nous avons parlé avec la fillette pour la convaincre de rentrer chez elle, mais en vain.~
-@34106 = ~Nous avons rencontré une fillette du nom d'Hailye Dunn près du puits du Bois Isolé. Elle a voulu nous faire croire que son frère était tombé dans le puits, mais nous avons tout de suite vu qu'elle nous racontait des histoires.~
-@34107 = ~Nous avons rencontré une fillette du nom d'Hailye Dunn près du puits du Bois Isolé. Son frère est tombé dans le puits alors que tous deux jouaient autour, et elle nous a suppliés d'aller chercher son père pour qu'il le tire de là.~
-@34108 = ~Nous avons dit à Tybald que nous avions convaincu Ambère de le quitter. Nous avons pris grand plaisir à voir ses traits se décomposer quand il a appris la nouvelle.~
+@34105 = ~Hailye Dunn
+
+Il s'est avéré que le frère d'Hailye tombé dans le puits n'était qu'une affabulation. Nous avons parlé avec la fillette pour la convaincre de rentrer chez elle, mais en vain.~
+@34106 = ~Hailye Dunn
+
+Nous avons rencontré une fillette du nom d'Hailye Dunn près du puits du Bois Isolé. Elle a voulu nous faire croire que son frère était tombé dans le puits, mais nous avons tout de suite vu qu'elle nous racontait des histoires.~
+@34107 = ~Hailye Dunn
+
+Nous avons rencontré une fillette du nom d'Hailye Dunn près du puits du Bois Isolé. Son frère est tombé dans le puits alors que tous deux jouaient autour, et elle nous a suppliés d'aller chercher son père pour qu'il le tire de là.~
+@34108 = ~La famille Dunn
+
+Nous avons dit à Tybald que nous avions convaincu Ambère de le quitter. Nous avons pris grand plaisir à voir ses traits se décomposer quand il a appris la nouvelle.~
 @34109 = ~~
-@34110 = ~Nous avons fait la connaissance du père d'Hailye, Tybald, qui nous a expliqué que la fillette s'était moquée de nous. Selon lui, Hailye est fille unique, mais elle aime apparemment s'amuser à affoler les nouveaux venus en leur racontant que son "petit frère est tombé dans le puits". Nous devrions retourner lui en toucher deux mots...~
-@34111 = ~Nous avons expliqué à Tybald que Quinn Doidargent nous avait dit que la ville de Targos avait besoin d'un nouveau tonnelier. Tybald nous a assuré qu'il s'y rendrait avec les siens dès que les barbares ne représenteraient plus une menace.~
-@34112 = ~Nous avons discuté de Tybald avec Quinn Doidargent et le prêtre nous a recommandé de dire au tonnelier d'aller tenter sa chance au sud, dans la ville de Targos. Nous transmettrons son conseil à Tybald dès que nous le reverrons.~
+@34110 = ~Hailye Dunn
+
+Nous avons fait la connaissance du père d'Hailye, Tybald, qui nous a expliqué que la fillette s'était moquée de nous. Selon lui, Hailye est fille unique, mais elle aime apparemment s'amuser à affoler les nouveaux venus en leur racontant que son "petit frère est tombé dans le puits". Nous devrions retourner lui en toucher deux mots...~
+@34111 = ~La famille Dunn
+
+Nous avons expliqué à Tybald que Quinn Doidargent nous avait dit que la ville de Targos avait besoin d'un nouveau tonnelier. Tybald nous a assuré qu'il s'y rendrait avec les siens dès que les barbares ne représenteraient plus une menace.~
+@34112 = ~La famille Dunn
+
+Nous avons discuté de Tybald avec Quinn Doidargent et le prêtre nous a recommandé de dire au tonnelier d'aller tenter sa chance au sud, dans la ville de Targos. Nous transmettrons son conseil à Tybald dès que nous le reverrons.~
 @34113 = ~Everard, le grand prêtre de Tempus, nous a confirmé qu'un messager venu du village de Kuldahar était bien arrivé au temple avant de décéder peu de temps après. Il a tout de même eu le temps de révéler que Kuldahar connaissait de terribles troubles et espérait l'aide d'Havredest. Apparemment, Hrothgar monte une expédition afin d'aller voir ce qu'il en est exactement.~
-@34114 = ~Nous avons discuté avec l'esprit courroucé d'une vestale sacrifiée du nom de Mebdinga. Bien que nous en voulant d'avoir "profané" l'île aux tertres, elle nous a appris que le corps de Wylfdene était habité par un esprit maléfique. C'est cet esprit qui a souillé la pureté de l'île aux tertres.~
+@34114 = ~L'esprit de... dans Wylfdene
+
+Nous avons discuté avec l'esprit courroucé d'une vestale sacrifiée du nom de Mebdinga. Bien que nous en voulant d'avoir "profané" l'île aux tertres, elle nous a appris que le corps de Wylfdene était habité par un esprit maléfique. C'est cet esprit qui a souillé la pureté de l'île aux tertres.~
 @34115 = ~~
 @34116 = ~~
 @34117 = ~~
-@34118 = ~Nous avons rencontré l'esprit tourmenté de Skaldar, un chaman barbare décédé. Il nous a informés que nous n'étions pas les bienvenus sur l'île. Il nous a également dit que l'un des chefs barbares, très certainement Wylfdene, était récemment revenu à la vie. Selon Skaldar, le corps de Wylfdene serait possédé par un esprit qui a laissé une empreinte maléfique sur l'île.~
+@34118 = ~L'esprit de... dans Wylfdene
+
+Nous avons rencontré l'esprit tourmenté de Skaldar, un chaman barbare décédé. Il nous a informés que nous n'étions pas les bienvenus sur l'île. Il nous a également dit que l'un des chefs barbares, très certainement Wylfdene, était récemment revenu à la vie. Selon Skaldar, le corps de Wylfdene serait possédé par un esprit qui a laissé une empreinte maléfique sur l'île.~
 @34119 = ~Nous avons aidé Damien et nous lui avons donné du poisson afin que son père ne lui fasse pas d'ennuis.~
 @34120 = ~Se cacher dans l'ombre~
 @34121 = ~Détection des illusions~
@@ -50850,13 +50998,21 @@ Poids : 10~
 
 //GRIZELLA QUEST
 @120000 = ~Les scarabées dans la cave~
-@120001 = ~À la taverne du Berceau de l'hiver, nous avons demandé à boire. L'hôtesse nous a répondu que cela ne lui était pas facile de l'admettre ... mais, elle avais peur de descendre dans sa vieille cave poussiéreuse, des créatures y ont élu domicile, et elle est terrifiée par les insectes !~
-@120002 = ~Nous avons dit à Grisella que nous avions éliminé les insectes. Elle était très reconnaissante, elle a seulement demandé ... que ce petit problème reste entre nous.  Elle ne veut pas que des rumeurs se répandent dans la ville, à propos de sa porcherie, ...taverne .~
+@120001 = ~Des scarabées dans la cave
+
+À la taverne du Berceau de l'hiver, nous avons demandé à boire. L'hôtesse nous a répondu que cela ne lui était pas facile de l'admettre ... mais, elle avais peur de descendre dans sa vieille cave poussiéreuse, des créatures y ont élu domicile, et elle est terrifiée par les insectes !~
+@120002 = ~Des scarabées dans la cave
+
+Nous avons dit à Grisella que nous avions éliminé les insectes. Elle était très reconnaissante, elle a seulement demandé ... que ce petit problème reste entre nous.  Elle ne veut pas que des rumeurs se répandent dans la ville, à propos de sa porcherie, ...taverne .~
 
 //BANDOTH QUEST
 @120010 = ~Service à Bandoth~
-@120011 = ~Dans le Gouffre de Dorn, un mage nommé Bandoth nous a demandé de lui rendre service en échange d'informations. Il nous a dit avoir envoyé son apprenti chercher de l'extrait de razorvigne, et qu'il était parti depuis plusieurs jours. Il craint qu'il soit tombé sur des habitants hostile dans ces grottes. Et il a promis qu'il nous dirait ce que nous voulons savoir si nous trouvons son apprenti.~
-@120012 = ~Nous avons rapporté un extrait de razorvine à Bandoth. Et que nous l'avons trouvé sur le corps d'un homme dans les grottes des Ettins au sud d'ici. Il était contrarié que maintenant que l'extrait était là, son apprenti ne l'était plus. Oui, une triste tournure des événements.~
+@120011 = ~Un Service pour Bandoth
+
+Dans le Gouffre de Dorn, un mage nommé Bandoth nous a demandé de lui rendre service en échange d'informations. Il nous a dit avoir envoyé son apprenti chercher de l'extrait de razorvigne, et qu'il était parti depuis plusieurs jours. Il craint qu'il soit tombé sur des habitants hostile dans ces grottes. Et il a promis qu'il nous dirait ce que nous voulons savoir si nous trouvons son apprenti.~
+@120012 = ~Un Service pour Bandoth
+
+Nous avons rapporté un extrait de razorvine à Bandoth. Et que nous l'avons trouvé sur le corps d'un homme dans les grottes des Ettins au sud d'ici. Il était contrarié que maintenant que l'extrait était là, son apprenti ne l'était plus. Oui, une triste tournure des événements.~
 
 
 
@@ -50866,23 +51022,23 @@ Poids : 10~
 //JOURNAL
 @2000000 = ~Icewind Dale~
 @2000001 = ~La caravane perdue~
-@2000002 = ~Fournitures pour expéditions~
-@2000003 = ~Les rêves de Jonen~
-@2000004 = ~Loup dans l'atelier d'Apsel~
-@2000005 = ~Garçon, poissons et monstres~
-@2000006 = ~Une bouteille pour le vieux Jed~
-@2000007 = ~Tête d'ogre malade~ 
-@2000008 = ~Collier de Mirek~
-@2000009 = ~Prêtresse d'Auril~
+@2000002 = ~Les provisions pour l'expédition ~
+@2000003 = ~Les rêves de Jhonen~
+@2000004 = ~Un Loup dans l'atelier d'Apsel~
+@2000005 = ~Un enfant, des poissons et des monstres~
+@2000006 = ~Du vin pour le Vieux Jed~
+@2000007 = ~Maux de tête~ 
+@2000008 = ~Le trésor de famille de Mirek~
+@2000009 = ~La Prêtresse d'Auril~
 @2000010 = ~L'enchantement de Mythal~
-@2000011 = ~Trouvez Sheemish, fils de Conlan~
+@2000011 = ~Sheemish, fils de Conlan~
 @2000012 = ~La Voix de Durdel Anatha~
 @2000013 = ~Qui est l'aubergiste ?~
 @2000014 = ~La fille de Larrell~
 @2000015 = ~Tuer le chef des Orogs~
-@2000016 = ~Détruire Terikan~ 
+@2000016 = ~Terikan doit mourir~ 
 @2000017 = ~Eau bénite pour le sanctuaire~ 
-@2000018 = ~Mettez les prêtres au repo.~
+@2000018 = ~Mettre les prêtres au repos.~
 @2000019 = ~Reconstruire l'Arboretum~
 @2000020 = ~Mettez les guerriers de Kylessa au repos.~
 @2000021 = ~Esclave des salamandres de glace - Vera~
@@ -50893,24 +51049,29 @@ Poids : 10~
 @2000026 = ~Esclaves des géants des glaces - Sacrifice~
 @2000027 = ~Fille sans langue~
 @2000028 = ~Nourrir les gnomes~
-@2000029 = ~Heart of Winter~
+@2000029 = ~Le Cœur de L'Hiver~
 @2000030 = ~Hailee Dunn~
 @2000031 = ~Famille Dunn~
 @2000032 = ~Le secret de Kieran~
 @2000033 = ~Loup-garou au bois isolé~
-@2000034 = ~Rose de glace~
+@2000034 = ~Rose glacée~
 @2000035 = ~Frustralion~
 @2000038 = ~Marketh est le roi du Gouffre de Dorn~
 @2000041 = ~Les Épreuves du Maître des Leurres~
 
-@2000036 = ~Avec la mort de l'esprit d'Icasaracht, ce furent des siècles de haine qui cessèrent enfin.
-Les tribus du Nord et les habitants des Dix-Cités rengainèrent leurs armes et recommencèrent à se surveiller l'un l'autre... ce fut une sorte de paix, qui ne durerait sans doute pas plus longtemps que les autres. Le corps de Wylfdene fut ramené sur l'île aux tertres. À son retour, la plainte des vestales se tut... et elles reprirent leur sommeil éternel, au côté de leur roi retrouvé. Et les braves venus défendre le Nord ? Qu'en advint-il ? Je vous regarde et je vous vois tels que vous étiez, tel que vous serez, en route vers un avenir glorieux. Mais inutile d'en dire davantage... car tout ce que j'ai dit, tout ce que j'ai vu, vous sera révélé... en temps voulu..
+@2000036 = ~Le Cœur de L'Hiver
+
+Avec la mort de l'esprit d'Icasaracht, ce sont des siècles de haine qui cessèrent enfin.
+Les tribus du Nord et les habitants des Dix-Cités rengainèrent leurs armes et recommencèrent à se surveiller les uns les autres... cette période de « paix », ne durerait sans doute pas plus longtemps que les précédentes. Le corps de Wylfdene fut ramené sur l'île aux tertres. À son retour, la complainte se tut... et les vestales retournèrent à leur sommeil éternel, au côté de leur roi. 
+Et les braves venus défendre le Nord ? Qu'en est-il advenu ? Je vous regarde et je vous vois tels que vous étiez, tel que vous serez, en route vers un avenir glorieux. Mais inutile d'en dire davantage... car tout ce que je raconte, tout ce que j'ai vu, vous sera révélé... en temps voulu.
 
 En dévoilant la duplicité de Wylfdene au conseil, nous avons réussi à empêcher la guerre entre les barbares et les Dix-Cités.~
-@2000037 = ~Nous avons réussi à tuer le démon Belhifet, qui voulait s'emparer du nord et détruire Havredest.
-Le portail est maintenant fermé et l'invasion a été interrompue. Kuldahar, et surtout Havredest, reprennent lentement leurs esprits, les habitants reconstruisent les maisons et les bâtiments détruits.  La population des deux villes a nettoyé le col de Kuldahar et les relations entre les villes se sont améliorées.
+@2000037 = ~Icewind Dale
 
-Et les sauveurs de la ville ont été vus pour la dernière fois à la taverne du Berceau de l'hiver, où pour eux, Grisella a dressé de nouvelles tables et sorti toutes ses réserves. Et au matin, ils avaient disparu ...~
+Nous avons réussi à tuer le démon Belhifet, qui voulait s'emparer du nord et détruire Havredest.
+Le portail est maintenant fermé et l'invasion a été interrompue. Kuldahar, et surtout Havredest, reprennent lentement leurs esprits, les habitants reconstruisent les maisons et les bâtiments détruits. La population des deux villes a participé au nettoyage du col de Kuldahar et leurs relations se sont améliorées.
+
+Les sauveurs de la ville ont été vus pour la dernière fois à la taverne du Berceau de l'hiver, où pour eux, Grisella avait dressé de nouvelles tables et sorti toutes ses réserves. Mais au petit matin, ils avaient disparu...~
 
 //Tempus
 @2000039 = ~~ 
@@ -50988,7 +51149,7 @@ tard.~
 @4034619 = ~Nous devons ramener cet artefact. C'est tout ce qui importe.~
 @4034620 = ~Harr ! Je vais te mettre en pièces.~
 
-@4034621 = ~Hreidmar Orcslayer~
+@4034621 = ~Hreidmar Tueur d'Orques~
 @4034622 = ~Nain~
 @4034623 = ~Garde Royal~
 @4034624 = ~Couronne du roi~
@@ -51065,15 +51226,24 @@ Non utilisable par :
 
 @4034637 = ~Couronne du roi~
  // quest
-@4034638 = ~Nous avons rencontré un nain nommé Hreidmar Orcslayer. Il nous a révélé que son clan habitait autrefois dans le Gouffre de Dorn. Mais ils ont dû quitter leur foyer face à l'assaut des orcs. Ce faisant, ils ont dû abandonner de nombreuses reliques et artefacts. Et maintenant, il est à la recherche d'une de ces reliques perdues.~
-@4034639 = ~Nous avons rencontré un nain nommé Hreidmar Orcslayer. Il nous a révélé que son clan habitait autrefois dans le Gouffre de Dorn. Mais ils ont dû quitter leur foyer face à l'assaut des orcs. Ce faisant, ils ont dû abandonner de nombreuses reliques et artefacts. Et maintenant, il est à la recherche d'une de ces reliques perdues. Selon lui, il devrait être au troisième étage du palais..~
-@4034640 = ~Couronne du roi.
-Dans un palais au Gouffre de Dorn, nous avons trouvé la Couronne du Roi, une ancienne relique des nains. Il semble que ce soit la chose même que Hreidmar Orcslayer recherche.~
-@4034641 = ~Couronne du roi.
+@4034638 = ~La couronne du roi
+
+Nous avons rencontré un nain nommé Hreidmar Tueur d'Orques. Il nous a révélé que son clan habitait autrefois dans le Gouffre de Dorn. Mais ils ont dû quitter leur foyer face à l'assaut des orcs. Ce faisant, ils ont abandonner de nombreuses reliques et artefacts. Et maintenant, il est à la recherche de l'une de ces reliques perdues.~
+@4034639 = ~La couronne du roi
+
+Nous avons rencontré un nain nommé Hreidmar Tueur d'Orques. Il nous a révélé que son clan habitait autrefois dans le Gouffre de Dorn. Mais ils ont dû quitter leur foyer face à l'assaut des orcs. Ce faisant, ils ont abandonner de nombreuses reliques et artefacts. Et maintenant, il est à la recherche de l'une de ces reliques perdues. Selon lui, elle devrait être au troisième étage du palais.~
+@4034640 = ~La couronne du roi
+
+Dans un palais au Gouffre de Dorn, nous avons trouvé la Couronne du Roi, une ancienne relique des nains. Il semble que ce soit la relique que Hreidmar Tueur d'Orques recherche.~
+@4034641 = ~La couronne du roi
+
 Dans un palais au Gouffre de Dorn, nous avons trouvé la Couronne du Roi, une ancienne relique des nains.~
- // done
-@4034642 = ~Nous avons rendu la relique sacrée de son clan à Hreidmar Orcslayer, la Couronne du Roi. Il était très reconnaissant et nous a remercié avec beaucoup d'or.~
-@4034643 = ~Nous avons trouvé la Couronne du Roi que Hreidmar Orcslayer cherchait. Mais nous avons refusé de la lui rendre. Une telle relique nous sera utile. Cela a fortement exaspéré le nain, lui et ses compagnons nous ont attaqués.~
+@4034642 = ~La couronne du roi
+
+Nous avons rendu la relique sacrée de son clan à Hreidmar Tueur d'Orques. Il était très reconnaissant et nous a remercié avec une grande quantité d'or.~
+@4034643 = ~La couronne du roi
+
+Nous avons trouvé la Couronne du Roi que Hreidmar Tueur d'Orques cherchait. Mais nous avons refusé de la lui rendre. Une telle relique nous sera utile. Cela a fortement exaspéré le nain, lui et ses compagnons nous ont attaqués..~
 
 
 
@@ -51687,7 +51857,9 @@ Poids : 2~
 @40677 = ~Ooh, vous voulez parler de choses brillantes ? L'arbalète est bien brillante.~
 @40678 = ~L'arbalète a de nouvelles capacités. Amusez-vous bien !~
 @40679 = ~Oh, d'accord. Je m'en vais. Au revoir !~
-@40680 = ~Nous nous sommes exprimés devant le conseil dans le Hall Hydromel, afin de négocier un arrêt des hostilités. Wylfdene n'a rien voulu entendre, et nous a accusés d'être des assassins. Il nous aurait tous tués si Hjollder n'était pas intervenu. Malheureusement, comme Hjollder ne pouvait pas expliquer sa vision, Wylfdene est devenu furieux et l'a banni sur l'île aux tertres. Nous devrions trouver un bateau pour le rejoindre.~
+@40680 = ~Le bannissement de Hjollder
+
+Nous nous sommes exprimés devant le conseil dans le Hall Hydromel, afin de négocier un arrêt des hostilités. Wylfdene n'a rien voulu entendre, et nous a accusés d'être des assassins. Il nous aurait tous tués si Hjollder n'était pas intervenu. Malheureusement, comme Hjollder ne pouvait pas expliquer sa vision, Wylfdene est devenu furieux et l'a banni sur l'île aux tertres. Nous devrions trouver un bateau pour le rejoindre.~
 
 
 @40719 = ~Je ne fais plus ce genre de travail, esprit.~

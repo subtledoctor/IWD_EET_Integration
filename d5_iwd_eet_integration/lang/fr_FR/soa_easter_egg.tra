@@ -1,0 +1,86 @@
+/////////// soa_easter_egg \\\\\\\\\\
+
+
+// add a line about villagers to Captain Arat's dialogue
+
+@800000 = ~De nombreux villageois s'étaient réfugiés dans le donjon lors de l'attaque des trolls et furent des proies faciles pour les yuan-tis qui se sont introduits dans le château en creusant des galeries.~ // , des proies faciles pour les yuan-tis qui se sont introduits dans le château en creusant des galeries.
+
+// change Albion & Yxunomei's dialogue
+
+@800001 = ~Et bien, comment avons-nous pu en arriver là ? Je n'aurais jamais imaginé qu'un petit groupe de paysans réussirait à vaincre mes larbins.~
+
+@800002 = ~Vos larbins ? Vous parlez des hommes-serpents ?~
+@800003 = ~Êtes-vous responsable de toutes ses disparitions, les trolls, les yuan-tis, vous avez fomenté l'attaque du château de'Arnise ?~
+@800004 = ~Je suis ici pour en finir avec vos machinations. Quelles que soient vos intentions, j'y mettrai un terme par tous les moyens nécessaires.~
+@800005 = ~Ce ne sont pas des « hommes-serpents », imbéciles, ignorants. Ce sont des yuan-tis, mes fidèles serviteurs seront les dignes héritiers du royaume que que je leur léguerai une fois ma tâche accomplie.~
+@800006 = ~Votre tâche ? Qu'espérez-vous accomplir ?~
+@800007 = ~Mes desseins ne vous concernent en rien. J'ai été sollicité afin d'assister un individu auquel je suis redevable. Rien de plus. Et par chance, cet endroit contient un puissant artefact qui pourrait m'être profitable. Votre implication dans cette histoire est sans importance face à l'ampleur de ce projet, vous n'êtes qu'un grain de sable suspendu pour un instant dans l'immense mer du temps.~
+@800008 = ~Vous avez été sollicité ? Par qui ?~
+@800009 = ~De quel artefact parlez-vous ?~
+@800010 = ~De quel artefact parlez-vous ?~
+@800011 = ~Responsable? L'immense océan est-il responsable pour la noyade d'un enfant ? Je suis toujours là, alors que les vagues de la destinée se succèdent. Vous, mortels, n'êtes que des insectes pris dans un ouragan. Si vous voulez servir de divertissement et de dîner pour mes serviteurs, qu'il en soit ainsi, cela n'a que peu d'importance au regard de ma tâche.~
+@800012 = ~Et quelle est donc cette tâche ?~
+@800013 = ~C'est... presque intéressant de vous observer. Vous regarder vous débattre, avec votre minuscule étincelle des possibles, pendant que des forces bien plus vastes tourbillonnent tout autour, contemplatives, curieuses. Pour vous, ce sont des montagnes infranchissables, une grandeur inimaginable. Et malgré tout, vous continuez comme si de rien n'était. Un destin singulier semble s'offrir à vous, même si vous parvenez à lui imposer votre volonté. Je regretterais presque de devoir y mettre fin. Presque... mais au bout du compte mes objectifs sont infiniment plus importants. Tout ce qu'il vous faut comprendre, c'est que j'ai été chargé d'une mission et vous êtes en travers de mon chemin. Votre étincelle sera donc étouffée. La grande roue du temps poursuivra son œuvre et ceux qui portent un véritable brasier en leur sein continueront de tourbillonner et de virevolter dans son sillage.~
+@800014 = ~De quel artefact parlez-vous ?~
+@800015 = ~De quel artefact parlez-vous ?~
+@800016 = ~A tool turned weapon, very ancient, with a spark like your own. To those, like me, with the ability to unlock its nature, it can grant power over time itself. But you would never recognize or understand such nature. All you need understand is that you are between it and me, and so you will be snuffed out.~
+@800017 = ~You will gain no weapons today fiend. It is you who will be snuffed out.~
+@800018 = ~Je ne comprends toujours pas quelles sont vos intentions... mais peu importe, votre existence s'arrête là.~
+@800019 = ~Je ne suis pas ici pour m'opposer à vous, quelles que soient vos intentions. Je crois bien que je vais me contenter de prendre la fuite...~
+@800020 = ~Foolish child! You stand there holding it, yet you cannot recognize its spark! A tool turned weapon, so ancient, with power over time and matter... but your insignificant mind could not hope to unlock its nature. All you need understand is that you are between it and me, and so you will be snuffed out.~
+@800021 = ~You will gain no weapons today fiend. It is you who will be snuffed out.~
+@800022 = ~Je ne comprends toujours pas quelles sont vos intentions... mais peu importe, votre existence s'arrête là.~
+@800023 = ~Je ne suis pas ici pour m'opposer à vous, quelles que soient vos intentions. Je crois bien que je vais me contenter de prendre la fuite...~
+@800024 = ~Fool! You choose to dance the dance of death with one who cannot die! Pray your soul is prepared!~
+@800025 = ~I will not be denied my prize when it is so close? Now you will dance the dance of death with one who cannot die! Pray your soul is prepared!~
+@800026 = ~Oh, it is too late for that! Now you will dance the dance of death with one who cannot die! Pray your soul is prepared!~
+
+// change larrel's dialogue to activate gem and teleport party to athkatla, no cut-scene
+
+@800027 = ~What is it you seek to learn from the Heartstone Gem?~
+@800028 = ~We seek to activate the Gem in order to learn the location of my friend, Imoen.~
+@800029 = ~We seek to activate the Gem in order to learn the location of the mage Jon Irenicus~
+@800030 = ~Then you will have what you seek. I will activate the Heartstone Gem, and then it may be used to pierce even the most powerful magical concealment.~
+@800031 = ~Here you are.~
+
+// change gaelan's dialogue to send player to severed hand, and accept activated heartstone gem
+
+@800032 = ~I have activated the Heartstone Gem. You may have it instead of the fee.~
+@800033 = ~Coo! A little birdy told me ye've come into possession of an artifact that can do powerful divination. Though the use of it be tricky for most folks, we have someone who can use it to assist in reaching Imoen and Irenicus. In fact, we would so appreciate having the gem that, if ye can part with it, we can forego our fee entirely. And to be honest, ye haven't the ability to use it, so it's worth nothing to ye. What say ye?~
+@800034 = ~Sure, sounds good. I guess I have no use for the gem anyway.~
+@800035 = ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense Can you remind me of the cost of the fee you had asked for?~
+@800036 = ~Ah, it be as I feared: the gem is inactive. It needs to be woken up, ye might say. Luckily our contact was prepared for this possibility, and told me how it can be done. Ye will have to find an elven lich who has had experience with the gem in the distant past. Don't worry, he be friendly. I think. What do ye think? Are ye up for it?~
+@800037 = ~If it helps get us to our goal, I will find this lich and activate the gem.~
+@800038 = ~On second thought, let's keep things simple. Tell me what it would cost to pay the fee instead.~
+@800039 = ~Coo! I half didn't expect ye to show the stones for it. Very well then, ye be wanting to find a ruined elven fortress, far t'other side of Small Teeth Pass. I hear 'twas once called 'Hand of the Seldarine,' tho it be fairly severed now. The gem should gain ye entry, but I know not what lurks within. Best of luck to ye!~
+@800040 = ~Very well.~
+@800041 = ~Ye survived! Astounding. I mean, wonderful! Now, is our deal still good? Will ye turn over the gem to me?~
+@800042 = ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense Can you remind me of the cost of the fee you had asked for?~
+
+/*
+@800043 = 
+@800044 = 
+@800045 = 
+@800046 = 
+@800047 = 
+@800048 = 
+@800049 = 
+@800050 = 
+@800051 = 
+@800052 = 
+@800053 = 
+@800054 = 
+@800055 = 
+@800056 = 
+@800057 = 
+@800058 = 
+@800059 = 
+@800060 = 
+@800061 = 
+@800062 = 
+@800063 = 
+@800064 = 
+@800065 = 
+@800066 = 
+*/
+

@@ -50,8 +50,6 @@ END
     END
 END
 
-END
-
 ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) BEGIN
     COPY_EXISTING ~songlist.2da~ ~override~
       COUNT_2DA_ROWS 3 rows
@@ -92,7 +90,7 @@ ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) BEGIN
 	
 	~EET_CMP_TITLE_BG1 =~                                                            => 999999011
 																							   
-	~EET_WARNING_TITLE =~															 => 999999012
+	~EET_WARNING_TITLE =~                                                            => 999999012
 
 END
 

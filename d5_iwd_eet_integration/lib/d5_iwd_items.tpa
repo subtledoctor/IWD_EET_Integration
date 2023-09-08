@@ -1,6 +1,6 @@
 ////////////////////
 
-WITH_TRA ~%MOD_FOLDER%/lang/en_US/items.tra~ BEGIN
+WITH_TRA ~%MOD_FOLDER%/lang/en_US/items.tra~ ~%MOD_FOLDER%/lang/%LANGUAGE%/items.tra~ BEGIN
 
 COPY ~%MOD_FOLDER%/data/iwd_items/shared~ ~override~
 

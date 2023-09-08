@@ -34,16 +34,20 @@ ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
 ~{id = 'TUT', name = 'EET_CMP_TITLE_TUT', description = 'EET_CMP_TEXT_TUT', title = 6, bigLogo = 6, icon = 6, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = false, cheatAreasTable = cheatAreasTutorial},
 %TAB%{id = 'ID1', name = 'EET_CMP_TITLE_ID1', description = 'EET_CMP_TEXT_ID1', title = 7, bigLogo = 7, icon = 7, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
 }~
-    REPLACE_TEXTUALLY 
-~EET_CMP_TITLE_BG1 =~
-~EET_CMP_TEXT_ID1 = "\"Welcome to Icewind Dale\" - tipun",
-    EET_CMP_TITLE_BG1 =~
-    REPLACE_TEXTUALLY 
-~EET_WARNING_TITLE =~
-~EET_CMP_TITLE_ID1 = "Icewind Dale",
-    EET_WARNING_TITLE =~
-  IF_EXISTS BUT_ONLY
 
+	PATCH_DEFINE_ASSOCIATIVE_ARRAY strings BEGIN
+	
+	
+	~EET_CMP_TITLE_BG1 =~                                                            => 999999001
+
+	~EET_WARNING_TITLE =~                                                            => 999999002
+
+END
+
+    PATCH_PHP_EACH strings AS find => replace_ref BEGIN
+        SPRINT replace (AT replace_ref)
+        REPLACE_TEXTUALLY ~%find%~ ~%replace%~
+    END
 END
 
 ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) BEGIN
@@ -80,14 +84,18 @@ ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD2_EET.TP2~ ~0~) BEGIN
 ~{id = 'ID1', name = 'EET_CMP_TITLE_ID1', description = 'EET_CMP_TEXT_ID1', title = 7, bigLogo = 7, icon = 7, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
 %TAB%{id = 'ID2', name = 'EET_CMP_TITLE_ID2', description = 'EET_CMP_TEXT_ID2', title = 9, bigLogo = 9, icon = 9, background = 2, button = 2, sidebar = 2, importEnabled = false, tutorialEnabled = false, forceParty = true, cheatAreasTable = cheatAreas},
 }~
-    REPLACE_TEXTUALLY 
-~EET_CMP_TITLE_BG1 =~
-~EET_CMP_TEXT_ID2 = "\"Welcome to Icewind Dale II\" - tipun",
-    EET_CMP_TITLE_BG1 =~
-    REPLACE_TEXTUALLY 
-~EET_WARNING_TITLE =~
-~EET_CMP_TITLE_ID2 = "Icewind Dale II",
-    EET_WARNING_TITLE =~
-  IF_EXISTS BUT_ONLY
 
+	PATCH_DEFINE_ASSOCIATIVE_ARRAY strings BEGIN
+	
+	
+	~EET_CMP_TITLE_BG1 =~                                                            => 999999011
+																							   
+	~EET_WARNING_TITLE =~                                                            => 999999012
+
+END
+
+    PATCH_PHP_EACH strings AS find => replace_ref BEGIN
+        SPRINT replace (AT replace_ref)
+        REPLACE_TEXTUALLY ~%find%~ ~%replace%~
+    END
 END

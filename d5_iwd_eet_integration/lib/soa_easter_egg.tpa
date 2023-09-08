@@ -6,7 +6,7 @@
 <<<<<<<< d5/kpcapt+.d
 APPEND KPCAPT01
  IF ~~ THEN BEGIN d5_new_state
-  SAY ~Many local villagers had taken refuge in the Keep when the troll attack began; unfortunately that left them vulnerable to capture when the yuan-ti tunnelers sudden appeared inside the castle.~
+  SAY @800000
   IF ~~ THEN GOTO 4
  END
 END
@@ -379,20 +379,20 @@ ADD_STATE_TRIGGER DYXUN 0 ~Global("D5_IWD_REAL","GLOBAL",1)~
 
 APPEND DYXUN
 IF ~Global("D5_IWD_REAL","GLOBAL",0)~ THEN BEGIN d5yxun_0 
-  SAY ~So. It has come to this, has it? I did not expect a group of natives to break the power of my minions.~
-  IF ~~ THEN REPLY ~Minions? You mean the snake people?~ GOTO d5yxun_1
-  IF ~~ THEN REPLY ~Are you the one responsible for everything going on in D'Arnise Keep? The abductions, the trolls, the yuan-ti?~ GOTO d5yxun_3
-  IF ~~ THEN REPLY ~I am here to put a stop to your agenda, whatever it is, by any means necessary.~ GOTO d5yxun_7
+  SAY @800001
+  IF ~~ THEN REPLY @800002 GOTO d5yxun_1
+  IF ~~ THEN REPLY @800003 GOTO d5yxun_3
+  IF ~~ THEN REPLY @800004 GOTO d5yxun_7
 END
 
 IF ~~ THEN BEGIN d5yxun_1
-  SAY ~They are not "snake people," you ignorant pig. They are yuan-ti, faithful servants and worthy heirs to the kingdom I shall leave behind once my business is finished.~
-  IF ~~ THEN REPLY ~Business? What business is that?~ GOTO d5yxun_2
+  SAY @800005
+  IF ~~ THEN REPLY @800006 GOTO d5yxun_2
 END
 
 IF ~~ THEN BEGIN d5yxun_2
-  SAY ~My business is none of your concern. I was bid to assist this endeavor by one to whom I owe a favor. That is all. And by chance, this place contains an item of some power which could be useful to me. Your involvement in this matter is irrelevant in the grand scheme of things, a mote of dust floating for a moment in a sea of time.~
-  IF ~~ THEN REPLY ~You were bid here? By who?~ GOTO d5yxun_4
+  SAY @800007
+  IF ~~ THEN REPLY @800008 GOTO d5yxun_4
   IF ~!PartyHasItem("BLUN14")
   		!PartyHasItem("BLUN14D")
   		!PartyHasItem("BLUN14E")
@@ -403,7 +403,7 @@ IF ~~ THEN BEGIN d5yxun_2
   		!PartyHasItem("BLUN30")
   		!PartyHasItem("BLUN30D")
   		!PartyHasItem("BLUN30C")~ 
-  		THEN REPLY ~What item are you talking about?~ GOTO d5yxun_5
+  		THEN REPLY @800009 GOTO d5yxun_5
   IF ~OR(10)
   		PartyHasItem("BLUN14")
   		PartyHasItem("BLUN14D")
@@ -415,16 +415,16 @@ IF ~~ THEN BEGIN d5yxun_2
   		PartyHasItem("BLUN30")
   		PartyHasItem("BLUN30D")
   		PartyHasItem("BLUN30C")~ 
-  		THEN REPLY ~What item are you talking about?~ GOTO d5yxun_6
+  		THEN REPLY @800010 GOTO d5yxun_6
 END
 
 IF ~~ THEN BEGIN d5yxun_3
-  SAY ~Responsible? Is the ocean responsible for the drowning of a child? I am here; and the tides of fate shift. You mortals are but insects in the path of a hurricane. If you serve to feed or amuse my minions, so be it; it matters little to my task.~
-  IF ~~ THEN REPLY ~What task is that?~ GOTO d5yxun_2
+  SAY @800011
+  IF ~~ THEN REPLY @800012 GOTO d5yxun_2
 END
 
 IF ~~ THEN BEGIN d5yxun_4
-  SAY ~It is... almost interesting to observe you. You with your tiny spark of possibility, and the way greater forces swirl around you, sniffing, curious. They are as mountains to you, unimaginably large. And yet you are oblivious to them. Yours is a strange fate, even if you manage to keep hold of it. I almost regret that I may extinguish it. Almost. But in the end my dealings are of far greater importance. All you need know is that I am contracted for a task, and you have placed yourself in the way of that. Thus your spark will flicker out. The great wheel will continue turning, and the truly luminous motes will continue to swirl and eddy in its wake.~
+  SAY @800013
   IF ~!PartyHasItem("BLUN14")
   		!PartyHasItem("BLUN14D")
   		!PartyHasItem("BLUN14E")
@@ -435,7 +435,7 @@ IF ~~ THEN BEGIN d5yxun_4
   		!PartyHasItem("BLUN30")
   		!PartyHasItem("BLUN30D")
   		!PartyHasItem("BLUN30C")~ 
-  		THEN REPLY ~What item were you talking about?~ GOTO d5yxun_5
+  		THEN REPLY @800014 GOTO d5yxun_5
   IF ~OR(10)
   		PartyHasItem("BLUN14")
   		PartyHasItem("BLUN14D")
@@ -447,35 +447,35 @@ IF ~~ THEN BEGIN d5yxun_4
   		PartyHasItem("BLUN30")
   		PartyHasItem("BLUN30D")
   		PartyHasItem("BLUN30C")~ 
-  		THEN REPLY ~What item were you talking about?~ GOTO d5yxun_6
+  		THEN REPLY @800015 GOTO d5yxun_6
 END
 
 IF ~~ THEN BEGIN d5yxun_5
-  SAY ~A tool turned weapon, very ancient, with a spark like your own. To those, like me, with the ability to unlock its nature, it can grant power over time itself. But you would never recognize or understand such nature. All you need understand is that you are between it and me, and so you will be snuffed out.~
-  IF ~~ THEN REPLY ~You will gain no weapons today fiend. It is you who will be snuffed out.~ GOTO d5yxun_7
-  IF ~~ THEN REPLY ~I still don't understand what your agenda is... but I am going to put a stop to it, regardless.~ GOTO d5yxun_7
-  IF ~~ THEN REPLY ~I am not here to oppose whatever schemes you have. I think I will just see myself out...~ GOTO d5yxun_9
+  SAY @800016
+  IF ~~ THEN REPLY @800017 GOTO d5yxun_7
+  IF ~~ THEN REPLY @800018 GOTO d5yxun_7
+  IF ~~ THEN REPLY @800019 GOTO d5yxun_9
 END
 
 IF ~~ THEN BEGIN d5yxun_6
-  SAY ~Foolish child! You stand there holding it, yet you cannot recognize its spark! A tool turned weapon, so ancient, with power over time and matter... but your insignificant mind could not hope to unlock its nature. All you need understand is that you are between it and me, and so you will be snuffed out.~
-  IF ~~ THEN REPLY ~You will gain no weapons today fiend. It is you who will be snuffed out.~ GOTO d5yxun_8
-  IF ~~ THEN REPLY ~I still don't understand what your agenda is... but I am going to put a stop to it, regardless.~ GOTO d5yxun_8
-  IF ~~ THEN REPLY ~I am not here to oppose whatever schemes you have. I think I will just see myself out...~ GOTO d5yxun_9
+  SAY @800020
+  IF ~~ THEN REPLY @800021 GOTO d5yxun_8
+  IF ~~ THEN REPLY @800022 GOTO d5yxun_8
+  IF ~~ THEN REPLY @800023 GOTO d5yxun_9
 END
 
 IF ~~ THEN BEGIN d5yxun_7
-  SAY ~Fool! You choose to dance the dance of death with one who cannot die! Pray your soul is prepared!~
+  SAY @800024
   IF ~~ THEN DO ~Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN d5yxun_8
-  SAY ~I will not be denied my prize when it is so close? Now you will dance the dance of death with one who cannot die! Pray your soul is prepared!~
+  SAY @800025
   IF ~~ THEN DO ~Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN d5yxun_9
-  SAY ~Oh, it is too late for that! Now you will dance the dance of death with one who cannot die! Pray your soul is prepared!~
+  SAY @800026
   IF ~~ THEN DO ~Enemy()~ EXIT
 END
 
@@ -703,14 +703,14 @@ END	//	end if iwd xp was restored
 <<<<<<<< d5/dlarrel+.d
 APPEND ~dlarrel~
   IF ~~ THEN BEGIN ~d5bglarrel1~
-    SAY ~What is it you seek to learn from the Heartstone Gem?~
-    IF ~~ THEN REPLY ~We seek to activate the Gem in order to learn the location of my friend, Imoen.~  GOTO d5bglarrel2
-    IF ~~ THEN REPLY ~We seek to activate the Gem in order to learn the location of the mage Jon Irenicus~  GOTO d5bglarrel2
+    SAY @800027
+    IF ~~ THEN REPLY @800028  GOTO d5bglarrel2
+    IF ~~ THEN REPLY @800029  GOTO d5bglarrel2
   END
 
   IF ~~ THEN BEGIN ~d5bglarrel2~
-  SAY ~Then you will have what you seek. I will activate the Heartstone Gem, and then it may be used to pierce even the most powerful magical concealment.~
-  IF ~~ THEN REPLY ~Here you are.~  DO ~SetGlobal("BGHeartstone_Active","GLOBAL",2) DisplayStringNoNameDlg(LastTalkedToBy,499613)~ EXIT
+  SAY @800030
+  IF ~~ THEN REPLY @800031  DO ~SetGlobal("BGHeartstone_Active","GLOBAL",2) DisplayStringNoNameDlg(LastTalkedToBy,499613)~ EXIT
   END
 END
 
@@ -735,7 +735,7 @@ ADD_STATE_TRIGGER GAELAN 51 ~GlobalLT("BGHeartstone_Active","GLOBAL",2)~
 ADD_STATE_TRIGGER GAELAN 49 ~!PartyHasItem("HEARTGM")~
 
 EXTEND_BOTTOM GAELAN 49
-  IF ~Global("BGHeartstone_Active","GLOBAL",2)~ THEN REPLY ~I have activated the Heartstone Gem. You may have it instead of the fee.~
+  IF ~Global("BGHeartstone_Active","GLOBAL",2)~ THEN REPLY @800032
     DO ~ EraseJournalEntry(96385)
       AddJournalEntry(96385,QUEST_DONE)
       AddJournalEntry(96437,QUEST)
@@ -759,24 +759,24 @@ APPEND GAELAN
     Global("BGHeartstone_Active","GLOBAL",0)
     Global("BodiWork","GLOBAL",0) ~ 
   THEN BEGIN ~d5hggaelan1~
-    SAY ~Coo! A little birdy told me ye've come into possession of an artifact that can do powerful divination. Though the use of it be tricky for most folks, we have someone who can use it to assist in reaching Imoen and Irenicus. In fact, we would so appreciate having the gem that, if ye can part with it, we can forego our fee entirely. And to be honest, ye haven't the ability to use it, so it's worth nothing to ye. What say ye?~
-    IF ~~ THEN REPLY ~Sure, sounds good. I guess I have no use for the gem anyway.~  GOTO d5hggaelan2
-    IF ~~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense Can you remind me of the cost of the fee you had asked for?~  GOTO 84
+    SAY @800033
+    IF ~~ THEN REPLY @800034  GOTO d5hggaelan2
+    IF ~~ THEN REPLY @800035  GOTO 84
   END
 
   IF ~~ THEN BEGIN ~d5hggaelan2~
-    SAY ~Ah, it be as I feared: the gem is inactive. It needs to be woken up, ye might say. Luckily our contact was prepared for this possibility, and told me how it can be done. Ye will have to find an elven lich who has had experience with the gem in the distant past. Don't worry, he be friendly. I think. What do ye think? Are ye up for it?~
-    IF ~~ THEN REPLY ~If it helps get us to our goal, I will find this lich and activate the gem.~ GOTO d5hggaelan3
-    IF ~~ THEN REPLY ~On second thought, let's keep things simple. Tell me what it would cost to pay the fee instead.~  GOTO 84
+    SAY @800036
+    IF ~~ THEN REPLY @800037 GOTO d5hggaelan3
+    IF ~~ THEN REPLY @800038  GOTO 84
   END
 
   IF ~~ THEN BEGIN ~d5hggaelan3~
-    SAY ~Coo! I half didn't expect ye to show the stones for it. Very well then, ye be wanting to find a ruined elven fortress, far t'other side of Small Teeth Pass. I hear 'twas once called 'Hand of the Seldarine,' tho it be fairly severed now. The gem should gain ye entry, but I know not what lurks within. Best of luck to ye!~
-    IF ~~ THEN REPLY ~Very well.~ DO ~SetGlobal("BGHeartstone_Active","GLOBAL",1) RevealAreaOnMap("AR1700")~ EXIT
+    SAY @800039
+    IF ~~ THEN REPLY @800040 DO ~SetGlobal("BGHeartstone_Active","GLOBAL",1) RevealAreaOnMap("AR1700")~ EXIT
   END
 
   IF WEIGHT #10 ~Global("BGHeartstone_Active","GLOBAL",2)~ THEN BEGIN ~d5hggaelan4~
-  SAY ~Ye survived! Astounding. I mean, wonderful! Now, is our deal still good? Will ye turn over the gem to me?~
+  SAY @800041
   IF ~~ THEN REPLY #21033 /* ~Yes, Here you go.~ */ 
     DO ~ EraseJournalEntry(96385)
       AddJournalEntry(96385,QUEST_DONE)
@@ -792,7 +792,7 @@ APPEND GAELAN
       SetGlobal("WorkingForAran","GLOBAL",1) ~ SOLVED_JOURNAL #47537 /* ~Collect the fee for Gaelan Bayle
 
 I have given Gaelan Bayle the gold he asked for, and in return he has given me a key which will admit me to see the head of the Athkatlan Shadow Thieves. I am to go to the thieves' guild, it seems, and use the key on a secret entrance which is immediately to the right as I enter. ~ */ GOTO 53
-    IF ~~ THEN REPLY ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense Can you remind me of the cost of the fee you had asked for?~  GOTO 84
+    IF ~~ THEN REPLY @800042  GOTO 84
   END
 END
 >>>>>>>> 

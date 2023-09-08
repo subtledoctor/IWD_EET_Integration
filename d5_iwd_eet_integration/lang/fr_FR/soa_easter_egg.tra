@@ -1,0 +1,86 @@
+/////////// soa_easter_egg \\\\\\\\\\
+
+
+// add a line about villagers to Captain Arat's dialogue
+
+@800000 = ~De nombreux villageois s'étaient réfugiés dans le donjon lors de l'attaque des trolls et se sont retrouvés piégés, des proies faciles pour les yuan-tis qui se sont introduits dans le château en creusant des galeries.~
+
+// change Albion & Yxunomei's dialogue
+
+@800001 = ~Et bien, comment avons-nous pu en arriver là ? Je n'aurais jamais imaginé qu'un petit groupe de paysans réussirait à vaincre mes larbins.~
+
+@800002 = ~Vos larbins ? Vous parlez des hommes-serpents ?~
+@800003 = ~Êtes-vous responsable de toutes ses disparitions, les trolls, les yuan-tis, vous avez fomenté l'attaque du château de'Arnise ?~
+@800004 = ~Je suis ici pour en finir avec vos machinations. Quelles que soient vos intentions, j'y mettrai un terme par tous les moyens nécessaires.~
+@800005 = ~Ce ne sont pas des « hommes-serpents », imbéciles, ignorants. Ce sont des yuan-tis, mes fidèles serviteurs seront les dignes héritiers du royaume que que je leur léguerai une fois ma tâche accomplie.~
+@800006 = ~Votre tâche ? Qu'espérez-vous accomplir ?~
+@800007 = ~Mes desseins ne vous concernent en rien. J'ai été sollicité afin d'assister un individu auquel je suis redevable. Rien de plus. Et par chance, cet endroit contient un puissant artefact qui pourrait m'être profitable. Votre implication dans cette histoire est sans importance face à l'ampleur de ce projet, vous n'êtes qu'un grain de sable suspendu pour un instant dans l'immense mer du temps.~
+@800008 = ~Vous avez été sollicité ? Par qui ?~
+@800009 = ~Un artefact ? Quel artefact ?~
+@800010 = ~Un artefact ? Quel artefact ?~
+@800011 = ~Responsable ? L'immense océan est-il responsable pour la noyade d'un enfant ? Je suis toujours là, alors que les vagues de la destinée se succèdent. Vous, mortels, n'êtes que des insectes pris dans un ouragan. Si vous voulez servir de divertissement et de dîner pour mes serviteurs, qu'il en soit ainsi, cela n'a que peu d'importance au regard de ma tâche.~
+@800012 = ~Et quelle est donc cette tâche ?~
+@800013 = ~C'est... presque intéressant de vous observer. Vous regarder vous débattre, avec votre minuscule étincelle des possibles, pendant que des forces bien plus vastes tourbillonnent tout autour, contemplatives, curieuses. Pour vous, ce sont des montagnes infranchissables, une grandeur inimaginable. Et malgré tout, vous continuez comme si de rien n'était. Un destin singulier semble s'offrir à vous, même si vous parvenez à lui imposer votre volonté. Je regretterais presque de devoir y mettre fin. Presque... mais au bout du compte mes objectifs sont infiniment plus importants. Tout ce qu'il vous faut comprendre, c'est que j'ai été chargé d'une mission et vous êtes en travers de mon chemin. Votre étincelle sera donc étouffée. La grande roue du temps poursuivra son œuvre et ceux qui portent un véritable brasier en leur sein continueront de tourbillonner et de virevolter dans son sillage.~
+@800014 = ~Un artefact ? Quel artefact ?~
+@800015 = ~Un artefact ? Quel artefact ?~
+@800016 = ~Un instrument très ancien, transformé en arme et possédant une étincelle semblable à la vôtre. Pour ceux qui, comme moi, ont la faculté de comprendre sa nature, il peut conférer un pouvoir sur le temps lui-même. Mais vous seriez bien incapables de reconnaître ou de comprendre une telle nature. Tout ce que vous devez savoir, c'est que vous vous dressez devant moi, c'est pourquoi vous êtes voué à disparaître.~ ~Un instrument très ancien, transformé en arme et possédant une étincelle semblable à la vôtre. Pour ceux qui, comme moi, ont la faculté de comprendre sa nature, il peut conférer un pouvoir sur le temps lui-même. Mais vous seriez bien incapables de reconnaître ou de comprendre une telle nature. Tout ce que vous devez savoir, c'est que vous vous dressez devant moi, c'est pourquoi vous êtes vouée à disparaître.~
+@800017 = ~Vous n'obtiendrez aucune arme en ce jour, démon. VOUS êtes vouée à disparaître.~
+@800018 = ~Je ne comprends toujours pas quelles sont vos intentions... mais peu importe, votre existence s'arrête là.~
+@800019 = ~Je ne suis pas ici pour m'opposer à vous, quelles que soient vos velléités. Je crois bien que je vais me contenter de prendre la fuite...~
+@800020 = ~Enfant ignorant ! Vous le tenez dans vos mains, et pourtant vous êtes incapable d'en reconnaître l'étincelle ! Un instrument converti en arme, un pouvoir si ancien, une emprise sur le temps et la matière... mais votre esprit étriqué ne saurait déceler sa nature. Tout ce que vous devez savoir, c'est que vous vous dressez devant moi, c'est pourquoi vous êtes voué à disparaître.~ ~Enfant ignorante ! Vous le tenez dans vos mains, et pourtant vous êtes incapable d'en reconnaître l'étincelle ! Un instrument converti en arme, un pouvoir si ancien, une emprise sur le temps et la matière... mais votre esprit étriqué ne saurait déceler sa nature. Tout ce que vous devez savoir, c'est que vous vous dressez devant moi, c'est pourquoi vous êtes vouée à disparaître.~
+@800021 = ~Vous n'obtiendrez aucune arme en ce jour, démon. VOUS êtes vouée à disparaître.~
+@800022 = ~Je ne comprends toujours pas quelles sont vos intentions... mais peu importe, votre existence s'arrête là.~
+@800023 = ~Je ne suis pas ici pour m'opposer à vous, quelles que soient vos velléités. Je crois bien que je vais me contenter de prendre la fuite...~
+@800024 = ~Quelle folie ! Vous choisissez de danser avec la mort, une danse effrénée avec celle qui ne peut être vaincue ! Priez pour que votre âme soit en paix !~
+@800025 = ~On me refuserait ma récompense alors qu'elle est à portée de main ? Le temps est venu de danser avec la mort, une danse effrénée avec celle qui ne peut être vaincue ! Priez pour que votre âme soit en paix !~
+@800026 = ~Oh, il est trop tard ! Le temps est venu de danser avec la mort, une danse effrénée avec celle qui ne peut être vaincue ! Priez pour que votre âme soit en paix !~
+
+// change larrel's dialogue to activate gem and teleport party to athkatla, no cut-scene
+
+@800027 = ~Que cherchez-vous donc à découvrir grâce à la Gemme du Cœur de pierre ?~
+@800028 = ~J'ai l'intention d'utiliser la gemme pour retrouver mon amie, Imoen.~
+@800029 = ~Je désire activer la gemme afin de localiser un magicien, Jon Irenicus.~
+@800030 = ~Très bien, vous obtiendrez l'objet de votre convoitise. J'activerai la Gemme du Cœur de pierre, lui permettant de déjouer les plus puissantes dissimulations magiques.~
+@800031 = ~Et voilà.~
+
+// change gaelan's dialogue to send player to severed hand, and accept activated heartstone gem
+
+@800032 = ~La Gemme du Cœur de pierre est activée. Vous pouvez en disposer, considérez-là comme ma contribution.~
+@800033 = ~Ben ça ! Un petit oiseau m'a révélé que t'avais glané un artefact possédant un sacré pouvoir de divination. Bien que son utilisation soit délicate et trop complexe pour la plupart des gens, nous connaissons quelqu'un capable d'faire bon usage de ce joli caillou et de vous permettre d'atteindre Imoen et Irenicus. En vérité, nous souhaiterions p'têt obtenir cette gemme. Si t'acceptes de t'en séparer, d'notre côté, nous pourrions renoncer à nos honoraires. De toute façon, elle t'servira à rien, une simple breloque pour quelqu'un comme toi. t'en dis quoi ?~
+@800034 = ~Ça me va. Cette pierre ne m'aurait été d'aucune utilité de toute façon.~
+@800035 = ~Hum, Je ne suis pas vraiment sûr que les Voleurs d'Ombres mettent la main sur un artefact aussi puissant soit une bonne idée, sans vouloir vous offenser. Rappelez-moi quel était le montant demandé ?~ ~Hum, Je ne suis pas vraiment sûre que les Voleurs d'Ombres mettent la main sur un artefact aussi puissant soit une bonne idée, sans vouloir vous offenser. Rappelez-moi quel était le montant demandé ?~
+@800036 = ~Eh ben, c'est ce que j'craignais : la pouvoir de la gemme est en sommeil. Il va falloir la réveiller, si l'on peut dire. Par chance, notre contact avait anticipé cette éventualité et m'a indiqué la marche à suivre. Il faut qu'tu trouves une ancienne liche elfe qui a d'jà eu maille à partir avec cette pierre dans un passé lointain. Rassure-toi, elle s'ra sympathique, enfin, j'pense. Qu'en dis-tu ? Partant pour l'aventure ?~ ~Eh ben, c'est ce que j'craignais : la pouvoir de la gemme est en sommeil. Il va falloir la réveiller, si l'on peut dire. Par chance, notre contact avait anticipé cette éventualité et m'a indiqué la marche à suivre. Il faut qu'tu trouves une ancienne liche elfe qui a d'jà eu maille à partir avec cette pierre dans un passé lointain. Rassure-toi, elle s'ra sympathique, enfin, j'pense. Qu'en dis-tu ? Partante pour l'aventure ?~
+@800037 = ~Si cela peut nous aider dans notre quête, je pars à la recherche de cette liche et trouverais un moyen d'activer la gemme.~
+@800038 = ~Tout bien considéré, inutile de nous compliquer la vie. Quelle somme demandez-vous pour vos services ?~
+@800039 = ~Ben ça ! J'aurais pas cru que t'aurais ce qu'il fallait. Très bien, faut qu'tu trouves les ruines d'une forteresse elfique, par delà la Passe des petits crocs. J'ai entendu dire qu'elle s'appelait autrefois « Main de la Seldarine », mais depuis le temps, elle a été tranchée, si tu vois ce que je veux dire. La gemme devrait t'permettre d'entrer à l'intérieur, ce que t'y trouveras par contre, mystère. Bon vent, tu vas en avoir besoin !~
+@800040 = ~Alors, allons-y.~
+@800041 = ~T'es pas mort ! Incroyable. 'fin, je veux dire, magnifique ! Alors, on fait affaire ? Tu me refourgues la pierre ?~ ~T'es pas morte ! Incroyable. 'fin, je veux dire, magnifique ! Alors, on fait affaire ? Tu me refourgues la pierre ?~
+@800042 = ~Hum, Je ne suis pas vraiment sûr que les Voleurs d'Ombres mettent la main sur un artefact aussi puissant soit une bonne idée, sans vouloir vous offenser. Rappelez-moi quel était le montant demandé ?~ ~Hum, Je ne suis pas vraiment sûre que les Voleurs d'Ombres mettent la main sur un artefact aussi puissant soit une bonne idée, sans vouloir vous offenser. Rappelez-moi quel était le montant demandé ?~
+
+/*
+@800043 = 
+@800044 = 
+@800045 = 
+@800046 = 
+@800047 = 
+@800048 = 
+@800049 = 
+@800050 = 
+@800051 = 
+@800052 = 
+@800053 = 
+@800054 = 
+@800055 = 
+@800056 = 
+@800057 = 
+@800058 = 
+@800059 = 
+@800060 = 
+@800061 = 
+@800062 = 
+@800063 = 
+@800064 = 
+@800065 = 
+@800066 = 
+*/
+

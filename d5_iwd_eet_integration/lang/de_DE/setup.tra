@@ -9,3 +9,19 @@
 @100 = ~~
 @110 = ~~
 
+// d5_iwd_eet_integration.tp2
+
+@999998001 = ~Add IWD Campaigns to the EET Menu~
+@999998002 = ~IWD campaigns required~
+@999998003 = ~Adjust IWD1 XP for Full Campaign~
+@999998004 = ~IWD1_EET required~
+@999998005 = ~IWD1 Campaign required~
+@999998006 = ~Adjust IWD1 Creature Stats for Full Campaign~
+@999998007 = ~Adjust IWD2 XP for Full Campaign~
+@999998008 = ~IWD2_EET required~
+@999998009 = ~Adjust IWD2 Creature Stats for Full Campaign~
+@999998010 = ~Add HoW access to BG2~
+@999998011 = ~HoW in EET required~
+@999998012 = ~Remove Overpowered Items from HoW~
+@999998013 = ~Add IWD1 Easter Egg Content to BG2~
+

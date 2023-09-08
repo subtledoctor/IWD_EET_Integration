@@ -9,3 +9,20 @@
 @100 = ~~
 @110 = ~~
 
+// d5_iwd_eet_integration.tp2
+
+@999998001 = ~Ajouter les campagnes de IWD au menu EET~
+@999998002 = ~Necessite IWD_EET~
+@999998003 = ~Ajuster l'experience pour la campagne independante IWD1~
+@999998004 = ~Necessite IWD1_EET~
+@999998005 = ~Necessite le composant "Ajouter les campagnes de IWD au menu EET"~
+@999998006 = ~Ajuster les statistiques des creatures pour la campagne independante IWD1~
+@999998007 = ~Ajuster l'experience pour la campagne independante IWD2~
+@999998008 = ~Necessite IWD2_EET~
+@999998009 = ~Ajuster les statistiques des creatures pour la campagne independante IWD2~
+@999998010 = ~Avoir acces a l'extension Heart of Winter dans BG2EE~
+@999998011 = ~Necessite HoW_EET~
+@999998012 = ~Retirer les objets excessivement puissants de Heart of Winter~
+@999998013 = ~Ajouter du contenu de IWD1 dans BG2EE sous la forme d'aventures cachees~
+// @999998014 = ~Necessite le composant "Ajouter les campagnes de IWD au menu EET"~
+

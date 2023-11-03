@@ -1,6 +1,7 @@
 ////////////////////
 
 ACTION_FOR_EACH cre_file_half IN
+  ~beetleg~
   ~goblin~
   ~goblina~
   ~gobline~
@@ -19,6 +20,9 @@ ACTION_FOR_EACH cre_file_half IN
   ~neguar02~
   ~vsshadow~
   ~vsyeti~
+  ~vsyetii~
+  ~rvsyeti~
+  ~wtyeti~
   ~ktgst1~
   ~ktghl1~
   ~ktsk1~
@@ -54,6 +58,7 @@ BEGIN
 END
 
 ACTION_FOR_EACH cre_file_third IN
+  ~40benest~
   ~ktwgt1~
   ~ktwgt1i~
   ~ktmum1~
@@ -101,6 +106,7 @@ ACTION_FOR_EACH cre_file_third IN
   ~lmsham2~
   ~lmsham3~
   ~lmshkid~
+  ~z52yetuh~
 BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%cre_file_third%.cre~) BEGIN
     COPY_EXISTING ~%cre_file_third%.cre~ ~override~

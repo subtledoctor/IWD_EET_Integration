@@ -108,6 +108,11 @@ COPY ~%MOD_FOLDER%/data/iw2_cres.2da~ ~override~
 	END
   END
 
+COPY ~%MOD_FOLDER%/data/iwd2_creatures/41cathin.cre~    ~override~ 
+COPY ~%MOD_FOLDER%/data/iwd2_creatures/41lysara.cre~    ~override~ 
+COPY ~%MOD_FOLDER%/data/iwd2_creatures/41oria.cre~    ~override~ 
+COPY ~%MOD_FOLDER%/data/iwd2_creatures/41oriaes.cre~    ~override~ 
+
 /*
 COPY ~override/50HNT.cre~    ~override/50HNT_1.cre~ 
 	WRITE_ASCII 0x280 ~HUNTER_1_NEW~ (32)

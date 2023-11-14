@@ -565,6 +565,7 @@ THEN
 	SetGlobal("D5_SH_BG2","ID5000",0)
 	SetGlobal("BGHeartstone_Active","GLOBAL",1)
 	TriggerActivation("d5ix5000",FALSE)
+	TriggerActivation("To5001",TRUE)
 END
 
 IF
@@ -578,6 +579,7 @@ THEN
 END
 
 IF
+	Global("D5_EET_IWD","GLOBAL",1)
 	PartyHasItem("HEARTGM")  // Heartstone Gem
 	Global("BGHeartstone_Active","GLOBAL",1)
 	Global("D5_HAS_HGEM","ID5000",0)
@@ -589,10 +591,11 @@ THEN
 END
 
 IF
+	Global("D5_EET_IWD","GLOBAL",1)
+	Global("D5_NOT_HGEM","ID5000",0)
 	OR(2)
 	  !PartyHasItem("HEARTGM")  // Heartstone Gem
 	  GlobalLT("BGHeartstone_Active","GLOBAL",1)
-	Global("D5_NOT_HGEM","ID5000",0)
 THEN
 	RESPONSE #100
 	SetGlobal("D5_HAS_HGEM","ID5000",0)

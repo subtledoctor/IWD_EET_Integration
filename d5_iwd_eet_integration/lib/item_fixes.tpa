@@ -1,0 +1,13 @@
+////////////////////
+
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~horn1.eff~) BEGIN
+  COPY_EXISTING ~bardic.itm~ ~override~
+    LPF DELETE_EFFECT INT_VAR match_opcode = 67 END
+    LPF ADD_ITEM_EFFECT INT_VAR target = 1 opcode = 177 parameter1 = 0 parameter2 = 2 timing = 0 duration = 120 probability1 = 100 probability2 = 0 STR_VAR resource = ~horn1~ END
+    LPF ADD_ITEM_EFFECT INT_VAR target = 1 opcode = 177 parameter1 = 0 parameter2 = 2 timing = 0 duration = 120 probability1 = 100 probability2 = 0 STR_VAR resource = ~horn1~ END
+    LPF ADD_ITEM_EFFECT INT_VAR target = 1 opcode = 177 parameter1 = 0 parameter2 = 2 timing = 0 duration = 120 probability1 = 100 probability2 = 34 STR_VAR resource = ~horn1~ END
+    LPF ADD_ITEM_EFFECT INT_VAR target = 1 opcode = 177 parameter1 = 0 parameter2 = 2 timing = 0 duration = 120 probability1 = 100 probability2 = 67 STR_VAR resource = ~horn1~ END
+  IF_EXISTS 
+END
+

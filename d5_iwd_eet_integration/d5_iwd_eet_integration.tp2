@@ -53,6 +53,16 @@ LANGUAGE ~Español~
 	     ~d5_iwd_eet_integration/lang/es_ES/soa_easter_egg.tra~
 	     ~d5_iwd_eet_integration/lang/es_ES/Gui.tra~
 
+LANGUAGE ~Simplified Chinese (translation: Lewis Liu)~
+	     ~zh_CN~
+	     ~d5_iwd_eet_integration/lang/en_US/setup.tra~
+	     ~d5_iwd_eet_integration/lang/en_US/soa_easter_egg.tra~
+	     ~d5_iwd_eet_integration/lang/en_US/Gui.tra~
+	     ~d5_iwd_eet_integration/lang/zh_CN/setup.tra~
+	     ~d5_iwd_eet_integration/lang/zh_CN/soa_easter_egg.tra~
+	     ~d5_iwd_eet_integration/lang/zh_CN/Gui.tra~
+
+
 ////////////////////
 ////////////////////
 

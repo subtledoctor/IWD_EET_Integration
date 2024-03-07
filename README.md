@@ -4,26 +4,23 @@ SubtleDoctor's IWD EET Integration
 
 ## Version
 
-Version 0.9
+Version 0.12
 
 ## Overview
 
-This mod is designed to work with tipun's IWD_EET mods. He has three such mods at the moment:
+This mod is designed to work with tipun's IWD_EET mods. There are three such mods at the moment:
 
 -- IWD1_EET
 -- IWD2_EET
--- HoW_in_EET
+-- Icewind_EET (which helps integrate some of the content of IWD1 and IWD2)
 
-As well, tipun has an auxiliary mod called 'Icewind_EET' which helps integrate some of the content of IWD1 and IWD2.
-
-As of now, most of the components of this mod *require* tipun's IWD1_EET, IWD2_EET, *and* Icewind_EET to be installed first. Because most components of this mod deal with the content added by his IWD1 and IWD2 mods. Notably, tipun's IWD1 and IWD2 mods can only be installed on a game that already has EET installed. So the requirements for this mod to work are rather involved!
+As of now, most of the components of this mod *require* all of IWD1_EET, IWD2_EET, *and* Icewind_EET to be installed first. Because most components of this mod deal with the content added by his IWD1 and IWD2 mods. Notably, tipun's IWD1 and IWD2 mods can only be installed on a game that already has EET installed. So the requirements for this mod to work are rather involved!
 
 -- EET
 -- IWD1_EET
 -- IWD2_EET
 -- Icewind_EET
 -- [this mod]
--- EET_End
 
 Two components of this mod specifically relate to IWD's Heart of Winter content; these two components can work with tipun's HoW_in_EET mod in place of the IWD1 and IWD2 mods.
  
@@ -88,9 +85,9 @@ This involves a bit of a historical retcon, of course. The Dragon's Eye areas ar
 Of course, that assumes the IWD1 campaign content is unavailable to a party in an EET game. So this content is conditional: if you play any IWD1 content that takes you through Easthaven and Kuldahar before getting to Athkatla, then this easter-egg version of Dragon's Eye and Severed Hand will be closed off to you. Since you will have already been there! But if you have not been to Easthaven - if you use the earlier components to make IWd1 its own campaign, or you simply declined to go there in BG1 when tipun's content allowed you to - then you may be able to find this content. Good luck!
 
 
-##Bugs 
+## Bugs 
 
-##Change Log 
+## Change Log 
 
-##Credits
+## Credits
 

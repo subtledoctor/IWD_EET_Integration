@@ -4,7 +4,7 @@ SubtleDoctor's IWD EET Integration
 
 ## Version
 
-Version 0.11
+Version 0.12
 
 ## Overview
 

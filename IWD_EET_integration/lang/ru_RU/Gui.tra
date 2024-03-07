@@ -1,0 +1,15 @@
+// IWD1
+@999999001 = ~EET_CMP_TEXT_ID1 = "\"Welcome to Icewind Dale\" - tipun",
+    EET_CMP_TITLE_BG1 =~
+@999999002 = ~EET_CMP_TITLE_ID1 = "Icewind Dale",
+    EET_WARNING_TITLE =~
+@999999003 = ~Welcome to Icewind Dale - tipun~
+@999999004 = ~Icewind Dale~
+
+//IWD2
+@999999011 = ~EET_CMP_TEXT_ID2 = "\"Welcome to Icewind Dale II\" - tipun",
+    EET_CMP_TITLE_BG1 =~
+@999999012 = ~EET_CMP_TITLE_ID2 = "Icewind Dale II",
+    EET_WARNING_TITLE =~
+@999999013 = ~Welcome to Icewind Dale II - tipun~
+@999999014 = ~Icewind Dale II~

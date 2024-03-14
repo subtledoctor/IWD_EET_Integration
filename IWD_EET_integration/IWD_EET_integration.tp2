@@ -1,7 +1,7 @@
 BACKUP ~weidu_external/backup/IWD_EET_integration~
 AUTHOR ~SubtleD~
 
-VERSION ~0.12~
+VERSION ~0.12.1~
 
 ALWAYS
 
@@ -37,12 +37,12 @@ LANGUAGE ~Deutsch~
 		 
 LANGUAGE ~Français~
 	     ~fr_FR~
-	     ~d5_iwd_eet_integration/lang/en_US/setup.tra~
-	     ~d5_iwd_eet_integration/lang/en_US/soa_easter_egg.tra~
-	     ~d5_iwd_eet_integration/lang/en_US/Gui.tra~
-	     ~d5_iwd_eet_integration/lang/fr_FR/setup.tra~
-	     ~d5_iwd_eet_integration/lang/fr_FR/soa_easter_egg.tra~
-	     ~d5_iwd_eet_integration/lang/fr_FR/Gui.tra~
+	     ~IWD_EET_integration/lang/en_US/setup.tra~
+	     ~IWD_EET_integration/lang/en_US/soa_easter_egg.tra~
+	     ~IWD_EET_integration/lang/en_US/Gui.tra~
+	     ~IWD_EET_integration/lang/fr_FR/setup.tra~
+	     ~IWD_EET_integration/lang/fr_FR/soa_easter_egg.tra~
+	     ~IWD_EET_integration/lang/fr_FR/Gui.tra~
 		 
 LANGUAGE ~Español~
 	     ~es_ES~

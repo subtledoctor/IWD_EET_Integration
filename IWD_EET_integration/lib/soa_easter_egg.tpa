@@ -608,7 +608,7 @@ LAF cd_extend_bg_area_script STR_VAR area = ~id5000~ script = EVAL ~weidu_extern
 
 ////////////////////
 
-ACTION_IF (MOD_IS_INSTALLED ~d5_iwd_eet_integration.TP2~ ~110~) BEGIN	//	if this mod has set IWD XP to full campaign values
+ACTION_IF (MOD_IS_INSTALLED ~IWD_EET_integration.TP2~ ~110~) BEGIN	//	if this mod has set IWD XP to full campaign values
 
 // adjust XP rewards back down if playing from BG2
 

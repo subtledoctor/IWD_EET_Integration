@@ -3,59 +3,58 @@
 
 // add a line about villagers to Captain Arat's dialogue
 
-@800000 = ~Many local villagers had taken refuge in the Keep when the troll attack began; unfortunately that left them vulnerable to capture when the yuan-ti tunnelers sudden appeared inside the castle.~
+@800000 = ~Многие местные жители укрылись в замке, когда началось нападение троллей; к сожалению, так их стало ещё легче захватить в плен, когда юань-ти внезапно появились внутри замка.~
 
 // change Albion & Yxunomei's dialogue
 
-@800001 = ~So. It has come to this, has it? I did not expect a group of natives to break the power of my minions.~
+@800001 = ~Так вот до чего дошло, а? Не ожидала, что группа дикарей сможет сломить мощь моих слуг.~
 
-@800002 = ~Minions? You mean the snake people?~
-@800003 = ~Are you the one responsible for everything going on in D'Arnise Keep? The abductions, the trolls, the yuan-ti?~
-@800004 = ~I am here to put a stop to your agenda, whatever it is, by any means necessary.~
-@800005 = ~They are not "snake people," you ignorant pig. They are yuan-ti, faithful servants and worthy heirs to the kingdom I shall leave behind once my business is finished.~
-@800006 = ~Business? What business is that?~
-@800007 = ~My business is none of your concern. I was bid to assist this endeavor by one to whom I owe a favor. That is all. And by chance, this place contains an item of some power which could be useful to me. Your involvement in this matter is irrelevant in the grand scheme of things, a mote of dust floating for a moment in a sea of time.~
-@800008 = ~You were bid here? By who?~
-@800009 = ~What item are you talking about?~
-@800010 = ~What item are you talking about?~
-@800011 = ~Responsible? Is the ocean responsible for the drowning of a child? I am here; and the tides of fate shift. You mortals are but insects in the path of a hurricane. If you serve to feed or amuse my minions, so be it; it matters little to my task.~
-@800012 = ~What task is that?~
-@800013 = ~It is... almost interesting to observe you. You with your tiny spark of possibility, and the way greater forces swirl around you, sniffing, curious. They are as mountains to you, unimaginably large. And yet you are oblivious to them. Yours is a strange fate, even if you manage to keep hold of it. I almost regret that I may extinguish it. Almost. But in the end my dealings are of far greater importance. All you need know is that I am contracted for a task, and you have placed yourself in the way of that. Thus your spark will flicker out. The great wheel will continue turning, and the truly luminous motes will continue to swirl and eddy in its wake.~
-@800014 = ~What item were you talking about?~
-@800015 = ~What item were you talking about?~
-@800016 = ~A tool turned weapon, very ancient, with a spark like your own. To those, like me, with the ability to unlock its nature, it can grant power over time itself. But you would never recognize or understand such nature. All you need understand is that you are between it and me, and so you will be snuffed out.~
-@800017 = ~You will gain no weapons today fiend. It is you who will be snuffed out.~
-@800018 = ~I still don't understand what your agenda is... but I am going to put a stop to it, regardless.~
-@800019 = ~I am not here to oppose whatever schemes you have. I think I will just see myself out...~
-@800020 = ~Foolish child! You stand there holding it, yet you cannot recognize its spark! A tool turned weapon, so ancient, with power over time and matter... but your insignificant mind could not hope to unlock its nature. All you need understand is that you are between it and me, and so you will be snuffed out.~
-@800021 = ~You will gain no weapons today fiend. It is you who will be snuffed out.~
-@800022 = ~I still don't understand what your agenda is... but I am going to put a stop to it, regardless.~
-@800023 = ~I am not here to oppose whatever schemes you have. I think I will just see myself out...~
-@800024 = ~Fool! You choose to dance the dance of death with one who cannot die! Pray your soul is prepared!~
-@800025 = ~I will not be denied my prize when it is so close? Now you will dance the dance of death with one who cannot die! Pray your soul is prepared!~
-@800026 = ~Oh, it is too late for that! Now you will dance the dance of death with one who cannot die! Pray your soul is prepared!~
+@800002 = ~Слуг? Ты говоришь о змеелюдях?~
+@800003 = ~Это ты виновна во всём, что происходит в замке Де'Арнисов? Похищения, тролли, юань-ти?~
+@800004 = ~Я здесь, чтобы пресечь твои планы, в чём бы они ни заключались, любыми способами.~
+@800005 = ~Они не "змеелюди", невежда. Они юань-ти, мои верные слуги и истинные наследники королевства, которое я оставлю им, когда завершу свои дела.~
+@800006 = ~Дела? Какие такие дела?~
+@800007 = ~Мои дела тебя не касаются. Меня попросил помочь в этом деле тот, кому я обязана услугой. Вот и все. И по воле случая в этом месте находится предмет, обладающий определенной силой, который может мне пригодиться. Твоё вмешательство в эти дела ничего не значит, в великой схеме мироздания, ты, пылинка-однодневка в океане времени.~
+@800008 = ~Тебя попросили о помощи? Но кто?~
+@800009 = ~О каком предмете ты говоришь?~
+@800010 = ~О каком предмете ты говоришь?~
+@800011 = ~Виновна? Разве океан виновен в том, что в нём утонул ребёнок? Я здесь и потоки судьбы изменились. Вы, смертные, всего лишь насекомые на пути урагана. Если ваша судьба послужить пищей или развлечением для моих слуг, пусть будет так; это абсолютно не важно для моей цели.~
+@800012 = ~О какой цели ты говоришь?~
+@800013 = ~Наблюдать за тобой... почти интересно. За тобой, с твоей крошечной искрой возможности, и за тем, как вокруг тебя кружатся большие силы, принюхиваясь, любопытствуя. Они для тебя как горы, невообразимо огромные. И все же ты не замечаешь их. Странная у тебя судьба, даже если тебе удаётся удерживать её в своих руках. Я почти жалею, что могу погасить её. Почти. Но в конце концов мои дела имеют гораздо большее значение. Всё, что тебе нужно знать, - это то, что я заключила контракт на выполнение задания, а ты стоишь у меня на пути. Потому твоя искра будет погашена. Великое колесо продолжит вращаться, а яркие частицы будут следовать за ним.~
+@800014 = ~О каком предмете ты говорила?~
+@800015 = ~О каком предмете ты говорила?~
+@800016 = ~Орудие, ставшее оружием, очень древнее, с искрой, подобной твоей. Таким как я, способным раскрыть его природу, оно может дать власть над самим временем. Но ты никогда не узнаешь и не поймешь его природу. Всё, что тебе нужно осознать, - это то, что ты стоишь между ним и мной, и поэтому твоя искра будет погашена.~
+@800017 = ~Ты не получишь никакого оружия, изверг. Это ты сегодня будешь погашена.~
+@800018 = ~Я всё ещё не понимаю, что ты задумала... но я в любом случае собираюсь положить этому конец.~
+@800019 = ~Я здесь не для того, чтобы противостоять твоим планам. Думаю, я просто пойду потихоньку отсюда...~
+@800020 = ~Глупое дитя! Ты стоишь и держишь его в руках, но не можешь распознать его искру! Орудие, ставшее оружием, такое древнее, обладающее властью над временем и материей... но твой ничтожный разум не в силах разгадать его природу. Всё, что тебе нужно осознать, - это то, что ты стоишь между ним и мной, и поэтому твоя искра будет погашена.~
+@800021 = ~Ты не получишь никакого оружия, изверг. Это ты сегодня будет погашена.~
+@800022 = ~Я всё ещё не понимаю, что ты задумала... но я в любом случае собираюсь положить этому конец.~
+@800023 = ~Я здесь не для того, чтобы противостоять твоим планам. Думаю, я просто пойду потихоньку отсюда...~
+@800024 = ~Глупец! Ты решил танцевать танец смерти с той, кто не может умереть! Молись, чтобы твоя душа была готова!~ ~Дура! Ты решила танцевать танец смерти с той, кто не может умереть! Молись, чтобы твоя душа была готова!~
+@800026 = ~О, уже слишком поздно! Теперь ты будешь танцевать танец смерти с той, кто не может умереть! Молись, чтобы твоя душа была готова!~
 
 // change larrel's dialogue to activate gem and teleport party to athkatla, no cut-scene
 
-@800027 = ~What is it you seek to learn from the Heartstone Gem?~
-@800028 = ~We seek to activate the Gem in order to learn the location of my friend, Imoen.~
-@800029 = ~We seek to activate the Gem in order to learn the location of the mage Jon Irenicus~
-@800030 = ~Then you will have what you seek. I will activate the Heartstone Gem, and then it may be used to pierce even the most powerful magical concealment.~
-@800031 = ~Here you are.~
+@800027 = ~Итак, что же ты хочешь узнать у Камня-Сердце?~
+@800028 = ~Я хочу использовать его, чтобы узнать нахождение моей подруги Имоен.~
+@800029 = ~Я хочу использовать его, чтобы узнать нахождение волшебника Джона Айреникуса.~
+@800030 = ~Тогда ты получишь то, что ищешь. Я активирую Камень-Сердце - с его помощью можно будет пробить даже самую мощную магическую пелену.~
+@800031 = ~Вот и всё.~
 
 // change gaelan's dialogue to send player to severed hand, and accept activated heartstone gem
 
-@800032 = ~I have activated the Heartstone Gem. You may have it instead of the fee.~
-@800033 = ~Coo! A little birdy told me ye've come into possession of an artifact that can do powerful divination. Though the use of it be tricky for most folks, we have someone who can use it to assist in reaching Imoen and Irenicus. In fact, we would so appreciate having the gem that, if ye can part with it, we can forego our fee entirely. And to be honest, ye haven't the ability to use it, so it's worth nothing to ye. What say ye?~
-@800034 = ~Sure, sounds good. I guess I have no use for the gem anyway.~
-@800035 = ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense Can you remind me of the cost of the fee you had asked for?~
-@800036 = ~Ah, it be as I feared: the gem is inactive. It needs to be woken up, ye might say. Luckily our contact was prepared for this possibility, and told me how it can be done. Ye will have to find an elven lich who has had experience with the gem in the distant past. Don't worry, he be friendly. I think. What do ye think? Are ye up for it?~
-@800037 = ~If it helps get us to our goal, I will find this lich and activate the gem.~
-@800038 = ~On second thought, let's keep things simple. Tell me what it would cost to pay the fee instead.~
-@800039 = ~Coo! I half didn't expect ye to show the stones for it. Very well then, ye be wanting to find a ruined elven fortress, far t'other side of Small Teeth Pass. I hear 'twas once called 'Hand of the Seldarine,' tho it be fairly severed now. The gem should gain ye entry, but I know not what lurks within. Best of luck to ye!~
-@800040 = ~Very well.~
-@800041 = ~Ye survived! Astounding. I mean, wonderful! Now, is our deal still good? Will ye turn over the gem to me?~
-@800042 = ~Uh, I'm not sure I like the idea of the Shadow Thieves having an artifact of such power. No offense Can you remind me of the cost of the fee you had asked for?~
+@800032 = ~У меня есть активированный Камень-Сердце. Ты можешь взять его в качестве оплаты.~
+@800033 = ~Фьють! Маленькая птичка сообщила мне, что у тебя есть артефакт, который может совершать мощные прорицания. Хотя большинство и не может его использовать, у нас есть человек, который сможет с его помощью узнать, как добраться до Имоен и Айреникуса. На самом деле, мы были бы очень благодарны, если бы получили этот камень. Так что, если ты можешь расстаться с ним, мы можем полностью отказаться от оплаты. По правде говоря, ты же не умеешь им пользоваться, так что для тебя он ничего не стоит. Что скажешь?~
+@800034 = ~Конечно, звучит неплохо. Думаю, мне все равно не нужен этот камень.~
+@800035 = ~Не уверен, что мне нравится идея, нахождения у Теневых Воров артефакта такой силы. Без обид, но лучше напомни мне размер платы, которую вы запросили?~
+@800036 = ~Ах, как я и боялся: камень неактивен. Его нужно, так сказать, разбудить. К счастью, наш контакт рассмотрел такую возможность и рассказал мне, как это можно сделать. Тебе нужно найти эльфийского лича, который в далеком прошлом уже имел опыт работы с этим камнем. Не бойся, он будет дружелюбен. Я так думаю. Что скажешь? Возьмёшься за это дельце?~
+@800037 = ~Если это поможет нашей цели, я найду этого лича и активирую этот камень.~
+@800038 = ~С другой стороны, не лучше ли пойти по простому пути. Скажи мне лучше, каков там размер этой.~
+@800039 = ~Фьють! Не думал, что у тебя хватит смелости пойти по этому пути. Хорошо, тогда тебе нужно попасть в разрушенную эльфийскую крепость по ту сторону перевала Малых Зубов. Я слышал, что когда-то она называлась "Рука Селдарина", но теперь она разрушена. Этот камень должен помочь вам войти, но я не знаю, что там внутри. Удачи!~
+@800040 = ~Отлично.~
+@800041 = ~Вы выжили! Поразительно. Я имею в виду, замечательно! Теперь, наша сделка в силе? Ты отдашь мне этот камень?~
+@800042 = ~Не уверен, что мне нравится идея, нахождения у Теневых Воров артефакта такой силы. Без обид, но лучше напомни мне размер платы, которую вы запросили?~
 
 /*
 @800043 = 

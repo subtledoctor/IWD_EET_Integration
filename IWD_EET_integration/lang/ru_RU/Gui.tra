@@ -1,15 +1,15 @@
 // IWD1
-@999999001 = ~EET_CMP_TEXT_ID1 = "\"Welcome to Icewind Dale\" - tipun",
+@999999001 = ~EET_CMP_TEXT_ID1 = "\"Добро пожаловать в Долину Ледяного Ветра\" - tipun",
     EET_CMP_TITLE_BG1 =~
-@999999002 = ~EET_CMP_TITLE_ID1 = "Icewind Dale",
+@999999002 = ~EET_CMP_TITLE_ID1 = "Долина Ледяного Ветра",
     EET_WARNING_TITLE =~
-@999999003 = ~Welcome to Icewind Dale - tipun~
-@999999004 = ~Icewind Dale~
+@999999003 = ~Добро пожаловать в Долину Ледяного Ветра - tipun~
+@999999004 = ~Долина Ледяного Ветра~
 
 //IWD2
-@999999011 = ~EET_CMP_TEXT_ID2 = "\"Welcome to Icewind Dale II\" - tipun",
+@999999011 = ~EET_CMP_TEXT_ID2 = "\"Добро пожаловать в Долину Ледяного Ветра II\" - tipun",
     EET_CMP_TITLE_BG1 =~
-@999999012 = ~EET_CMP_TITLE_ID2 = "Icewind Dale II",
+@999999012 = ~EET_CMP_TITLE_ID2 = "Долина Ледяного Ветра II",
     EET_WARNING_TITLE =~
-@999999013 = ~Welcome to Icewind Dale II - tipun~
-@999999014 = ~Icewind Dale II~
+@999999013 = ~Добро пожаловать в Долину Ледяного Ветра II - tipun~
+@999999014 = ~Долина Ледяного Ветра II~

@@ -1,6 +1,7 @@
 ////////////////////
 
 ACTION_FOR_EACH cre_file_half IN
+  ~wolf12~
   ~beetleg~
   ~goblin~
   ~goblina~

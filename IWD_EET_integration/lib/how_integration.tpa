@@ -28,6 +28,8 @@ END
 
 ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
 
+  OUTER_SPRINT this_hjollder ~d5hjoll~
+
 // make custom copy of Hjollder so it can have different dialogue
 
   COPY_EXISTING ~hjollder.cre~ ~override/d5hjoll.cre~
@@ -90,6 +92,8 @@ END
 
 ACTION_IF (MOD_IS_INSTALLED ~SETUP-HOW_EET.TP2~ ~0~) BEGIN
 
+  OUTER_SPRINT this_hjollder ~Hjollder~
+
 // add old Hjollder to Bridge District
 
   COPY_EXISTING ~AR0500.are~ ~override~
@@ -132,6 +136,14 @@ THEN
 END
 
 IF
+	GlobalLT("Hjollder_Quest","GLOBAL",2)
+	Global("D5_HoW_BG2","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_HoW_BG2","GLOBAL",1)
+END
+
+IF
 	GlobalGT("Hjollder_Quest","GLOBAL",1)
 	Global("Hjollder_Over","GLOBAL",0)
 THEN
@@ -139,78 +151,42 @@ THEN
 	SetGlobal("Hjollder_Over","GLOBAL",1)
 	ActionOverride("Hjollder",DestroySelf())
 END
-
-IF
-	GlobalLT("Hjollder_Quest","GLOBAL",2)
-	Global("HoW_BG2","GLOBAL",0)
-THEN
-	RESPONSE #100
-	SetGlobal("HoW_BG2","GLOBAL",1)
-END
 >>>>>>>> 
 COPY ~d5/ar0500_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar0500_.baf~
-
 LAF cd_extend_bg_area_script STR_VAR area = ~ar0500~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/ar0500_~ END
 
 ////////////////////
 
-// change end script to teleport party to the correct place - Ulgoth's Beard or Bridge District
+// adjust HideGUI stuff
 
-<<<<<<<< d5/IDTOEET.baf
-IF
-	Global("HoW_BG2","GLOBAL",0)
-THEN
-	RESPONSE #100
-		CutSceneId(Player1)
-		ApplySpellRES("clearcld",Myself)  // No such index
-		Wait(1)
-		ApplySpellRES("bdresurr",Player2)  // No such index
-		ApplySpellRES("bdresurr",Player3)  // No such index
-		ApplySpellRES("bdresurr",Player4)  // No such index
-		ApplySpellRES("bdresurr",Player5)  // No such index
-		ApplySpellRES("bdresurr",Player6)  // No such index
-		Wait(1)
-		ApplySpellRES("IDRM517",Player1)  // Resurrection
-		ApplySpellRES("IDRM517",Player2)  // Resurrection
-		ApplySpellRES("IDRM517",Player3)  // Resurrection
-		ApplySpellRES("IDRM517",Player4)  // Resurrection
-		ApplySpellRES("IDRM517",Player5)  // Resurrection
-		ApplySpellRES("IDRM517",Player6)  // Resurrection
-		Wait(1)
-		ApplySpellRES("bddispel",Player1)  // No such index
-		ApplySpellRES("bddispel",Player2)  // No such index
-		ApplySpellRES("bddispel",Player3)  // No such index
-		ApplySpellRES("bddispel",Player4)  // No such index
-		ApplySpellRES("bddispel",Player5)  // No such index
-		ApplySpellRES("bddispel",Player6)  // No such index
-		Wait(1)
-		ApplySpellRES("bdrejuve",Player1)  // No such index
-		ApplySpellRES("bdrejuve",Player2)  // No such index
-		ApplySpellRES("bdrejuve",Player3)  // No such index
-		ApplySpellRES("bdrejuve",Player4)  // No such index
-		ApplySpellRES("bdrejuve",Player5)  // No such index
-		ApplySpellRES("bdrejuve",Player6)  // No such index
-		Wait(1)
-		ApplySpellRES("clearcld",Myself)  // No such index
-		Wait(2)
-		ActionOverride(Player2,LeaveAreaLUA("BG1001","",[668.193],N))  // Ulgoth's Beard: Inn
-		ActionOverride(Player3,LeaveAreaLUA("BG1001","",[707.219],NE))  // Ulgoth's Beard: Inn
-		ActionOverride(Player4,LeaveAreaLUA("BG1001","",[757.192],NW))  // Ulgoth's Beard: Inn
-		ActionOverride(Player5,LeaveAreaLUA("BG1001","",[653.220],NNE))  // Ulgoth's Beard: Inn
-		ActionOverride(Player6,LeaveAreaLUA("BG1001","",[755.209],NNW))  // Ulgoth's Beard: Inn
-		LeaveAreaLUAPanic("BG1001","",[709.192],N)  // Ulgoth's Beard: Inn
-		LeaveAreaLUA("BG1001","",[709.192],N)  // Ulgoth's Beard: Inn
-		Wait(1)
-		FadeFromColor([15.0],0)
-		Wait(2)
-		EndCutSceneMode()
+ACTION_FOR_EACH id_script IN ~ildragon~ ~id9604~ ~ildrgtlk~ ~id1006~ BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%id_script%.bcs~) BEGIN
+    COPY_EXISTING ~%id_script%.bcs~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\(HideGUI()\)~ 
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_PRINT ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+      END
+    BUT_ONLY
+  END
 END
 
+////////////////////
+
+// new end script to teleport party to Bridge District
+
+<<<<<<<< d5/D5ID2BG2.baf
 IF
-	Global("HoW_BG2","GLOBAL",1)
+	True() //	Global("D5_HoW_BG2","GLOBAL",1)
 THEN
 	RESPONSE #100
 		CutSceneId(Player1)
+		FadeToColor([15.0],0)
 		ApplySpellRES("clearcld",Myself)  // No such index
 		Wait(1)
 		ApplySpellRES("bdresurr",Player2)  // No such index
@@ -249,15 +225,168 @@ THEN
 		ActionOverride(Player6,LeaveAreaLUA("AR0500","",[320.2740],NNW))
 		LeaveAreaLUAPanic("AR0500","",[330.2680],N)
 		LeaveAreaLUA("AR0500","",[330.2680],N)
-		Wait(1)
-		FadeFromColor([15.0],0)
 		Wait(2)
+		FadeFromColor([15.0],0)
+		Wait(1)
 		EndCutSceneMode()
 END
 >>>>>>>> 
-COPY ~d5/IDTOEET.baf~ ~weidu_external/%MOD_FOLDER%/compile/IDTOEET.baf~
+COPY ~d5/D5ID2BG2.baf~ ~weidu_external/%MOD_FOLDER%/compile/D5ID2BG2.baf~
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/D5ID2BG2.BAF~
 
-COMPILE ~weidu_external/%MOD_FOLDER%/compile/IDTOEET.BAF~
+////////////////////
+
+// new exit from dragon fight:
+
+COPY_EXISTING ~ID9604.are~ ~override~
+ /* add travel region that links to exterior */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2 	//travel
+    fj_box_left     = 2235
+    fj_box_top      = 1165
+    fj_box_right    = 2308
+    fj_box_bottom   = 1284
+    fj_cursor_idx   = 30
+    fj_flags        = 516
+    fj_vertex_0     = 2308 + (1229 << 16) 
+    fj_vertex_1     = 2308 + (1165 << 16)
+    fj_vertex_2     = 2235 + (1220 << 16)
+    fj_vertex_3     = 2235 + (1284 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = id9604_id9600
+    fj_destination_area = ID9600
+    fj_destination_name = d5id9604
+  END
+
+COPY_EXISTING ~ID9600.are~ ~override~
+ /* add travel destination from end-boss */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 740
+    fj_loc_y       = 1830
+    fj_orientation = 4 	// W 
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = d5id9604
+  END
+BUT_ONLY 
+
+// add this to ID9604.bcs:
+
+<<<<<<<< d5/id9604_.baf
+IF
+	Global("D5_HoW_BG2","GLOBAL",1)
+	Global("IWDEET_HOW_COMPLETE","GLOBAL",1)
+	!Global("IWDEET_IWD1_COMPLETE","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("D5_HoW_BG2","GLOBAL",2)
+		TriggerActivation("id9604_id9600",TRUE)
+		TriggerActivation("To9603_Special",FALSE)
+END
+
+IF
+	Global("D5_HoW_BG2","GLOBAL",0)
+	Global("IWDEET_HOW_COMPLETE","GLOBAL",1)
+	Global("D5_HoW_not_BG2","ID9604",0)
+THEN
+	RESPONSE #100
+		SetGlobal("D5_HoW_not_BG2","ID9604",1)
+		TriggerActivation("id9604_id9600",FALSE)
+		TriggerActivation("To9603_Special",TRUE)
+END
+>>>>>>>>
+COPY ~d5/id9604_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id9604_.baf~
+LAF cd_extend_bg_area_script STR_VAR area = ~ID9604~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id9604_~ END
+
+////////////////////
+
+// add Hjollder to ID9600
+
+<<<<<<<< d5/id9600_.baf
+IF
+	Global("D5_HoW_BG2","GLOBAL",2)
+	Global("IWDEET_HOW_COMPLETE","GLOBAL",1)
+	!Global("IWDEET_IWD1_COMPLETE","GLOBAL",1)
+	Global("D5_Hjollder_End","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("D5_Hjollder_End","MYAREA",1)
+		CreateCreature("%this_hjollder%",[795.1965],N)
+END
+>>>>>>>>
+COPY ~d5/id9600_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id9600_.baf~
+LAF cd_extend_bg_area_script STR_VAR area = ~ID9600~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id9600_~ END
+
+////////////////////
+
+// add new post-HoW dialogue to Hjollder
+
+ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
+
+<<<<<<<< d5/d5hjoend.d
+ALTER_TRANS D5HJOLL // file name
+  BEGIN 75 END // state number
+  BEGIN 1 END // transition number
+  BEGIN "TRIGGER" ~GlobalGT("Join_Posse","GLOBAL",0) Global("D5_HoW_BG2","GLOBAL",0)~ END
+
+ALTER_TRANS D5HJOLL // file name
+  BEGIN 79 END // state number
+  BEGIN 2 END // transition number
+  BEGIN "TRIGGER" ~GlobalGT("Join_Posse","GLOBAL",0) Global("D5_HoW_BG2","GLOBAL",0)~ END
+
+APPEND D5HJOLL
+
+IF ~AreaCheck("ID9600") Global("IWDEET_HOW_COMPLETE","GLOBAL",1) Global("D5_HoW_BG2","GLOBAL",2)~ BEGIN d5hjoll_a1
+  SAY ~My friends! The mountain shook and we saw a great spirit rise from it, just as happened to Wylfdene in the Mead Hall. Does this mean you were successful?~
+  IF ~~ REPLY ~Yes. The dragon Icasaracht is no more. Hopefully for good, this time.~ GOTO d5hjoll_a2
+  IF ~~ REPLY ~Seems like that dragon has nine lives. But this one, at least, is over. Or maybe we killed her twice? It's hard to tell.~ GOTO d5hjoll_a2
+END
+
+IF ~~ BEGIN d5hjoll_a2
+  SAY ~That is very good news. No the corruption of my people will cease. I think you on behalf of our tribes. I will let them know that some southerners have strong hearts. And now, I will return you to your southern town. Goodbye friends.~
+  IF ~~ 
+    DO ~SetGlobal("D5_HoW_BG2","GLOBAL",3)
+  		StartCutSceneMode()
+  		StartCutSceneEx("D5ID2BG2",FALSE)~
+    EXIT
+END
+
+END
+>>>>>>>>
+COPY ~d5/d5hjoend.d~ ~weidu_external/%MOD_FOLDER%/compile/d5hjoend.d~
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/d5hjoend.d~
+
+END
+
+ACTION_IF (MOD_IS_INSTALLED ~SETUP-HOW_EET.TP2~ ~0~) BEGIN
+
+<<<<<<<< d5/d5hjoend.d
+APPEND DHJOLLDE
+
+IF ~AreaCheck("ID9600") Global("IWDEET_HOW_COMPLETE","GLOBAL",1) Global("D5_HoW_BG2","GLOBAL",2)~ BEGIN d5hjoll_a1
+  SAY ~My friends! The mountain shook and we saw a great spirit rise from it, just as happened to Wylfdene in the Mead Hall. Does this mean you were successful?~
+  IF ~~ REPLY ~Yes. The dragon Icasaracht is no more. Hopefully for good, this time.~ GOTO d5hjoll_a2
+  IF ~~ REPLY ~Seems like that dragon has nine lives. But this one, at least, is over. Or maybe we killed her twice? It's hard to tell.~ GOTO d5hjoll_a2
+END
+
+IF ~~ BEGIN d5hjoll_a2
+  SAY ~That is very good news. No the corruption of my people will cease. I think you on behalf of our tribes. I will let them know that some southerners have strong hearts. And now, I will return you to your southern town. Goodbye friends.~
+  IF ~~ 
+    DO ~SetGlobal("D5_HoW_BG2","GLOBAL",3)
+  		StartCutSceneMode()
+  		StartCutSceneEx("D5ID2BG2",FALSE)~
+    EXIT
+END
+
+END
+>>>>>>>>
+COPY ~d5/d5hjoend.d~ ~weidu_external/%MOD_FOLDER%/compile/d5hjoend.d~
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/d5hjoend.d~
+
+END
 
 ////////////////////
 
@@ -270,22 +399,84 @@ ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
   COPY ~%MOD_FOLDER%/data/copy/ilgemeff.bcs~ ~override~
   COPY ~%MOD_FOLDER%/data/copy/idlu2109.bcs~ ~override~
 
- WITH_TRA ~iwd1_eet/lang/%LANGUAGE%/dialog.tra~ BEGIN
-  COMPILE ~%MOD_FOLDER%/data/compile/dambere.d~
-  COMPILE ~%MOD_FOLDER%/data/compile/dhailee.d~
-  COMPILE ~%MOD_FOLDER%/data/compile/demmrch.d~
-  COMPILE ~%MOD_FOLDER%/data/compile/dkieran2.d~
-  COMPILE ~%MOD_FOLDER%/data/compile/dmurdaug.d~
-  COMPILE ~%MOD_FOLDER%/data/compile/dangaar.d~
-  COMPILE ~%MOD_FOLDER%/data/compile/dbeornen.d~
-  COMPILE ~%MOD_FOLDER%/data/compile/dhjollde.d~
-  COMPILE ~%MOD_FOLDER%/data/compile/dtiernon.d~
-  COMPILE ~%MOD_FOLDER%/data/compile/dtybald.d~
-  COMPILE ~%MOD_FOLDER%/data/compile/dwylf.d~
- END
+// if any of those ^ are cut scenes, need to make sure they are called with StartCutSceneEx("",TRUE)
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ID9603.bcs~) BEGIN
+    COPY_EXISTING ~ID9603.bcs~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\("idlu2109",FALSE\)~ 
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~"idlu2109",TRUE~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_PRINT ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+      END
+    BUT_ONLY
+  END
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ILDRAGON.bcs~) BEGIN
+    COPY_EXISTING ~ILDRAGON.bcs~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\("ILDRGDIE",FALSE\)~ 
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~"ILDRGDIE",TRUE~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_PRINT ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+      END
+    BUT_ONLY
+  END
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ID9604.bcs~) BEGIN
+    COPY_EXISTING ~ID9604.bcs~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\("ILGEMDED",FALSE\)~ 
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~"ILGEMDED",TRUE~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_PRINT ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+      END
+    BUT_ONLY
+  END
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ILGEMTRG.bcs~) BEGIN
+    COPY_EXISTING ~ILGEMTRG.bcs~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\("ILGEMEFF",FALSE\)~ 
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~"ILGEMEFF",TRUE~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_PRINT ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+      END
+    BUT_ONLY
+  END
+
+  WITH_TRA ~iwd1_eet/lang/%LANGUAGE%/dialog.tra~ BEGIN
+    COMPILE ~%MOD_FOLDER%/data/compile/dambere.d~
+    COMPILE ~%MOD_FOLDER%/data/compile/dhailee.d~
+    COMPILE ~%MOD_FOLDER%/data/compile/demmrch.d~
+    COMPILE ~%MOD_FOLDER%/data/compile/dkieran2.d~
+    COMPILE ~%MOD_FOLDER%/data/compile/dmurdaug.d~
+    COMPILE ~%MOD_FOLDER%/data/compile/dangaar.d~
+    COMPILE ~%MOD_FOLDER%/data/compile/dbeornen.d~
+    COMPILE ~%MOD_FOLDER%/data/compile/dhjollde.d~
+    COMPILE ~%MOD_FOLDER%/data/compile/dtiernon.d~
+    COMPILE ~%MOD_FOLDER%/data/compile/dtybald.d~
+    COMPILE ~%MOD_FOLDER%/data/compile/dwylf.d~
+  END
+
 END
 
 ////////////////////
 
-// ***** should remove the wildly OP items
 

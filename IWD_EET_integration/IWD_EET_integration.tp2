@@ -1,7 +1,7 @@
 BACKUP ~weidu_external/backup/IWD_EET_integration~
 AUTHOR ~SubtleD~
 
-VERSION ~0.13~
+VERSION ~1.1~
 
 ALWAYS
 
@@ -163,6 +163,19 @@ DESIGNATED 160
 LABEL ~D5_IWD1_SOA_INTEGRATION~
 
 INCLUDE ~%MOD_FOLDER%/lib/soa_easter_egg.tpa~
+
+
+////////////////////
+////////////////////
+
+
+BEGIN @999998014 /* Add NWN after IWD1 Campaign */
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) @999998004 /* IWD1_EET required */
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~SETUP-NWNFORBG.TP2~ ~0~) @999998004 /* IWD1_EET required */
+DESIGNATED 180
+LABEL ~D5_IWD1_NWN_INTEGRATION~
+
+INCLUDE ~%MOD_FOLDER%/lib/iwd-nwn_integration.tpa~
 
 
 ////////////////////

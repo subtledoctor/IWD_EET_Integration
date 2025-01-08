@@ -1,0 +1,115 @@
+
+// plan:
+
+////////////////////
+
+// mark real IWD vs IWD in EET
+
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__iwd_real.d5~) BEGIN
+  
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ID1000.are~) BEGIN
+<<<<<<<< d5/id1000_.baf
+IF
+	Global("D5_IWD_REAL","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_IWD_REAL","GLOBAL",1)
+	SetGlobal("D5_EET_IWD","GLOBAL",0)
+END
+>>>>>>>> 
+    COPY ~d5/id1000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id1000_.baf~
+    LAF cd_extend_bg_area_script STR_VAR area = ~id1000~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id1000_~ END
+  END
+
+  COPY_EXISTING ~sw1h04.itm~ ~override/d5__iwd_real.d5~
+
+END
+
+////////////////////
+
+<<<<<<<< d5/d5id1006.baf
+IF
+	GlobalLT("Move_To_HoW","GLOBAL",99)
+THEN
+	RESPONSE #100
+		SetGlobal("Move_To_HoW","GLOBAL",99)
+END
+>>>>>>>>
+COPY ~d5/d5id1006.baf~ ~weidu_external/%MOD_FOLDER%/compile/180/d5id1006.baf~
+EXTEND_TOP ~id1006.bcs~ ~weidu_external/%MOD_FOLDER%/compile/180/d5id1006.baf~
+
+////////////////////
+
+<<<<<<<< d5/d5nw1001.baf
+IF
+	GlobalLT("Been_to_NWN","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("Been_to_NWN","GLOBAL",1)
+END
+>>>>>>>>
+COPY ~d5/d5nw1001.baf~ ~weidu_external/%MOD_FOLDER%/compile/180/d5nw1001.baf~
+EXTEND_TOP ~nw1001.bcs~ ~weidu_external/%MOD_FOLDER%/compile/180/d5nw1001.baf~
+
+////////////////////
+
+<<<<<<<< d5/d5beenbg.baf
+IF
+	GlobalLT("Been_to_BG","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("Been_to_BG","GLOBAL",1)
+END
+>>>>>>>>
+COPY ~d5/d5beenbg.baf~ ~weidu_external/%MOD_FOLDER%/compile/180/d5beenbg.baf~
+EXTEND_TOP ~ar0700.bcs~ ~weidu_external/%MOD_FOLDER%/compile/180/d5beenbg.baf~
+EXTEND_TOP ~bg2700.bcs~ ~weidu_external/%MOD_FOLDER%/compile/180/d5beenbg.baf~
+EXTEND_TOP ~bd1000.bcs~ ~weidu_external/%MOD_FOLDER%/compile/180/d5beenbg.baf~
+
+////////////////////
+
+<<<<<<<< d5/d5id1105.baf
+IF
+	Global("IWDEET_IWD1_COMPLETE","GLOBAL",1)
+	GlobalGT("Join_Posse","GLOBAL",0)
+	GlobalLT("Been_to_NWN","GLOBAL",1)	//	set this in initial NWN area
+	GlobalLT("Been_to_BG","GLOBAL",1)	//	set this in BG1, SoD, and BG2 areas
+	Global("Move_to_NWN","ID1105",0)
+THEN
+	RESPONSE #100
+		SetGlobal("Move_to_NWN","ID1105",1)
+		DayNight(8)
+		ApplySpellRES("bdresurr",Player2)  // No such index
+		ApplySpellRES("bdresurr",Player3)  // No such index
+		ApplySpellRES("bdresurr",Player4)  // No such index
+		ApplySpellRES("bdresurr",Player5)  // No such index
+		ApplySpellRES("bdresurr",Player6)  // No such index
+		ApplySpellRES("bddispel",Player1)  // No such index
+		ApplySpellRES("bddispel",Player2)  // No such index
+		ApplySpellRES("bddispel",Player3)  // No such index
+		ApplySpellRES("bddispel",Player4)  // No such index
+		ApplySpellRES("bddispel",Player5)  // No such index
+		ApplySpellRES("bddispel",Player6)  // No such index
+		ApplySpellRES("idrm516",Player1)  // Resurrection
+		ApplySpellRES("idrm516",Player2)  // Resurrection
+		ApplySpellRES("idrm516",Player3)  // Resurrection
+		ApplySpellRES("idrm516",Player4)  // Resurrection
+		ApplySpellRES("idrm516",Player5)  // Resurrection
+		ApplySpellRES("idrm516",Player6)  // Resurrection
+		ApplySpell(Player1,RESTORE_FULL_HEALTH)  // SPIN746.SPL (No such index)
+		ApplySpell(Player2,RESTORE_FULL_HEALTH)  // SPIN746.SPL (No such index)
+		ApplySpell(Player3,RESTORE_FULL_HEALTH)  // SPIN746.SPL (No such index)
+		ApplySpell(Player4,RESTORE_FULL_HEALTH)  // SPIN746.SPL (No such index)
+		ApplySpell(Player5,RESTORE_FULL_HEALTH)  // SPIN746.SPL (No such index)
+		ApplySpell(Player6,RESTORE_FULL_HEALTH)  // SPIN746.SPL (No such index)
+		SetGlobal("NWStandalone","GLOBAL",1)
+		SetGlobal("NWMessenger_of_Neverwinter","GLOBAL",2)
+		SetWorldmap("nwnworld")
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutSceneEx("NWTON",TRUE)	//	start NWN
+END
+>>>>>>>>
+COPY ~d5/d5id1105.baf~ ~weidu_external/%MOD_FOLDER%/compile/180/d5id1105.baf~
+EXTEND_TOP ~id1105.bcs~ ~weidu_external/%MOD_FOLDER%/compile/180/d5id1105.baf~
+

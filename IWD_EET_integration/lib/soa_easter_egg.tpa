@@ -19,8 +19,8 @@ END
 // or this... but not sure how to use it
 // ALTER_TRANS KCAPT01 BEGIN 3 END BEGIN 0 END BEGIN "EPILOGUE" ~GOTO d5_new_state~ END
 
-COPY ~d5/kpcapt+.d~ ~weidu_external/%MOD_FOLDER%/compile/kpcapt+.d~
-COMPILE ~weidu_external/%MOD_FOLDER%/compile/kpcapt+.d~
+COPY ~d5/kpcapt+.d~ ~weidu_external/%MOD_FOLDER%/compile/160/kpcapt+.d~
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/kpcapt+.d~
 
 ////////////////////
 
@@ -112,8 +112,8 @@ THEN
 	SetGlobal("D5_EET_IWD","GLOBAL",0)
 END
 >>>>>>>> 
-    COPY ~d5/id1000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id1000_.baf~
-    LAF cd_extend_bg_area_script STR_VAR area = ~id1000~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id1000_~ END
+    COPY ~d5/id1000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/160/id1000_.baf~
+    LAF cd_extend_bg_area_script STR_VAR area = ~id1000~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/160/id1000_~ END
   END
 
   COPY_EXISTING ~sw1h04.itm~ ~override/d5__iwd_real.d5~
@@ -144,8 +144,8 @@ THEN
 	TriggerActivation("d5ix4000",FALSE)
 END
 >>>>>>>> 
-  COPY ~d5/ar1301_.baf~ ~weidu_external/%MOD_FOLDER%/compile/ar1301_.baf~
-  LAF cd_extend_bg_area_script STR_VAR area = ~ar1301~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/ar1301_~ END
+  COPY ~d5/ar1301_.baf~ ~weidu_external/%MOD_FOLDER%/compile/160/ar1301_.baf~
+  LAF cd_extend_bg_area_script STR_VAR area = ~ar1301~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/160/ar1301_~ END
 END
 
 COPY_EXISTING ~cfcapvil.cre~ ~override~
@@ -185,8 +185,8 @@ THEN
 	ActionOverride("XP_VILLA",DestroySelf())
 END
 >>>>>>>> 
-  COPY ~d5/id4001_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id4001_.baf~
-  LAF cd_extend_bg_area_script STR_VAR area = ~id4001~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id4001_~ END
+  COPY ~d5/id4001_.baf~ ~weidu_external/%MOD_FOLDER%/compile/160/id4001_.baf~
+  LAF cd_extend_bg_area_script STR_VAR area = ~id4001~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/160/id4001_~ END
 END
 
 ////////////////////
@@ -278,8 +278,8 @@ THEN
 	ActionOverride("egenia",DestroySelf())
 END
 >>>>>>>> 
-  COPY ~d5/id4002_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id4002_.baf~
-  LAF cd_extend_bg_area_script STR_VAR area = ~id4002~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id4002_~ END
+  COPY ~d5/id4002_.baf~ ~weidu_external/%MOD_FOLDER%/compile/160/id4002_.baf~
+  LAF cd_extend_bg_area_script STR_VAR area = ~id4002~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/160/id4002_~ END
 END
 
 COPY_EXISTING ~egenia.cre~ ~override~
@@ -346,8 +346,8 @@ THEN
 	ActionOverride("rcopper",DestroySelf())
 END
 >>>>>>>> 
-  COPY ~d5/id4004_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id4004_.baf~
-  LAF cd_extend_bg_area_script STR_VAR area = ~id4004~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id4004_~ END
+  COPY ~d5/id4004_.baf~ ~weidu_external/%MOD_FOLDER%/compile/160/id4004_.baf~
+  LAF cd_extend_bg_area_script STR_VAR area = ~id4004~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/160/id4004_~ END
 END
 
 COPY_EXISTING ~mwater.cre~ ~override~
@@ -481,8 +481,8 @@ END
 
 END
 >>>>>>>>
-COPY ~d5/dyxun+.d~ ~weidu_external/%MOD_FOLDER%/compile/dyxun+.d~
-COMPILE ~weidu_external/%MOD_FOLDER%/compile/dyxun+.d~
+COPY ~d5/dyxun+.d~ ~weidu_external/%MOD_FOLDER%/compile/160/dyxun+.d~
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/dyxun+.d~
 
 ////////////////////
 
@@ -603,8 +603,8 @@ THEN
 	TriggerActivation("To5001",FALSE)
 END
 >>>>>>>> 
-COPY ~d5/id5000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/id5000_.baf~
-LAF cd_extend_bg_area_script STR_VAR area = ~id5000~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/id5000_~ END
+COPY ~d5/id5000_.baf~ ~weidu_external/%MOD_FOLDER%/compile/160/id5000_.baf~
+LAF cd_extend_bg_area_script STR_VAR area = ~id5000~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/160/id5000_~ END
 
 ////////////////////
 
@@ -633,9 +633,9 @@ EXTEND_TOP DDENAINI 19
                        GiveItemCreate("SLINGED",LastTalkedToBy,0,0,0)~ EXIT
   END
 >>>>>>>> 
-  COPY ~d5/ddenain+.d~ ~weidu_external/%MOD_FOLDER%/compile/ddenain+.d~
+  COPY ~d5/ddenain+.d~ ~weidu_external/%MOD_FOLDER%/compile/160/ddenain+.d~
   WITH_TRA ~iwd1_eet/lang/%LANGUAGE%/dialog.tra~ BEGIN
-    COMPILE ~weidu_external/%MOD_FOLDER%/compile/ddenain+.d~
+    COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/ddenain+.d~
   END
 
 /* not sure if this will work
@@ -665,8 +665,8 @@ EXTEND_TOP DKAYLESS 17
                                                         AddJournalEntry(@14417,QUEST_DONE)~ GOTO 18
   END
 >>>>>>>> 
-  COPY ~d5/dkayles+.d~ ~weidu_external/%MOD_FOLDER%/compile/dkayles+.d~
-  COMPILE ~weidu_external/%MOD_FOLDER%/compile/dkayles+.d~
+  COPY ~d5/dkayles+.d~ ~weidu_external/%MOD_FOLDER%/compile/160/dkayles+.d~
+  COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/dkayles+.d~
 */
   WITH_TRA ~iwd1_eet/lang/%LANGUAGE%/dialog.tra~ BEGIN
     COMPILE ~%MOD_FOLDER%/data/compile/dkayless.d~
@@ -723,8 +723,8 @@ EXTEND_BOTTOM DLARREL 15
       PartyHasItem("HEARTGM")~  THEN GOTO ~d5bglarrel1~
 END
 >>>>>>>> 
-COPY ~d5/dlarrel+.d~ ~weidu_external/%MOD_FOLDER%/compile/dlarrel+.d~
-COMPILE ~weidu_external/%MOD_FOLDER%/compile/dlarrel+.d~
+COPY ~d5/dlarrel+.d~ ~weidu_external/%MOD_FOLDER%/compile/160/dlarrel+.d~
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/dlarrel+.d~
 
 // ***** should apply some log text / visual effect to this
 // ...maybe actually swap out the gem for a new .ITM with a new description?
@@ -800,6 +800,6 @@ I have given Gaelan Bayle the gold he asked for, and in return he has given me a
   END
 END
 >>>>>>>> 
-COPY ~d5/gaelan+.d~ ~weidu_external/%MOD_FOLDER%/compile/gaelan+.d~
-COMPILE ~weidu_external/%MOD_FOLDER%/compile/gaelan+.d~
+COPY ~d5/gaelan+.d~ ~weidu_external/%MOD_FOLDER%/compile/160/gaelan+.d~
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/gaelan+.d~
 

@@ -317,7 +317,7 @@ COPY_EXISTING ~egenia.cre~ ~override~
 IF_EXISTS
 
 COPY_EXISTING ~ID4002.are~ ~override~
-  LPF ALTER_AREA_ACTOR STR_VAR actor_name = ~Captive Villager 18~ STR_VAR script_class = ~D5SHEEMY~ END
+  LPF ALTER_AREA_ACTOR STR_VAR actor_name = ~Captive Villager 18~ script_class = ~D5SHEEMY~ END
 IF_EXISTS
 
 <<<<<<<< d5/D5SHEEMY.baf
@@ -331,7 +331,7 @@ THEN
 END
 >>>>>>>> 
   COPY ~d5/D5SHEEMY.baf~ ~weidu_external/%MOD_FOLDER%/compile/160/D5SHEEMY.baf~
-  COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/D5SHEEMY.baf~ END
+  COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/D5SHEEMY.baf~
 
 /* I think this stuyff is from level 4, which we are now skipping...?
 COPY_EXISTING ~mwater.cre~ ~override~

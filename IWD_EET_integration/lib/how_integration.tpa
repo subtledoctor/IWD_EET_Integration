@@ -390,6 +390,14 @@ END
 
 ////////////////////
 
+// fix icsaracht
+
+COPY_EXISTING ~icasa.cre~ ~override~
+  WRITE_ASCII 0x280 ~ICASARACHT~ #10
+IF_EXISTS BUT_ONLY
+
+////////////////////
+
 // make XP rewards in HoW reactive to how you got there (less xp from BG2, more from IWD)
 
 ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN

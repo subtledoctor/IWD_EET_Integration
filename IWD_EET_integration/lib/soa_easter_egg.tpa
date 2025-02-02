@@ -1,6 +1,8 @@
 
 ////////////////////
 
+// ***** ADD A USE FOR THE HEARTSTONE GEM... maybe in a forgeable divination artifact
+
 // add a line about villagers to Captain Arat's dialogue
 
 <<<<<<<< d5/kpcapt+.d
@@ -191,9 +193,9 @@ END
 
 ////////////////////
 
-// selectively skip presio's level
+// selectively skip levels 3-4
 
-// and other scripted changes to ID4002/4004
+// and other scripted changes to ID4002/4005
 
 ACTION_IF (FILE_EXISTS_IN_GAME ~ID4002.are~) BEGIN
  COPY_EXISTING ~ID4002.are~ ~override~
@@ -213,29 +215,29 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~ID4002.are~) BEGIN
     fj_vertex_3     = 2010 + (2220 << 16)
     STR_VAR
     fj_structure_type   = region
-    fj_name             = d5ix4004 //name of this travel region so you can address it via script etc.
-    fj_destination_area = ID4004 //name of the destination area
-    fj_destination_name = FR4003 //name of exitpoint in destination area
+    fj_name             = d5ix4005 //name of this travel region so you can address it via script etc.
+    fj_destination_area = ID4005 //name of the destination area
+    fj_destination_name = FR4004 //name of exitpoint in destination area
   END
  BUT_ONLY
 END 
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~ID4004.are~) BEGIN
+ACTION_IF (FILE_EXISTS_IN_GAME ~ID4005.are~) BEGIN
  COPY_EXISTING ~ID4004.are~ ~override~
  /* add travel region that links to other area */
   LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
     INT_VAR
     fj_type         = 2    //travel - kind of trigger area
-    fj_box_left     = 1  // x coordinate
-    fj_box_top      = 1860 // y coordinate
-    fj_box_right    = 240 // x coordinate
-    fj_box_bottom   = 2120 // y coordinate
+    fj_box_left     = 125  // x coordinate
+    fj_box_top      = 2480 // y coordinate
+    fj_box_right    = 320 // x coordinate
+    fj_box_bottom   = 2800 // y coordinate
     fj_cursor_idx   = 30   //door - mouse cursor symbol
     fj_flags        = 4
-    fj_vertex_0     = 1 + (1860 << 16) //start with the lowest point: x coodinate - y coordinate
-    fj_vertex_1     = 240 + (1860 << 16)
-    fj_vertex_2     = 240 + (2120 << 16)
-    fj_vertex_3     = 1 + (2120 << 16)
+    fj_vertex_0     = 125 + (2480 << 16) //start with the lowest point: x coodinate - y coordinate
+    fj_vertex_1     = 320 + (2480 << 16)
+    fj_vertex_2     = 320 + (2800 << 16)
+    fj_vertex_3     = 125 + (2800 << 16)
     STR_VAR
     fj_structure_type   = region
     fj_name             = d5ix4002 //name of this travel region so you can address it via script etc.
@@ -255,7 +257,7 @@ THEN
 	SetGlobal("D5_TRA_IWD","ID4002",1)
 	SetGlobal("D5_TRA_BG2","ID4002",0)
 	TriggerActivation("To4003",TRUE)
-	TriggerActivation("d5ix4004",FALSE)
+	TriggerActivation("d5ix4005",FALSE)
 END
 
 IF
@@ -266,7 +268,7 @@ THEN
 	SetGlobal("D5_TRA_IWD","ID4002",0)
 	SetGlobal("D5_TRA_BG2","ID4002",1)
 	TriggerActivation("To4003",FALSE)
-	TriggerActivation("d5ix4004",TRUE)
+	TriggerActivation("d5ix4005",TRUE)
 END
 
 IF
@@ -282,74 +284,56 @@ END
   LAF cd_extend_bg_area_script STR_VAR area = ~id4002~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/160/id4002_~ END
 END
 
-COPY_EXISTING ~egenia.cre~ ~override~
-  WRITE_ASCII 0x280 ~egenia~ #32
-IF_EXISTS
-
-ACTION_IF (FILE_EXISTS_IN_GAME ~ID4004.bcs~) BEGIN
-<<<<<<<< d5/id4004_.baf
+ACTION_IF (FILE_EXISTS_IN_GAME ~ID4005.bcs~) BEGIN
+<<<<<<<< d5/id4005_.baf
 IF
 	Global("D5_IWD_REAL","GLOBAL",1)
-	Global("D5_TRA_IWD","ID4004",0)
+	Global("D5_TRA_IWD","ID4005",0)
 THEN
 	RESPONSE #100
-	SetGlobal("D5_TRA_IWD","ID4004",1)
-	SetGlobal("D5_TRA_BG2","ID4004",0)
-	TriggerActivation("To4003",TRUE)
+	SetGlobal("D5_TRA_IWD","ID4005",1)
+	SetGlobal("D5_TRA_BG2","ID4005",0)
+	TriggerActivation("To4004",TRUE)
 	TriggerActivation("d5ix4002",FALSE)
 END
 
 IF
 	Global("D5_EET_IWD","GLOBAL",1)
-	Global("D5_TRA_BG2","ID4004",0)
+	Global("D5_TRA_BG2","ID4005",0)
 THEN
 	RESPONSE #100
-	SetGlobal("D5_TRA_IWD","ID4004",0)
-	SetGlobal("D5_TRA_BG2","ID4004",1)
-	TriggerActivation("To4003",FALSE)
+	SetGlobal("D5_TRA_IWD","ID4005",0)
+	SetGlobal("D5_TRA_BG2","ID4005",1)
+	TriggerActivation("To4004",FALSE)
 	TriggerActivation("d5ix4002",TRUE)
 END
-
-IF
-	Global("D5_EET_IWD","GLOBAL",1)
-	Global("MWater_Gone","GLOBAL",0)
-THEN
-	RESPONSE #100
-	SetGlobal("MWater_Gone","GLOBAL",1)
-	ActionOverride("mwater",DestroySelf())
+>>>>>>>> 
+  COPY ~d5/id4005_.baf~ ~weidu_external/%MOD_FOLDER%/compile/160/id4005_.baf~
+  LAF cd_extend_bg_area_script STR_VAR area = ~id4005~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/160/id4005_~ END
 END
 
-IF
-	Global("D5_EET_IWD","GLOBAL",1)
-	Global("CKnight_Gone","GLOBAL",0)
-THEN
-	RESPONSE #100
-	SetGlobal("CKnight_Gone","GLOBAL",1)
-	ActionOverride("cknight",DestroySelf())
-END
+COPY_EXISTING ~egenia.cre~ ~override~
+  WRITE_ASCII 0x280 ~egenia~ #32
+IF_EXISTS
 
-IF
-	Global("D5_EET_IWD","GLOBAL",1)
-	Global("IQuinva_Gone","GLOBAL",0)
-THEN
-	RESPONSE #100
-	SetGlobal("IQuinva_Gone","GLOBAL",1)
-	ActionOverride("iquinva",DestroySelf())
-END
+COPY_EXISTING ~ID4002.are~ ~override~
+  LPF ALTER_AREA_ACTOR STR_VAR actor_name = ~Captive Villager 18~ STR_VAR script_class = ~D5SHEEMY~ END
+IF_EXISTS
 
+<<<<<<<< d5/D5SHEEMY.baf
 IF
 	Global("D5_EET_IWD","GLOBAL",1)
-	Global("RCopper_Gone","GLOBAL",0)
+	Global("Sheemish_Gone","GLOBAL",0)
 THEN
 	RESPONSE #100
-	SetGlobal("RCopper_Gone","GLOBAL",1)
-	ActionOverride("rcopper",DestroySelf())
+	SetGlobal("Sheemish_Gone","GLOBAL",1)
+	DestroySelf()
 END
 >>>>>>>> 
-  COPY ~d5/id4004_.baf~ ~weidu_external/%MOD_FOLDER%/compile/160/id4004_.baf~
-  LAF cd_extend_bg_area_script STR_VAR area = ~id4004~ script = EVAL ~weidu_external/%MOD_FOLDER%/compile/160/id4004_~ END
-END
+  COPY ~d5/D5SHEEMY.baf~ ~weidu_external/%MOD_FOLDER%/compile/160/D5SHEEMY.baf~
+  COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/D5SHEEMY.baf~ END
 
+/* I think this stuyff is from level 4, which we are now skipping...?
 COPY_EXISTING ~mwater.cre~ ~override~
   WRITE_ASCII 0x280 ~mwater~ #32
 IF_EXISTS
@@ -365,20 +349,37 @@ IF_EXISTS
 COPY_EXISTING ~rcopper.cre~ ~override~
   WRITE_ASCII 0x280 ~rcopper~ #32
 IF_EXISTS
+*/
+
+<<<<<<<< d5/dcapvil+.d
+ADD_STATE_TRIGGER DCAPVIL 15 ~Global("D5_IWD_REAL","GLOBAL",1)~
+ADD_STATE_TRIGGER DCAPVIL2 5 ~Global("D5_IWD_REAL","GLOBAL",1)~
+ADD_STATE_TRIGGER DCAPVIL2 15 ~Global("D5_IWD_REAL","GLOBAL",1)~
+>>>>>>>>
+COPY ~d5/dcapvil+.d~ ~weidu_external/%MOD_FOLDER%/compile/160/dcapvil+.d~
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/dcapvil+.d~
 
 ////////////////////
 
-// change Albion & Yxunomei's dialogue
+<<<<<<<< d5/dlizk+.d
+ALTER_TRANS DLIZARDK BEGIN 0 END BEGIN 2 END BEGIN "TRIGGER" ~Global("D5_IWD_REAL","GLOBAL",1)~ END 
+>>>>>>>>
+COPY ~d5/dlizk+.d~ ~weidu_external/%MOD_FOLDER%/compile/160/dlizk+.d~
+COMPILE ~weidu_external/%MOD_FOLDER%/compile/160/dlizk+.d~
+
+// change Yxunomei's dialogue
 
 WITH_TRA ~iwd1_eet/lang/%LANGUAGE%/dialog.tra~ BEGIN
   COMPILE ~%MOD_FOLDER%/data/compile/dalbion.d~
 END
 
 <<<<<<<< d5/dyxun+.d
-ADD_STATE_TRIGGER DYXUN 0 ~Global("D5_IWD_REAL","GLOBAL",1)~
+//ADD_STATE_TRIGGER DYXUN 0 ~Global("D5_IWD_REAL","GLOBAL",1)~
+// let's be a bit more aggressive
+REPLACE_STATE_TRIGGER DYXUN 0 ~Global("D5_IWD_REAL","GLOBAL",1)~
 
 APPEND DYXUN
-IF ~Global("D5_IWD_REAL","GLOBAL",0)~ THEN BEGIN d5yxun_0 
+IF ~Global("D5_EET_IWD","GLOBAL",1)~ THEN BEGIN d5yxun_0 
   SAY @800001
   IF ~~ THEN REPLY @800002 GOTO d5yxun_1
   IF ~~ THEN REPLY @800003 GOTO d5yxun_3
@@ -613,10 +614,10 @@ ACTION_IF (MOD_IS_INSTALLED ~IWD_EET_integration.TP2~ ~110~) BEGIN	//	if this mo
 // adjust XP rewards back down if playing from BG2
 
 <<<<<<<< d5/ddenain+.d
-ADD_TRANS_TRIGGER DDENAINI 18 ~Global("D5_IWD_EET","GLOBAL",0)~ DO 0
+ADD_TRANS_TRIGGER DDENAINI 18 ~Global("D5_EET_IWD","GLOBAL",0)~ DO 0
 
 EXTEND_TOP DDENAINI 18
-  IF ~Global("D5_IWD_EET","GLOBAL",1)~ 
+  IF ~Global("D5_EET_IWD","GLOBAL",1)~ 
   THEN REPLY @8326 DO ~AddXP2DA("ID1EX3A")
                        DisplayStringNoNameDlg(LastTalkedToBy,@8139)
                        SetGlobal("HolyWaterGiven","GLOBAL",1)
@@ -624,10 +625,10 @@ EXTEND_TOP DDENAINI 18
                        GiveItemCreate("HELMSUN",LastTalkedToBy,0,0,0)~ EXIT
   END
 
-ADD_TRANS_TRIGGER DDENAINI 19 ~Global("D5_IWD_EET","GLOBAL",0)~ DO 0
+ADD_TRANS_TRIGGER DDENAINI 19 ~Global("D5_EET_IWD","GLOBAL",0)~ DO 0
 
 EXTEND_TOP DDENAINI 19
-  IF ~Global("D5_IWD_EET","GLOBAL",1)~ 
+  IF ~Global("D5_EET_IWD","GLOBAL",1)~ 
   THEN REPLY @8329 DO ~AddXP2DA("ID1EX3A")
                        DisplayStringNoNameDlg(LastTalkedToBy,@14413)
                        GiveItemCreate("SLINGED",LastTalkedToBy,0,0,0)~ EXIT
@@ -640,10 +641,10 @@ EXTEND_TOP DDENAINI 19
 
 /* not sure if this will work
 <<<<<<<< d5/dkayles_.d
-ADD_TRANS_TRIGGER DKAYLESS 15 ~Global("D5_IWD_EET","GLOBAL",0)~ DO 0
+ADD_TRANS_TRIGGER DKAYLESS 15 ~Global("D5_IWD_REAL","GLOBAL",1)~ DO 0
 
 EXTEND_TOP DKAYLESS 15
-  IF ~Global("D5_IWD_EET","GLOBAL",1)
+  IF ~Global("D5_EET_IWD","GLOBAL",1)
       GlobalGT("SPRITE_IS_DEADSH_Warrior_Dead","GLOBAL",24)
       Global("K_Done","GLOBAL",0)~ THEN REPLY @8399 DO ~AddXP2DA("ID1EX3H")
                                                         DisplayStringNoNameDlg(LastTalkedToBy,@8142)
@@ -652,10 +653,10 @@ EXTEND_TOP DKAYLESS 15
                                                         AddJournalEntry(@14415,QUEST_DONE)~ GOTO 18
   END
 
-ADD_TRANS_TRIGGER DKAYLESS 17 ~Global("D5_IWD_EET","GLOBAL",0)~ DO 0
+ADD_TRANS_TRIGGER DKAYLESS 17 ~Global("D5_IWD_REAL","GLOBAL",1)~ DO 0
 
 EXTEND_TOP DKAYLESS 17
-  IF ~Global("D5_IWD_EET","GLOBAL",1)
+  IF ~Global("D5_EET_IWD","GLOBAL",1)
       GlobalGT("SPRITE_IS_DEADSH_Warrior_Dead","GLOBAL",24)
       Global("KaylessaQuest","GLOBAL",1)
       Global("K_Done","GLOBAL",0)~ THEN REPLY @8396 DO ~AddXP2DA("ID1EX3H")
@@ -692,9 +693,11 @@ EXTEND_TOP DKAYLESS 17
   COPY ~%MOD_FOLDER%/data/copy/id4003.bcs~ ~override~
 */
 
+/* this isn't working...
 // and adjust the reward from villagers in ID4001
 
   COPY ~%MOD_FOLDER%/data/copy/dcapvil3.dlg~ ~override~
+*/
 
 END	//	end if iwd xp was restored
 
@@ -757,7 +760,7 @@ I have given Gaelan Bayle the gold he asked for, and in return he has given me a
 END
 
 APPEND GAELAN
-  IF WEIGHT #7 ~ Global("Linvail","GLOBAL",0)
+  IF WEIGHT #0 ~ Global("Linvail","GLOBAL",0)
     Global("ShadowWork","GLOBAL",1)
     PartyHasItem("HEARTGM")
     Global("BGHeartstone_Active","GLOBAL",0)

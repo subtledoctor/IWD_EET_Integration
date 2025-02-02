@@ -87,14 +87,14 @@ END
 
 IF ~~ THEN BEGIN 15
   SAY @8389
-  IF ~Global("D5_IWD_EET","GLOBAL",0)
+  IF ~Global("D5_IWD_REAL","GLOBAL",1)
       GlobalGT("SPRITE_IS_DEADSH_Warrior_Dead","GLOBAL",24)
       Global("K_Done","GLOBAL",0)~ THEN REPLY @8399 DO ~AddXP2DA("ID1EX8H")
                                                         DisplayStringNoNameDlg(LastTalkedToBy,@8142)
                                                         SetGlobal("K_Done","GLOBAL",1)
                                                         EraseJournalEntry(@14416)
                                                         AddJournalEntry(@14415,QUEST_DONE)~ GOTO 18
-  IF ~Global("D5_IWD_EET","GLOBAL",1)
+  IF ~Global("D5_EET_IWD","GLOBAL",1)
       GlobalGT("SPRITE_IS_DEADSH_Warrior_Dead","GLOBAL",24)
       Global("K_Done","GLOBAL",0)~ THEN REPLY @8399 DO ~AddXP2DA("ID1EX3H")
                                                         DisplayStringNoNameDlg(LastTalkedToBy,@8142)
@@ -115,7 +115,7 @@ IF ~NumTimesTalkedToGT(0)
   SAY @8393
   IF ~~ THEN REPLY @8394 GOTO 5
   IF ~~ THEN REPLY @8395 GOTO 8
-  IF ~Global("D5_IWD_EET","GLOBAL",0)
+  IF ~Global("D5_IWD_REAL","GLOBAL",1)
       GlobalGT("SPRITE_IS_DEADSH_Warrior_Dead","GLOBAL",24)
       Global("KaylessaQuest","GLOBAL",1)
       Global("K_Done","GLOBAL",0)~ THEN REPLY @8396 DO ~AddXP2DA("ID1EX8H")
@@ -123,7 +123,7 @@ IF ~NumTimesTalkedToGT(0)
                                                         SetGlobal("K_Done","GLOBAL",1)
                                                         EraseJournalEntry(@14416)
                                                         AddJournalEntry(@14417,QUEST_DONE)~ GOTO 18
-  IF ~Global("D5_IWD_EET","GLOBAL",1)
+  IF ~Global("D5_EET_IWD","GLOBAL",1)
       GlobalGT("SPRITE_IS_DEADSH_Warrior_Dead","GLOBAL",24)
       Global("KaylessaQuest","GLOBAL",1)
       Global("K_Done","GLOBAL",0)~ THEN REPLY @8396 DO ~AddXP2DA("ID1EX3H")

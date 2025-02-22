@@ -782,7 +782,7 @@ APPEND GAELAN
     IF ~~ THEN REPLY @800040 DO ~SetGlobal("BGHeartstone_Active","GLOBAL",1) RevealAreaOnMap("AR1700")~ EXIT
   END
 
-  IF WEIGHT #10 ~Global("BGHeartstone_Active","GLOBAL",2)~ THEN BEGIN ~d5hggaelan4~
+  IF WEIGHT #5 ~Global("BGHeartstone_Active","GLOBAL",2)~ THEN BEGIN ~d5hggaelan4~
   SAY @800041
   IF ~~ THEN REPLY #21033 /* ~Yes, Here you go.~ */ 
     DO ~ EraseJournalEntry(96385)
